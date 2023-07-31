@@ -1,5 +1,6 @@
+import { sidebarButtons } from ".";
+
 const SideBar = () => {
-  const buttons = ["A", "B", "C", "D", "E", "F"];
   return (
     <div className="bg-black text-white fixed top-0 left-0 h-screen w-16 m-0 pt-5 flex flex-col items-center shadow-lg">
       <img
@@ -7,19 +8,19 @@ const SideBar = () => {
         alt="logo"
         className="w-12 h-12 mb-40"
       />
-      {buttons.map((button) => (
-        <SidebarIcon key={button} icon={button} />
+      {sidebarButtons.map((button) => (
+        <SidebarIcon key={button.id} icon={button.icon} text={button.text} />
       ))}
     </div>
   );
 };
 
-interface Props {
-  icon: string;
-  text?: string;
+interface SidebarIconProps {
+  icon: JSX.Element;
+  text: string;
 }
 
-const SidebarIcon = ({ icon, text = "tooltip" }: Props) => {
+const SidebarIcon = ({ icon, text }: SidebarIconProps) => {
   return (
     <div className="sidebar-icons group">
       {icon}
