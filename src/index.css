@@ -12,4 +12,12 @@
   .sidebar-tooltip {
     @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white bg-gray-900 text-xs font-bold transition-all duration-100 scale-0 origin-left;
   }
+
+  .card {
+    @apply bg-slate-500 w-60 flex flex-col items-center rounded-3xl;
+  }
+
+  .card-title {
+    @apply scale-0 absolute top-0 w-full h-full rounded-3xl flex flex-col items-center justify-between bg-black bg-opacity-90;
+  }
 }

@@ -26,7 +26,7 @@ const Home = () => {
         <div key={movie.id}>{movie.title}</div>
       ))} */}
       <h2 className="my-10 text-3xl font-bold">Discover Movies</h2>
-      <div className="grid grid-cols-4 gap-10 bg-slate-800">
+      <div className="grid grid-cols-6 gap-10 bg-slate-800">
         {movies.map((movie: Movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
