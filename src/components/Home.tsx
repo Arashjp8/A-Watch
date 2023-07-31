@@ -18,17 +18,17 @@ const Home = () => {
   //   console.log(upcomingMovies);
   // }, [upcomingMovies]);
   return (
-    <>
+    <div>
       {/* {upcomingMovies.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))} */}
       Home
       {movies.map((movie: Movie) => (
-        <div key={movie.id} className="bg-black text-white">
+        <div key={movie.id} className="bg-slate-950 text-white">
           {movie.title}
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
