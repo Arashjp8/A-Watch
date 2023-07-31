@@ -1,4 +1,3 @@
-import React from "react";
 import { movies } from "../movies";
 
 interface Movie {
@@ -25,7 +24,9 @@ const Home = () => {
       ))} */}
       Home
       {movies.map((movie: Movie) => (
-        <div key={movie.id}>{movie.title}</div>
+        <div key={movie.id} className="bg-black text-white">
+          {movie.title}
+        </div>
       ))}
     </>
   );
