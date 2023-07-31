@@ -1,9 +1,12 @@
 import { movies } from "../movies";
+import MovieCard from "./MovieCard";
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   overview: string;
+  backdrop_path: string;
+  poster_path: string;
 }
 const Home = () => {
   // const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
@@ -18,16 +21,16 @@ const Home = () => {
   //   console.log(upcomingMovies);
   // }, [upcomingMovies]);
   return (
-    <div>
+    <div className="relative top-0 left-16 w-full px-32 bg-slate-800 text-white">
       {/* {upcomingMovies.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))} */}
-      Home
-      {movies.map((movie: Movie) => (
-        <div key={movie.id} className="bg-slate-950 text-white">
-          {movie.title}
-        </div>
-      ))}
+      <h2 className="my-10 text-3xl font-bold">Discover Movies</h2>
+      <div className="grid grid-cols-4 gap-10 bg-slate-800">
+        {movies.map((movie: Movie) => (
+          <MovieCard movie={movie} key={movie.id} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { sidebarButtons } from ".";
 
 const SideBar = () => {
   return (
-    <div className="bg-black text-white fixed top-0 left-0 h-screen w-16 m-0 pt-5 flex flex-col items-center shadow-lg">
+    <div className="bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 flex flex-col items-center shadow-lg">
       <img
         src="../src/assets/logo.svg"
         alt="logo"

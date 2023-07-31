@@ -3,9 +3,12 @@ import Home from "./components/Home";
 
 function App() {
   return (
-    <div className="flex flex-row flex-wrap justify-start gap-10">
+    <div
+      style={{ fontFamily: "Poppins" }}
+      className="flex flex-row flex-wrap justify-start gap-10 w-full h-full"
+    >
       <SideBar />
-      {/* <Home /> */}
+      <Home />
     </div>
   );
 }
