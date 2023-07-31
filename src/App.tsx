@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
-import apiClient from "./services/apiClient";
-import axios from "axios";
+import SideBar from "./components/SideBar";
+import Home from "./components/Home";
 
 function App() {
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
-
-  useEffect(() => {
-    apiClient("discover/movie").then((response) => {
-      setUpcomingMovies(response.data.results);
-    });
-  }, []);
-
-  useEffect(() => {
-    console.log(upcomingMovies);
-  }, [upcomingMovies]);
-  return <></>;
+  return (
+    <>
+      <SideBar />
+      <Home />
+    </>
+  );
 }
 
 export default App;
