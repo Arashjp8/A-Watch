@@ -14,7 +14,7 @@
   }
 
   .card {
-    @apply bg-slate-500 w-60 flex flex-col items-center rounded-3xl;
+    @apply w-60 flex flex-col items-center rounded-3xl;
   }
 
   .card-title {
