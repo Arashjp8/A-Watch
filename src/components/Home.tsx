@@ -1,4 +1,5 @@
 import { movies } from "../data/movies";
+import DropdownMenu from "./DropdownMenu";
 import MovieCard from "./MovieCard";
 
 export interface Movie {
@@ -26,6 +27,7 @@ const Home = () => {
         <div key={movie.id}>{movie.title}</div>
       ))} */}
       <h2 className="my-10 text-3xl font-bold">Home</h2>
+      <DropdownMenu />
       <div className="grid grid-cols-6 gap-10 bg-slate-800">
         {movies.map((movie: Movie) => (
           <MovieCard movie={movie} key={movie.id} />

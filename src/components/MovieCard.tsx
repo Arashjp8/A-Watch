@@ -15,7 +15,7 @@ const MovieCard = ({ movie }: Props) => {
         <p className="text-md font-bold  mt-10 text-center py-2 px-4">
           {movie.title}
         </p>
-        <button className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-300 ease-linear text-md px-4 py-2 rounded-xl mb-10">
+        <button className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10">
           See More
         </button>
       </div>
