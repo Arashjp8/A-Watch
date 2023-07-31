@@ -5,13 +5,13 @@ interface Props {
 }
 const MovieCard = ({ movie }: Props) => {
   return (
-    <div key={movie.id} className="group relative card">
+    <div key={movie.id} className="group relative card overflow-hidden">
       <img
         src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
         alt="image"
-        className="group-hover:scale-110 transition duration-300 ease-linear w-full  h-full rounded-3xl absoloute"
+        className="group-hover:scale-110 group-hover:rotate-3 overflow-hidden transition duration-300 ease-linear w-full  h-full rounded-3xl absoloute"
       />
-      <div className="group-hover:scale-110 card-title transition duration-500 ease">
+      <div className="group-hover:scale-100 card-title transition-opacity">
         <p className="text-md font-bold  mt-10 text-center py-2 px-4">
           {movie.title}
         </p>
