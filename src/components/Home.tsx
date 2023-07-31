@@ -24,7 +24,7 @@ const Home = () => {
   //   console.log(upcomingMovies);
   // }, [upcomingMovies]);
   return (
-    <div className="relative top-0 left-16 w-full px-32 bg-slate-800 text-white">
+    <div className="relative top-0 left-9 w-full px-32 bg-slate-800 text-white">
       {/* {upcomingMovies.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))} */}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Movie } from "./Home";
 
 interface Props {
@@ -17,7 +16,7 @@ const MovieCard = ({ movie }: Props) => {
           <p className="text-md font-bold  mt-10 text-center pt-2 px-4">
             {movie.title}
           </p>
-          <p className="text-md text-center px-4">
+          <p className="text-sm text-center px-4">
             Release Date: {movie.release_date}
           </p>
         </span>

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="border-t-2 border-gray-500 text-gray-300 text-lg relative bottom-0 left-16 w-full flex justify-center py-5">
+    <div className="border-t-2 border-gray-500 text-gray-300 text-lg relative bottom-0 left-9 w-full flex justify-center py-5">
       <p>
         Copyright © 2023{" "}
         <a

@@ -7,5 +7,5 @@ export const sidebarButtons = [
   { icon: <AiOutlineFire />, text: "Trending", id: 50 },
   { icon: <TbMovie />, text: "Movies", id: 64 },
   { icon: <TbDeviceTv />, text: "Tv Shows", id: 51 },
-  { icon: <TbBookmarks />, text: "Bookmarks", id: 12 },
+  { icon: <TbBookmarks />, text: "Watchlist", id: 12 },
 ];
