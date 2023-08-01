@@ -1,6 +1,7 @@
 import { movies } from "../data/movies";
+import { tvShows } from "../data/tvShows";
+import Carousel from "./Carousel";
 import DropdownMenu from "./DropdownMenu";
-import MovieCard from "./MovieCard";
 
 export interface Movie {
   id: number;
@@ -11,6 +12,17 @@ export interface Movie {
   vote_average: number;
   release_date: string;
 }
+
+export interface TvShow {
+  id: number;
+  name: string;
+  overview: string;
+  backdrop_path: string;
+  poster_path: string;
+  vote_average: number;
+  first_air_date: string;
+}
+
 const Home = () => {
   // const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
 
@@ -28,13 +40,17 @@ const Home = () => {
       {/* {upcomingMovies.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))} */}
-      <h2 className="my-10 text-3xl font-bold">Home</h2>
-      <DropdownMenu />
-      <div className="grid grid-cols-6 gap-10 bg-slate-800">
-        {movies.map((movie: Movie) => (
-          <MovieCard movie={movie} key={movie.id} />
-        ))}
-      </div>
+      <h2 className="my-10 text-4xl font-bold">Home</h2>
+      <h3 className="mt-10 mb-0 text-3xl text-white/60 font-normal pb-3 border-b-2 border-white/60">
+        Movies
+      </h3>
+      {/* <DropdownMenu /> */}
+      <Carousel movies={movies} />
+      <h3 className="mt-10 mb-0 text-3xl text-white/60 font-normal pb-3 border-b-2 border-white/60">
+        Tv Shows
+      </h3>
+      {/* <DropdownMenu /> */}
+      <Carousel tvShows={tvShows} />
     </div>
   );
 };
