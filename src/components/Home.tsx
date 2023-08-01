@@ -40,13 +40,13 @@ const Home = () => {
       {/* {upcomingMovies.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))} */}
-      <h2 className="my-10 text-4xl font-bold">Home</h2>
-      <h3 className="mt-10 mb-0 text-3xl text-white/60 font-normal pb-3 border-b-2 border-white/60">
+      <h2 className="my-10 text-5xl font-bold">Home</h2>
+      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-normal pb-3 border-b-2 border-white/60">
         Movies
       </h3>
       {/* <DropdownMenu /> */}
       <Carousel movies={movies} />
-      <h3 className="mt-10 mb-0 text-3xl text-white/60 font-normal pb-3 border-b-2 border-white/60">
+      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-normal pb-3 border-b-2 border-white/60">
         Tv Shows
       </h3>
       {/* <DropdownMenu /> */}
