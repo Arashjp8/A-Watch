@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { sidebarButtons } from ".";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [selectedIcon, setSelectedIcon] = useState("Home");
@@ -15,6 +16,7 @@ const SideBar = () => {
           key={button.id}
           icon={button.icon}
           text={button.text}
+          path={button.path}
           setSelectedIcon={setSelectedIcon}
           selectedIcon={selectedIcon}
         />
@@ -26,6 +28,7 @@ const SideBar = () => {
 interface SidebarIconProps {
   icon: JSX.Element;
   text: string;
+  path: string;
   selectedIcon: string;
   setSelectedIcon: (text: string) => void;
 }
@@ -33,11 +36,13 @@ interface SidebarIconProps {
 const SidebarIcon = ({
   icon,
   text,
+  path,
   setSelectedIcon,
   selectedIcon,
 }: SidebarIconProps) => {
   return (
-    <div
+    <Link
+      to={`${path}`}
       onClick={() => setSelectedIcon(text)}
       className={`sidebar-icons group hover:bg-blue-600 hover:text-white hover:rounded-xl ${
         selectedIcon === text
@@ -48,7 +53,7 @@ const SidebarIcon = ({
       {icon}
 
       <span className="sidebar-tooltip group-hover:scale-100 ">{text}</span>
-    </div>
+    </Link>
   );
 };
 
