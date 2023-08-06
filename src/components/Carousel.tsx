@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Movie, TvShow } from "./Home";
 import MovieCard from "./MovieCard";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Carousel = ({
   autoSlide = false,
@@ -69,8 +68,9 @@ const Carousel = ({
       </div>
       <div className="absoloute inset-0 flex items-center justify-center p-4 my-10">
         <button
+          disabled={(movies && current === 0) || (tvShows && current === 0)}
           onClick={prev}
-          className="p-1 rounded-full shadow bg-transparent  border-blue-500 text-blue-500 hover:bg-blue-500/10 transition-all duration-300 ease-linear"
+          className="disabled:opacity-25 p-1 rounded-full bg-transparent  border-blue-500 text-blue-500 hover:bg-blue-500/10 transition-all duration-300 ease-linear"
         >
           <TbChevronLeft size={30} />
         </button>
@@ -81,7 +81,7 @@ const Carousel = ({
               movies.map((_, index) => (
                 <div
                   className={`
-              transition-all w-2 h-2 bg-blue-500 rounded-full
+              transition-all duration-300 w-2 h-2 bg-blue-500 rounded-full
               ${current === index ? "p-2" : "bg-opacity-50"}
               `}
                 />
@@ -90,7 +90,7 @@ const Carousel = ({
               tvShows.map((_, index) => (
                 <div
                   className={`
-              transition-all w-2 h-2 bg-blue-500 rounded-full
+              transition-all duration-300 w-2 h-2 bg-blue-500 rounded-full
               ${current === index ? "p-2" : "bg-opacity-50"}
               `}
                 />
@@ -98,8 +98,12 @@ const Carousel = ({
           </div>
         </div>
         <button
+          disabled={
+            (movies && current === movies.length - 1) ||
+            (tvShows && current === tvShows.length - 1)
+          }
           onClick={next}
-          className="p-1 rounded-full shadow bg-transparent  border-blue-500 text-blue-500 hover:bg-blue-500/10 transition-all duration-300 ease-linear"
+          className="disabled:opacity-25 p-1 rounded-full bg-transparent  border-blue-500 text-blue-500 hover:bg-blue-500/10 transition-all duration-300 ease-linear"
         >
           <TbChevronRight size={30} />
         </button>
