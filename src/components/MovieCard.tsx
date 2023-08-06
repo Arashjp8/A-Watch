@@ -1,4 +1,4 @@
-import { Movie, TvShow } from "./Home";
+import { Movie, TvShow } from "../pages/Home";
 
 interface Props {
   movie?: Movie;

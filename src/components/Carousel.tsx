@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Movie, TvShow } from "./Home";
+import { Movie, TvShow } from "../pages/Home";
 import MovieCard from "./MovieCard";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
@@ -80,6 +80,7 @@ const Carousel = ({
             {movies &&
               movies.map((_, index) => (
                 <div
+                  key={index}
                   className={`
               transition-all duration-300 w-2 h-2 bg-blue-500 rounded-full
               ${current === index ? "p-2" : "bg-opacity-50"}
@@ -89,6 +90,7 @@ const Carousel = ({
             {tvShows &&
               tvShows.map((_, index) => (
                 <div
+                  key={index}
                   className={`
               transition-all duration-300 w-2 h-2 bg-blue-500 rounded-full
               ${current === index ? "p-2" : "bg-opacity-50"}
