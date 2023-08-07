@@ -3,31 +3,35 @@ import apiClient from "../services/apiClient";
 import { Movie } from "./Home";
 import MovieDetailHero from "../components/MovieDetailHero";
 import VoteAverage from "../components/VoteAverage";
-import CastCard from "../components/CastCard";
+import CastAndCrewCard from "../components/CastAndCrewCard";
+import { BaseUrl, apiKey } from "../services/config";
 
 export interface Cast {
   name: string;
   id: number;
   profile_path: string;
+  job: string;
 }
 
 const MovieDetail = () => {
   const [movie, setMovie] = useState<Movie>();
   const [cast, setCast] = useState<Cast[]>([]);
+  const [crew, setCrew] = useState<Cast[]>([]);
 
   useEffect(() => {
-    apiClient(
-      `https://api.themoviedb.org/3/movie/872585?api_key=9bea273ec3cc99de5d3fd85578d2b0ed&language=en-US`
-    ).then((response) => {
-      setMovie(response.data);
-    });
+    apiClient(`${BaseUrl}movie/872585?api_key=${apiKey}&language=en-US`).then(
+      (response) => {
+        setMovie(response.data);
+      }
+    );
   }, []);
 
   useEffect(() => {
     apiClient(
-      `https://api.themoviedb.org/3/movie/872585/credits?api_key=9bea273ec3cc99de5d3fd85578d2b0ed&language=en-US`
+      `${BaseUrl}movie/872585/credits?api_key=${apiKey}&language=en-US`
     ).then((response) => {
       setCast(response.data.cast);
+      setCrew(response.data.crew);
     });
   }, []);
 
@@ -36,14 +40,14 @@ const MovieDetail = () => {
   }, [movie]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col my-10 gap-20">
       <div className="relative w-full h-[60vh] bg-slate-800">
         <MovieDetailHero movie={movie} />
       </div>
-      <div className="grid grid-cols-2 items-start gap-20">
+      <div className="grid grid-cols-1 xl:grid-cols-2 items-start gap-32">
         <span>
           <h3 className="text-white text-3xl font-semibold mb-5">Overview: </h3>
-          <p className="text-white/80 text-2xl font-light">
+          <p className="text-white/80 text-2xl font-light max-w-3xl">
             {" "}
             {movie?.overview}
           </p>
@@ -61,10 +65,20 @@ const MovieDetail = () => {
           </p>
         </span>
         <span>
+          <h3 className="text-white text-3xl font-semibold mb-5">Director: </h3>
+          <span className="grid grid-cols-6 grid-row-2 gap-10 wrap">
+            {crew
+              .filter((c) => c.job === "Director")
+              .map((c, index) => (
+                <CastAndCrewCard key={c.id} c={c} index={index} />
+              ))}
+          </span>
+        </span>
+        <span className="col-span-1 xl:col-span-2">
           <h3 className="text-white text-3xl font-semibold mb-5">Cast: </h3>
-          <span className="grid grid-cols-6 grid-row-2 gap-10 ">
+          <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10 wrap">
             {cast.map((c, index) => (
-              <CastCard c={c} index={index} />
+              <CastAndCrewCard key={c.id} c={c} index={index} />
             ))}
           </span>
         </span>

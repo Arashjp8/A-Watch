@@ -740,6 +740,22 @@ video {
   grid-column: span 1 / span 1;
 }
 
+.col-span-2{
+  grid-column: span 2 / span 2;
+}
+
+.col-start-2{
+  grid-column-start: 2;
+}
+
+.col-start-1{
+  grid-column-start: 1;
+}
+
+.col-end-2{
+  grid-column-end: 2;
+}
+
 .m-0{
   margin: 0px;
 }
@@ -802,6 +818,18 @@ video {
 
 .ml-10{
   margin-left: 2.5rem;
+}
+
+.mb-16{
+  margin-bottom: 4rem;
+}
+
+.mb-14{
+  margin-bottom: 3.5rem;
+}
+
+.mb-20{
+  margin-bottom: 5rem;
 }
 
 .block{
@@ -920,12 +948,41 @@ video {
   width: 2.5rem;
 }
 
+.w-\[180px\]{
+  width: 180px;
+}
+
+.min-w-\[180px\]{
+  min-width: 180px;
+}
+
+.min-w-\[240px\]{
+  min-width: 240px;
+}
+
+.max-w-lg{
+  max-width: 32rem;
+}
+
+.max-w-3xl{
+  max-width: 48rem;
+}
+
+.max-w-\[180px\]{
+  max-width: 180px;
+}
+
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.columns-2{
+  -moz-columns: 2;
+       columns: 2;
 }
 
 .grid-flow-row{
@@ -946,6 +1003,10 @@ video {
 
 .grid-cols-5{
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-rows-1{
@@ -998,6 +1059,14 @@ video {
 
 .gap-20{
   gap: 5rem;
+}
+
+.gap-32{
+  gap: 8rem;
+}
+
+.gap-16{
+  gap: 4rem;
 }
 
 .gap-y-10{
@@ -1242,6 +1311,10 @@ video {
   padding-top: 1.25rem;
 }
 
+.pb-20{
+  padding-bottom: 5rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -1387,6 +1460,10 @@ video {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition{
@@ -1540,5 +1617,63 @@ video {
   .dark\:hover\:text-white:hover{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+}
+
+@media (min-width: 768px){
+  .sm\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 860px){
+  .ssm\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1060px){
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
+  }
+
+  .md\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px){
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1700px){
+  .xl\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
+
+  .xl\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-6{
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
