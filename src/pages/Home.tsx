@@ -28,17 +28,17 @@ export interface TvShow {
 }
 
 const Home = () => {
-  // const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
+  const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
 
-  // useEffect(() => {
-  //   apiClient("discover/movie").then((response) => {
-  //     setUpcomingMovies(response.data.results);
-  //   });
-  // }, []);
+  useEffect(() => {
+    apiClient("discover/movie").then((response) => {
+      setUpcomingMovies(response.data.results);
+    });
+  }, []);
 
-  // useEffect(() => {
-  //   console.log(upcomingMovies);
-  // }, [upcomingMovies]);
+  useEffect(() => {
+    console.log(upcomingMovies);
+  }, [upcomingMovies]);
   return (
     <>
       {/* {upcomingMovies.map((movie) => (
