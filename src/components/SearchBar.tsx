@@ -14,16 +14,15 @@ const SearchBar = ({ setSelectedIcon }: Props) => {
         setSelectedIcon("Search");
         navigate("/search");
       }}
-      className="flex flex-row items-center justify-between px-3 py-1 rounded-3xl bg-white text-black"
+      className="flex flex-row items-center justify-between px-3 py-1 rounded-3xl bg-white text-lg"
     >
-      <AiOutlineSearch />
       <input
         type="text"
-        className="py-2 mx-2"
+        className="shadow-lg border-2 border-blue-200 rounded-full px-6 py-2 mr-2 text-black"
         placeholder="Search for a movie or tv show..."
       />
-      <button className="relative flex items-center justify-center my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 py-2 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl">
-        Search
+      <button className="relative flex items-center justify-center my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl">
+        <AiOutlineSearch />
       </button>
     </form>
   );

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Movie, TvShow } from "../pages/Home";
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
   styleProp?: string;
 }
 const MovieCard = ({ movie, tvShow, styleProp }: Props) => {
+  const navigate = useNavigate();
+
   if (movie)
     return (
       <div
@@ -41,10 +44,13 @@ const MovieCard = ({ movie, tvShow, styleProp }: Props) => {
                     : "text-yellow-400"
                 }`}
               >
-                {movie.vote_average * 10}
+                {Math.floor(movie.vote_average * 10)}
               </p>
             </div>
-            <button className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10">
+            <button
+              onClick={() => navigate(`/movies/:${movie.id}`)}
+              className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10"
+            >
               See More
             </button>
           </div>
@@ -87,10 +93,13 @@ const MovieCard = ({ movie, tvShow, styleProp }: Props) => {
                     : "text-yellow-400"
                 }`}
               >
-                {tvShow.vote_average * 10}
+                {Math.floor(tvShow.vote_average * 10)}
               </p>
             </div>
-            <button className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10">
+            <button
+              onClick={() => navigate(`/tvshows/:${tvShow.id}`)}
+              className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10"
+            >
               See More
             </button>
           </div>
