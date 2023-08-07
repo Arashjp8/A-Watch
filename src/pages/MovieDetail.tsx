@@ -40,11 +40,11 @@ const MovieDetail = () => {
   }, [movie]);
 
   return (
-    <div className="flex flex-col my-10 gap-20">
+    <div className="flex flex-col my-10 gap-10">
       <div className="relative w-full h-[60vh] bg-slate-800">
         <MovieDetailHero movie={movie} />
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-2 items-start gap-32">
+      <div className="grid grid-cols-1 xl:grid-cols-2 items-start gap-20">
         <span>
           <h3 className="text-white text-3xl font-semibold mb-5">Overview: </h3>
           <p className="text-white/80 text-2xl font-light max-w-3xl">
@@ -66,7 +66,7 @@ const MovieDetail = () => {
         </span>
         <span>
           <h3 className="text-white text-3xl font-semibold mb-5">Director: </h3>
-          <span className="grid grid-cols-6 grid-row-2 gap-10 wrap">
+          <span className="grid grid-cols-6 grid-row-2 gap-10">
             {crew
               .filter((c) => c.job === "Director")
               .map((c, index) => (
@@ -76,7 +76,7 @@ const MovieDetail = () => {
         </span>
         <span className="col-span-1 xl:col-span-2">
           <h3 className="text-white text-3xl font-semibold mb-5">Cast: </h3>
-          <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10 wrap">
+          <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10">
             {cast.map((c, index) => (
               <CastAndCrewCard key={c.id} c={c} index={index} />
             ))}
