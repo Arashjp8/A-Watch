@@ -1,4 +1,4 @@
-const BaseUrl = "https://api.themoviedb.org/3";
+const BaseUrl = "https://api.themoviedb.org/3/";
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
 export const popularMovieAPIURL = `${BaseUrl}movie/popular?api_key=${apiKey}&language=en-US`;

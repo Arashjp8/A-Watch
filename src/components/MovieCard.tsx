@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Movie, TvShow } from "../pages/Home";
+import VoteAverage from "./VoteAverage";
 
 interface Props {
   movie?: Movie;
@@ -30,23 +31,7 @@ const MovieCard = ({ movie, tvShow, styleProp }: Props) => {
             </p>
           </span>
           <div className="flex flex-col gap-5 justify-center items-center">
-            <div
-              className={`flex justify-center items-center rounded-full w-12 h-12 bg-transparent border-2 ${
-                movie.vote_average * 10 > 70
-                  ? "border-green-500"
-                  : "border-yellow-400"
-              }  text-center`}
-            >
-              <p
-                className={`${
-                  movie.vote_average * 10 > 70
-                    ? "text-green-500"
-                    : "text-yellow-400"
-                }`}
-              >
-                {Math.floor(movie.vote_average * 10)}
-              </p>
-            </div>
+            <VoteAverage movie={movie} />
             <button
               onClick={() => navigate(`/movies/:${movie.id}`)}
               className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10"
@@ -79,23 +64,7 @@ const MovieCard = ({ movie, tvShow, styleProp }: Props) => {
             </p>
           </span>
           <div className="flex flex-col gap-5 justify-center items-center">
-            <div
-              className={`flex justify-center items-center rounded-full w-12 h-12 bg-transparent border-2 ${
-                tvShow.vote_average * 10 > 70
-                  ? "border-green-500"
-                  : "border-yellow-400"
-              }  text-center`}
-            >
-              <p
-                className={`${
-                  tvShow.vote_average * 10 > 70
-                    ? "text-green-500"
-                    : "text-yellow-400"
-                }`}
-              >
-                {Math.floor(tvShow.vote_average * 10)}
-              </p>
-            </div>
+            <VoteAverage tvShow={tvShow} />
             <button
               onClick={() => navigate(`/tvshows/:${tvShow.id}`)}
               className="bg-blue-700 text-white hover:bg-white hover:text-blue-600 font-medium transition-all duration-150 ease-linear text-md px-4 py-2 rounded-3xl hover:rounded-xl mb-10"

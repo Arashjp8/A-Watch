@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { trendingMovies } from "../data/trendingMovies";
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
+import { popularMovieAPIURL } from "../services/config";
 
 export interface Movie {
   id: number;
@@ -28,17 +29,17 @@ export interface TvShow {
 }
 
 const Home = () => {
-  const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
+  // const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
 
-  useEffect(() => {
-    apiClient("discover/movie").then((response) => {
-      setUpcomingMovies(response.data.results);
-    });
-  }, []);
+  // useEffect(() => {
+  //   apiClient(popularMovieAPIURL).then((response) => {
+  //     setUpcomingMovies(response.data.results);
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    console.log(upcomingMovies);
-  }, [upcomingMovies]);
+  // useEffect(() => {
+  //   console.log(upcomingMovies);
+  // }, [upcomingMovies]);
   return (
     <>
       {/* {upcomingMovies.map((movie) => (
