@@ -21,7 +21,9 @@ const Layout = () => {
         setSidebarToggle={setSidebarToggle}
       />
       <div
-        className={`relative top-0 left-9 w-full px-32 bg-slate-800 text-white`}
+        className={`absolute top-0 md:left-9 left-0 w-full md:px-32 px-10 bg-slate-800 text-white ${
+          sidebarToggle ? "opacity-80" : "opacity-100"
+        }`}
       >
         <Header
           selectedIcon={selectedIcon}
@@ -33,7 +35,7 @@ const Layout = () => {
         />
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

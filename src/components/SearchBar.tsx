@@ -18,10 +18,10 @@ const SearchBar = ({ setSelectedIcon }: Props) => {
     >
       <input
         type="text"
-        className="shadow-lg border-2 border-blue-200 rounded-full px-6 py-2 mr-2 text-black w-[70%]"
+        className="shadow-lg border-2 border-blue-200 rounded-full px-6 py-2 mr-2 text-black w-[90%]"
         placeholder="Search for a movie or tv show..."
       />
-      <button className="relative flex items-center justify-center my-1 mx-auto shadow-lg w-[30%] bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl">
+      <button className="relative flex items-center justify-center my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl">
         <AiOutlineSearch />
       </button>
     </form>

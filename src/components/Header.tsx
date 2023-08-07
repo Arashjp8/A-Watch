@@ -43,9 +43,9 @@ const Header = ({
             </button>
           )}
           {headerToggle && (
-            <div className="flex flex-col gap-5 absolute top-0 left-0">
+            <div className="flex flex-col gap-5 z-50 absolute top-0 left-0 sm:left-32 mx-5">
               <button
-                className="relative my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
+                className="relative my-1 mx-auto shadow-lg bg-red-600 hover:bg-white text-white hover:text-red-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
                 onClick={() => setHeaderToggle(false)}
               >
                 <AiOutlineClose />
