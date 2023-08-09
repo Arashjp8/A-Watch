@@ -8,10 +8,15 @@ interface Props {
 const HorizontalScroll = ({ movies, tvShows }: Props) => {
   if (movies)
     return (
-      <div className="flex overflow-x-scroll my-20 pb-10 snap-mandatory snap-start">
+      <div className="flex overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
         <div className="flex flex-nowrap">
-          {movies?.map((movie) => (
-            <div className="inline-block px-3">
+          {movies?.map((movie, index) => (
+            <div
+              key={index}
+              className={`inline-block ${
+                index === movies.length - 1 ? "pr-0" : "pr-6"
+              }`}
+            >
               <MovieCard movie={movie} />
             </div>
           ))}
@@ -20,10 +25,15 @@ const HorizontalScroll = ({ movies, tvShows }: Props) => {
     );
   if (tvShows)
     return (
-      <div className="flex overflow-x-scroll my-20 pb-10 snap-mandatory snap-start">
+      <div className="flex overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
         <div className="flex flex-nowrap">
-          {tvShows?.map((tvShow) => (
-            <div className="inline-block px-3">
+          {tvShows?.map((tvShow, index) => (
+            <div
+              key={index}
+              className={`inline-block ${
+                index === tvShows.length - 1 ? "pr-0" : "pr-6"
+              }`}
+            >
               <MovieCard tvShow={tvShow} />
             </div>
           ))}
