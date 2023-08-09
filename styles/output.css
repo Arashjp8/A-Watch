@@ -717,6 +717,11 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .mb-0{
   margin-bottom: 0px;
 }
@@ -749,8 +754,16 @@ video {
   margin-top: 0.75rem;
 }
 
+.ml-10{
+  margin-left: 2.5rem;
+}
+
 .block{
   display: block;
+}
+
+.inline-block{
+  display: inline-block;
 }
 
 .inline{
@@ -905,6 +918,14 @@ video {
   cursor: pointer;
 }
 
+.snap-mandatory{
+  --tw-scroll-snap-strictness: mandatory;
+}
+
+.snap-start{
+  scroll-snap-align: start;
+}
+
 .grid-flow-col{
   grid-auto-flow: column;
 }
@@ -933,8 +954,16 @@ video {
   flex-wrap: wrap;
 }
 
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
 .items-start{
   align-items: flex-start;
+}
+
+.items-end{
+  align-items: flex-end;
 }
 
 .items-center{
@@ -943,6 +972,10 @@ video {
 
 .justify-start{
   justify-content: flex-start;
+}
+
+.justify-end{
+  justify-content: flex-end;
 }
 
 .justify-center{
@@ -967,6 +1000,14 @@ video {
 
 .gap-5{
   gap: 1.25rem;
+}
+
+.gap-12{
+  gap: 3rem;
+}
+
+.gap-14{
+  gap: 3.5rem;
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]){
@@ -1002,6 +1043,10 @@ video {
 
 .overflow-x-clip{
   overflow-x: clip;
+}
+
+.overflow-x-scroll{
+  overflow-x: scroll;
 }
 
 .whitespace-nowrap{
@@ -1200,6 +1245,16 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-20{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .pb-3{
   padding-bottom: 0.75rem;
 }
@@ -1210,6 +1265,22 @@ video {
 
 .pt-5{
   padding-top: 1.25rem;
+}
+
+.pl-2{
+  padding-left: 0.5rem;
+}
+
+.pl-5{
+  padding-left: 1.25rem;
+}
+
+.pb-10{
+  padding-bottom: 2.5rem;
+}
+
+.pb-5{
+  padding-bottom: 1.25rem;
 }
 
 .text-center{
@@ -1530,6 +1601,10 @@ video {
     left: 2.25rem;
   }
 
+  .md\:ml-20{
+    margin-left: 5rem;
+  }
+
   .md\:block{
     display: block;
   }
@@ -1578,6 +1653,10 @@ video {
 }
 
 @media (min-width: 1200px){
+  .lg\:ml-40{
+    margin-left: 10rem;
+  }
+
   .lg\:grid-cols-5{
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }

@@ -46,7 +46,7 @@ const Carousel = ({
   return (
     <div className="overflow-hidden relative my-10">
       <div
-        className="grid grid-flow-col gap-10 bg-slate-800 transition-transform ease-out duration-500"
+        className="pl-5 grid grid-flow-col gap-12 bg-slate-800 transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {movies &&
