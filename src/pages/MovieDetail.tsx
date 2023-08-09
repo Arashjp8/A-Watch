@@ -48,7 +48,6 @@ const MovieDetail = () => {
         <span>
           <h3 className="text-white text-3xl font-semibold mb-5">Overview: </h3>
           <p className="text-white/80 text-2xl font-light max-w-3xl">
-            {" "}
             {movie?.overview}
           </p>
         </span>

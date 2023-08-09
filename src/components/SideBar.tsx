@@ -18,7 +18,7 @@ const SideBar = ({
 }: Props) => {
   return (
     <>
-      <div className="bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 hidden md:flex flex-col justify-between items-center shadow-lg">
+      <aside className="bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 hidden md:flex flex-col justify-between items-center shadow-lg">
         <NavLink to={"/"} onClick={() => setSelectedIcon("Home")}>
           <img src="../src/assets/logo.svg" alt="logo" className="w-12" />
         </NavLink>
@@ -35,9 +35,9 @@ const SideBar = ({
           ))}
         </div>
         <div className="sidebar-icons"></div>
-      </div>
+      </aside>
 
-      <div
+      <aside
         className={`bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 ${
           sidebarToggle ? "flex" : "hidden"
         } flex-col items-center shadow-lg`}
@@ -63,7 +63,7 @@ const SideBar = ({
         >
           <AiOutlineClose />
         </button>
-      </div>
+      </aside>
     </>
   );
 };

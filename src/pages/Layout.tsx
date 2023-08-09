@@ -20,10 +20,10 @@ const Layout = () => {
         sidebarToggle={sidebarToggle}
         setSidebarToggle={setSidebarToggle}
       />
-      <div
-        className={`absolute top-0 md:left-9 left-0 w-full md:px-32 px-10 bg-slate-800 text-white ${
+      <main
+        className={`absolute top-0 md:left-9 left-0 w-[98%] md:pr-32 md:pl-40 px-10 bg-slate-800 text-white ${
           sidebarToggle ? "opacity-80" : "opacity-100"
-        }`}
+        } overflow-hidden `}
       >
         <Header
           selectedIcon={selectedIcon}
@@ -34,7 +34,7 @@ const Layout = () => {
           setHeaderToggle={setHeaderToggle}
         />
         <Outlet />
-      </div>
+      </main>
       {/* <Footer /> */}
     </div>
   );
