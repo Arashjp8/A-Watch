@@ -53,7 +53,7 @@ const MovieDetail = () => {
         </span>
         <span>
           <h3 className="text-white text-3xl font-semibold mb-5">Rating: </h3>
-          <VoteAverage movie={movie} />
+          <VoteAverage data={movie} />
         </span>
         <span>
           <h3 className="text-white text-3xl font-semibold mb-5">

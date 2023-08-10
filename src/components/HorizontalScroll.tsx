@@ -17,7 +17,7 @@ const HorizontalScroll = ({ movies, tvShows }: Props) => {
                 index === movies.length - 1 ? "pr-0" : "pr-6"
               }`}
             >
-              <MovieCard movie={movie} />
+              <MovieCard data={movie} />
             </div>
           ))}
         </div>
@@ -34,7 +34,7 @@ const HorizontalScroll = ({ movies, tvShows }: Props) => {
                 index === tvShows.length - 1 ? "pr-0" : "pr-6"
               }`}
             >
-              <MovieCard tvShow={tvShow} />
+              <MovieCard data={tvShow} />
             </div>
           ))}
         </div>
