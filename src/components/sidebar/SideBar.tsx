@@ -1,21 +1,17 @@
 import { AiOutlineClose } from "react-icons/ai";
-import { sidebarButtons } from ".";
+import { sidebarButtons } from "..";
 import { NavLink } from "react-router-dom";
 import SidebarIcon from "./SibarIcon";
+import useSidebarToggleStore from "./store";
 
 interface Props {
   selectedIcon: string;
   setSelectedIcon: (value: string) => void;
-  sidebarToggle: boolean;
-  setSidebarToggle: (value: boolean) => void;
 }
 
-const SideBar = ({
-  selectedIcon,
-  setSelectedIcon,
-  sidebarToggle,
-  setSidebarToggle,
-}: Props) => {
+const SideBar = ({ selectedIcon, setSelectedIcon }: Props) => {
+  const { sidebarToggle, makeSidebarToggleFalse } = useSidebarToggleStore();
+
   return (
     <>
       <aside className="bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 hidden md:flex flex-col justify-between items-center shadow-lg">
@@ -59,7 +55,7 @@ const SideBar = ({
         </div>
         <button
           className="sidebar-icons rounded-3xl text-red-500 bg-gray-800 hover:bg-red-600 hover:text-white hover:rounded-xl"
-          onClick={() => setSidebarToggle(false)}
+          onClick={() => makeSidebarToggleFalse()}
         >
           <AiOutlineClose />
         </button>

@@ -1,24 +1,17 @@
-import useHeaderToggleStore from "../pages/store";
-import SearchBar from "./SearchBar";
+import useHeaderToggleStore from "./store";
+import SearchBar from "../SearchBar";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+import useSidebarToggleStore from "../sidebar/store";
 
 interface Props {
   selectedIcon: string;
   setSelectedIcon: (value: string) => void;
-  sidebarToggle: boolean;
-  setSidebarToggle: (value: boolean) => void;
-  // headerToggle: boolean;
-  // setHeaderToggle: (value: boolean) => void;
 }
 
-const Header = ({
-  selectedIcon,
-  setSelectedIcon,
-  sidebarToggle,
-  setSidebarToggle,
-}: Props) => {
+const Header = ({ selectedIcon, setSelectedIcon }: Props) => {
   const { headerToggle, makeHeaderToggleTrue, makeHeaderToggleFalse } =
     useHeaderToggleStore();
+  const { sidebarToggle, makeSidebarToggleTrue } = useSidebarToggleStore();
 
   return (
     <>
@@ -31,7 +24,7 @@ const Header = ({
           {!sidebarToggle && !headerToggle && (
             <button
               className="relative my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
-              onClick={() => setSidebarToggle(true)}
+              onClick={() => makeSidebarToggleTrue()}
             >
               <AiOutlineMenu />
             </button>
