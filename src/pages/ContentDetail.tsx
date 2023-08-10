@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
-import { Movie } from "./Home";
-import MovieDetailHero from "../components/movie/MovieDetailHero";
+import { Movie, TvShow } from "./Home";
+import ContentDetailHero from "../components/content/ContentDetailHero";
 import VoteAverage from "../components/VoteAverage";
 import CastAndCrewCard from "../components/CastAndCrewCard";
 import { BaseUrl, apiKey } from "../services/config";
-import MovieInfo from "../components/movie/MovieInfo";
-import useSelectedMovieId from "../components/movie/store";
+import ContentInfo from "../components/content/ContentInfo";
+import useSelectedMovieId from "../components/content/store";
+import { isMovie } from "../components/content/ContentCard";
 
 export interface Cast {
   name: string;
@@ -15,23 +16,23 @@ export interface Cast {
   job: string;
 }
 
-const MovieDetail = () => {
-  const [movie, setMovie] = useState<Movie>();
+const ContentDetail = () => {
+  const [data, setData] = useState<Movie | TvShow>();
   const [cast, setCast] = useState<Cast[]>([]);
   const [crew, setCrew] = useState<Cast[]>([]);
-  const selectedMovieId = useSelectedMovieId((s) => s.selectedMovieId);
+  const { selectedContentId, content } = useSelectedMovieId();
 
   useEffect(() => {
     apiClient(
-      `${BaseUrl}movie/${selectedMovieId}?api_key=${apiKey}&language=en-US`
+      `${BaseUrl}${content}/${selectedContentId}?api_key=${apiKey}&language=en-US`
     ).then((response) => {
-      setMovie(response.data);
+      setData(response.data);
     });
   }, []);
 
   useEffect(() => {
     apiClient(
-      `${BaseUrl}movie/${selectedMovieId}/credits?api_key=${apiKey}&language=en-US`
+      `${BaseUrl}${content}/${selectedContentId}/credits?api_key=${apiKey}&language=en-US`
     ).then((response) => {
       setCast(response.data.cast);
       setCrew(response.data.crew);
@@ -39,33 +40,35 @@ const MovieDetail = () => {
   }, []);
 
   useEffect(() => {
-    console.log(movie);
-  }, [movie]);
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="flex flex-col my-10 gap-10">
       <div className="relative w-full h-[60vh] bg-slate-800">
-        <MovieDetailHero movie={movie} />
+        <ContentDetailHero data={data} />
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 items-start gap-20">
-        <MovieInfo
+        <ContentInfo
           title="Overview"
           content={
             <p className="text-white/80 text-2xl font-light max-w-3xl">
-              {movie?.overview}
+              {data?.overview}
             </p>
           }
         />
-        <MovieInfo title="Rating" content={<VoteAverage data={movie} />} />
-        <MovieInfo
+        <ContentInfo title="Rating" content={<VoteAverage data={data} />} />
+        <ContentInfo
           title="Release Date"
           content={
             <p className="text-white/80 text-2xl font-light">
-              {movie?.release_date}
+              {data && isMovie(data)
+                ? data?.release_date
+                : data?.first_air_date}
             </p>
           }
         />
-        <MovieInfo
+        <ContentInfo
           title="Director"
           content={
             <span className="grid grid-cols-6 grid-row-2 gap-10">
@@ -77,7 +80,7 @@ const MovieDetail = () => {
             </span>
           }
         />
-        <MovieInfo
+        <ContentInfo
           title="Cast"
           content={
             <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10">
@@ -92,4 +95,4 @@ const MovieDetail = () => {
   );
 };
 
-export default MovieDetail;
+export default ContentDetail;

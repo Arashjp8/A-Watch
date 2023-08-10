@@ -4,7 +4,7 @@ interface Props {
   title: string;
   content: ReactNode | ReactNode[];
 }
-const MovieInfo = ({ title, content }: Props) => {
+const ContentInfo = ({ title, content }: Props) => {
   return (
     <section
       className={`${title === "Cast" ? "col-span-1 xl:col-span-2" : ""}`}
@@ -15,4 +15,4 @@ const MovieInfo = ({ title, content }: Props) => {
   );
 };
 
-export default MovieInfo;
+export default ContentInfo;

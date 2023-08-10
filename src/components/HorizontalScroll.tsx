@@ -1,5 +1,5 @@
 import { Movie, TvShow } from "../pages/Home";
-import MovieCard from "./movie/MovieCard";
+import ContentCard from "./content/ContentCard";
 
 interface Props {
   movies?: Movie[];
@@ -17,7 +17,7 @@ const HorizontalScroll = ({ movies, tvShows }: Props) => {
                 index === movies.length - 1 ? "pr-0" : "pr-6"
               }`}
             >
-              <MovieCard data={movie} />
+              <ContentCard data={movie} />
             </div>
           ))}
         </div>
@@ -34,7 +34,7 @@ const HorizontalScroll = ({ movies, tvShows }: Props) => {
                 index === tvShows.length - 1 ? "pr-0" : "pr-6"
               }`}
             >
-              <MovieCard data={tvShow} />
+              <ContentCard data={tvShow} />
             </div>
           ))}
         </div>

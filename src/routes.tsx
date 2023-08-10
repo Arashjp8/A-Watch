@@ -7,8 +7,7 @@ import WatchList from "./pages/WatchList";
 import TvShows from "./pages/TvShows";
 import Movies from "./pages/Movies";
 import ErrorPage from "./pages/ErrorPage";
-import MovieDetail from "./pages/MovieDetail";
-import TvShowDetail from "./pages/TvShowDetail";
+import ContentDetail from "./pages/ContentDetail";
 
 const router = createBrowserRouter([
   {
@@ -21,9 +20,9 @@ const router = createBrowserRouter([
       { path: "/trending", element: <Trending /> },
       { path: "/watchlist", element: <WatchList /> },
       { path: "/movies", element: <Movies /> },
-      { path: "/movies/:id", element: <MovieDetail /> },
+      { path: "/movies/:id", element: <ContentDetail /> },
       { path: "/tvshows", element: <TvShows /> },
-      { path: "/tvshows/:id", element: <TvShowDetail /> },
+      { path: "/tvshows/:id", element: <ContentDetail /> },
     ],
   },
 ]);

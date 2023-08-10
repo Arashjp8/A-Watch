@@ -12,18 +12,23 @@ export const isMovie = (data: Movie | TvShow): data is Movie => {
   return (data as Movie).title !== undefined;
 };
 
-const MovieCard = ({ data, styleProp }: Props) => {
+const ContentCard = ({ data, styleProp }: Props) => {
   const navigate = useNavigate();
 
-  const { changeSelectedMovieId } = useSelectedMovieId();
+  const { changeSelectedContentId, isAMovie, isATvShow } = useSelectedMovieId();
 
   return (
     <div
       onClick={() => {
-        isMovie(data)
-          ? navigate(`/movies/:${data.id}`)
-          : navigate(`/tvshows/:${data.id}`);
-        changeSelectedMovieId(data.id);
+        if (isMovie(data)) {
+          navigate(`/movies/:${data.id}`);
+          changeSelectedContentId(data.id);
+          isAMovie();
+        } else if (!isMovie(data)) {
+          navigate(`/tvshows/:${data.id}`);
+          changeSelectedContentId(data.id);
+          isATvShow();
+        }
       }}
       className={`${styleProp} group cursor-pointer relative w-52 h-[480px] flex flex-col items-center overflow-hidden`}
     >
@@ -47,4 +52,4 @@ const MovieCard = ({ data, styleProp }: Props) => {
   );
 };
 
-export default MovieCard;
+export default ContentCard;

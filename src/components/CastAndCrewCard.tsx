@@ -1,4 +1,4 @@
-import { Cast } from "../pages/MovieDetail";
+import { Cast } from "../pages/ContentDetail";
 
 interface Props {
   c: Cast;
