@@ -1,20 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { useSelectedIconStore } from "./store";
 
 interface SidebarIconProps {
   icon: JSX.Element;
   text: string;
   path: string;
-  selectedIcon: string;
-  setSelectedIcon: (text: string) => void;
 }
 
-const SidebarIcon = ({
-  icon,
-  text,
-  path,
-  setSelectedIcon,
-  selectedIcon,
-}: SidebarIconProps) => {
+const SidebarIcon = ({ icon, text, path }: SidebarIconProps) => {
+  const { selectedIcon, setSelectedIcon } = useSelectedIconStore();
+
   return (
     <NavLink
       to={`${path}`}

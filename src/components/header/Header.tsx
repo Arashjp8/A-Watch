@@ -1,24 +1,20 @@
 import useHeaderToggleStore from "./store";
 import SearchBar from "../SearchBar";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
-import useSidebarToggleStore from "../sidebar/store";
+import { useSelectedIconStore, useSidebarToggleStore } from "../sidebar/store";
 
-interface Props {
-  selectedIcon: string;
-  setSelectedIcon: (value: string) => void;
-}
-
-const Header = ({ selectedIcon, setSelectedIcon }: Props) => {
+const Header = () => {
   const { headerToggle, makeHeaderToggleTrue, makeHeaderToggleFalse } =
     useHeaderToggleStore();
   const { sidebarToggle, makeSidebarToggleTrue } = useSidebarToggleStore();
+  const { selectedIcon } = useSelectedIconStore();
 
   return (
     <>
       <div className="flex flex-row justify-between items-center my-10">
         <h2 className="text-5xl font-bold">{selectedIcon}</h2>
         <div className="hidden md:block">
-          <SearchBar setSelectedIcon={setSelectedIcon} />
+          <SearchBar />
         </div>
         <div className="md:hidden flex flex-row gap-5">
           {!sidebarToggle && !headerToggle && (
@@ -45,7 +41,7 @@ const Header = ({ selectedIcon, setSelectedIcon }: Props) => {
               >
                 <AiOutlineClose />
               </button>
-              <SearchBar setSelectedIcon={setSelectedIcon} />
+              <SearchBar />
             </div>
           )}
         </div>

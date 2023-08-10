@@ -2,15 +2,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import { sidebarButtons } from "..";
 import { NavLink } from "react-router-dom";
 import SidebarIcon from "./SibarIcon";
-import useSidebarToggleStore from "./store";
+import { useSelectedIconStore, useSidebarToggleStore } from "./store";
 
-interface Props {
-  selectedIcon: string;
-  setSelectedIcon: (value: string) => void;
-}
-
-const SideBar = ({ selectedIcon, setSelectedIcon }: Props) => {
+const SideBar = () => {
   const { sidebarToggle, makeSidebarToggleFalse } = useSidebarToggleStore();
+  const { setSelectedIcon } = useSelectedIconStore();
 
   return (
     <>
@@ -25,8 +21,6 @@ const SideBar = ({ selectedIcon, setSelectedIcon }: Props) => {
               icon={button.icon}
               text={button.text}
               path={button.path}
-              setSelectedIcon={setSelectedIcon}
-              selectedIcon={selectedIcon}
             />
           ))}
         </div>
@@ -48,8 +42,6 @@ const SideBar = ({ selectedIcon, setSelectedIcon }: Props) => {
               icon={button.icon}
               text={button.text}
               path={button.path}
-              setSelectedIcon={setSelectedIcon}
-              selectedIcon={selectedIcon}
             />
           ))}
         </div>

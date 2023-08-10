@@ -1,12 +1,11 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useSelectedIconStore } from "./sidebar/store";
 
-interface Props {
-  setSelectedIcon: (value: string) => void;
-}
-
-const SearchBar = ({ setSelectedIcon }: Props) => {
+const SearchBar = () => {
   const navigate = useNavigate();
+  const { setSelectedIcon } = useSelectedIconStore();
+
   return (
     <form
       onSubmit={(e) => {
