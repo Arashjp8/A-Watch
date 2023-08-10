@@ -8,7 +8,7 @@ interface SelectedMovieId {
   changeSelectedContentId: (id: number) => void;
 }
 
-const useSelectedMovieId = create<SelectedMovieId>((set) => ({
+const useSelectedContentId = create<SelectedMovieId>((set) => ({
   content: "movie",
   isAMovie: () => set(() => ({ content: "movie" })),
   isATvShow: () => set(() => ({ content: "tv" })),
@@ -17,4 +17,4 @@ const useSelectedMovieId = create<SelectedMovieId>((set) => ({
     set(() => ({ selectedContentId: id })),
 }));
 
-export default useSelectedMovieId;
+export default useSelectedContentId;

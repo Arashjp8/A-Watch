@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Movie, TvShow } from "../../pages/Home";
 import VoteAverage from "../VoteAverage";
-import useSelectedMovieId from "./store";
+import useSelectedContentId from "./store";
 
 interface Props {
   data: Movie | TvShow;
@@ -14,7 +14,8 @@ export const isMovie = (data: Movie | TvShow): data is Movie => {
 
 const ContentCard = ({ data, styleProp }: Props) => {
   const navigate = useNavigate();
-  const { changeSelectedContentId, isAMovie, isATvShow } = useSelectedMovieId();
+  const { changeSelectedContentId, isAMovie, isATvShow } =
+    useSelectedContentId();
 
   return (
     <div

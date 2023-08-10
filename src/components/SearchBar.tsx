@@ -1,16 +1,19 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useSelectedIconStore } from "./sidebar/store";
+import useHeaderToggleStore from "./header/store";
 
 const SearchBar = () => {
   const navigate = useNavigate();
   const { setSelectedIcon } = useSelectedIconStore();
+  const { closeSearchbar } = useHeaderToggleStore();
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
         setSelectedIcon("Search");
+        closeSearchbar();
         navigate("/search");
       }}
       className="flex flex-row items-center justify-between px-3 py-1 rounded-3xl bg-white text-lg"

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useSelectedIconStore } from "./store";
+import { useSelectedIconStore, useSidebarToggleStore } from "./store";
 
 interface SidebarIconProps {
   icon: JSX.Element;
@@ -9,11 +9,15 @@ interface SidebarIconProps {
 
 const SidebarIcon = ({ icon, text, path }: SidebarIconProps) => {
   const { selectedIcon, setSelectedIcon } = useSelectedIconStore();
+  const { closeSidebar } = useSidebarToggleStore();
 
   return (
     <NavLink
       to={`${path}`}
-      onClick={() => setSelectedIcon(text)}
+      onClick={() => {
+        setSelectedIcon(text);
+        closeSidebar();
+      }}
       className={`sidebar-icons group hover:bg-blue-600 hover:text-white hover:rounded-xl ${
         selectedIcon === text
           ? "rounded-xl text-white bg-blue-600"
