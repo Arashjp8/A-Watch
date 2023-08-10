@@ -2,12 +2,13 @@ import { Movie, TvShow } from "../pages/Home";
 
 interface Props {
   data?: Movie | TvShow;
+  style: string;
 }
-const VoteAverage = ({ data }: Props) => {
+const VoteAverage = ({ data, style }: Props) => {
   if (data)
     return (
       <div
-        className={`flex justify-center items-center bg-black/90 rounded-full w-10 h-10 border-2 ${
+        className={`flex justify-center items-center bg-black/90 rounded-full ${style} border-2 ${
           data.vote_average * 10 > 70 ? "border-green-500" : "border-yellow-400"
         }  text-center font-semibold `}
       >

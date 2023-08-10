@@ -1,11 +1,11 @@
-import useHeaderToggleStore from "./store";
+import useSearchbarToggleStore from "./store";
 import SearchBar from "../SearchBar";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useSelectedIconStore, useSidebarToggleStore } from "../sidebar/store";
 
 const Header = () => {
   const { isSearchbarOpen, openSearchbar, closeSearchbar } =
-    useHeaderToggleStore();
+    useSearchbarToggleStore();
   const { isSidebarOpen, openSidebar } = useSidebarToggleStore();
   const selectedIcon = useSelectedIconStore((s) => s.selectedIcon);
 

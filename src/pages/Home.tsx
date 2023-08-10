@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
 import { popularMovieAPIURL } from "../services/config";
 import HorizontalScroll from "../components/HorizontalScroll";
+import useSearchbarToggleStore from "../components/header/store";
+import { useSelectedIconStore } from "../components/sidebar/store";
 
 export interface Movie {
   id: number;
@@ -40,6 +42,9 @@ const Home = () => {
   // useEffect(() => {
   //   console.log(upcomingMovies);
   // }, [upcomingMovies]);
+
+  const { setSelectedIcon } = useSelectedIconStore();
+
   return (
     <>
       {/* {upcomingMovies.map((movie) => (
@@ -47,17 +52,23 @@ const Home = () => {
       ))} */}
       {/* <h2 className="my-10 text-5xl font-bold">Home</h2> */}
       <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/movies">Trending</Link>
+        <Link to="/movies" onClick={() => setSelectedIcon("Trending")}>
+          Trending
+        </Link>
       </h3>
       {/* <DropdownMenu /> */}
       <HorizontalScroll movies={trendingMovies} />
       <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/movies">Movies</Link>
+        <Link to="/movies" onClick={() => setSelectedIcon("Movies")}>
+          Movies
+        </Link>
       </h3>
       {/* <DropdownMenu /> */}
       <HorizontalScroll movies={movies} />
       <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/tvshows">Tv Shows</Link>
+        <Link to="/tvshows" onClick={() => setSelectedIcon("Tv Shows")}>
+          Tv Shows
+        </Link>
       </h3>
       {/* <DropdownMenu /> */}
       <HorizontalScroll tvShows={tvShows} />

@@ -1,12 +1,12 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useSelectedIconStore } from "./sidebar/store";
-import useHeaderToggleStore from "./header/store";
+import useSearchbarToggleStore from "./header/store";
 
 const SearchBar = () => {
   const navigate = useNavigate();
   const { setSelectedIcon } = useSelectedIconStore();
-  const { closeSearchbar } = useHeaderToggleStore();
+  const { closeSearchbar } = useSearchbarToggleStore();
 
   return (
     <form

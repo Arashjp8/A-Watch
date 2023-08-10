@@ -44,7 +44,7 @@ const ContentDetail = () => {
   }, [data]);
 
   return (
-    <div className="flex flex-col my-10 gap-10">
+    <div className="flex flex-col my-10 gap-0">
       <div className="relative w-full h-[60vh] bg-slate-800">
         <ContentDetailHero data={data} />
       </div>
@@ -57,7 +57,10 @@ const ContentDetail = () => {
             </p>
           }
         />
-        <ContentInfo title="Rating" content={<VoteAverage data={data} />} />
+        <ContentInfo
+          title="Rating"
+          content={<VoteAverage data={data} style="w-14 h-14 text-xl" />}
+        />
         <ContentInfo
           title="Release Date"
           content={

@@ -1,11 +1,11 @@
 import SideBar from "../components/sidebar/SideBar";
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
-import useHeaderToggleStore from "../components/header/store";
+import useSearchbarToggleStore from "../components/header/store";
 import { useSidebarToggleStore } from "../components/sidebar/store";
 
 const Layout = () => {
-  const isSearchbarOpen = useHeaderToggleStore((s) => s.isSearchbarOpen);
+  const isSearchbarOpen = useSearchbarToggleStore((s) => s.isSearchbarOpen);
   const isSidebarOpen = useSidebarToggleStore((s) => s.isSidebarOpen);
 
   return (

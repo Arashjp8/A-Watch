@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
-interface HeaderToggle {
+interface SearchbarToggle {
   isSearchbarOpen: boolean;
   openSearchbar: () => void;
   closeSearchbar: () => void;
 }
 
-const useHeaderToggleStore = create<HeaderToggle>((set) => ({
+const useSearchbarToggleStore = create<SearchbarToggle>((set) => ({
   isSearchbarOpen: false,
   openSearchbar: () => set(() => ({ isSearchbarOpen: true })),
   closeSearchbar: () => set(() => ({ isSearchbarOpen: false })),
 }));
 
-export default useHeaderToggleStore;
+export default useSearchbarToggleStore;

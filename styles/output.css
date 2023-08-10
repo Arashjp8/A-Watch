@@ -814,6 +814,14 @@ video {
   height: 220px;
 }
 
+.h-12{
+  height: 3rem;
+}
+
+.h-14{
+  height: 3.5rem;
+}
+
 .min-h-\[220px\]{
   min-height: 220px;
 }
@@ -864,6 +872,10 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.w-14{
+  width: 3.5rem;
 }
 
 .min-w-\[150px\]{
@@ -968,6 +980,10 @@ video {
 
 .gap-5{
   gap: 1.25rem;
+}
+
+.gap-0{
+  gap: 0px;
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]){
@@ -1260,6 +1276,11 @@ video {
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold{

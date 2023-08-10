@@ -38,7 +38,7 @@ const ContentCard = ({ data, styleProp }: Props) => {
         className="w-52 rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear absoloute h-[312px] object-cover"
       />
       <div className="absolute top-72 left-0 flex flex-col gap-3 h-[250px]">
-        <VoteAverage data={data} />
+        <VoteAverage data={data} style="w-10 h-10" />
         <span className="flex flex-col gap-1">
           <p className="text-md font-bold text-left max-w-[152px] group-hover:text-blue-400 transition-all duration-75 ease-linear">
             {isMovie(data) ? data.title : data.name}
