@@ -1,13 +1,15 @@
 import { create } from "zustand";
 
 interface HeaderToggle {
-  toggle: boolean;
-  true: (value: boolean) => void;
-  false: (value: boolean) => void;
+  headerToggle: boolean;
+  makeHeaderToggleTrue: () => void;
+  makeHeaderToggleFalse: () => void;
 }
 
-create<HeaderToggle>((set) => ({
-  toggle: false,
-  true: (value) => set(() => ({ toggle: value })),
-  false: (value) => set(() => ({ toggle: value })),
+const useHeaderToggleStore = create<HeaderToggle>((set) => ({
+  headerToggle: false,
+  makeHeaderToggleTrue: () => set(() => ({ headerToggle: true })),
+  makeHeaderToggleFalse: () => set(() => ({ headerToggle: false })),
 }));
+
+export default useHeaderToggleStore;

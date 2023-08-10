@@ -1,3 +1,4 @@
+import useHeaderToggleStore from "../pages/store";
 import SearchBar from "./SearchBar";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 
@@ -6,8 +7,8 @@ interface Props {
   setSelectedIcon: (value: string) => void;
   sidebarToggle: boolean;
   setSidebarToggle: (value: boolean) => void;
-  headerToggle: boolean;
-  setHeaderToggle: (value: boolean) => void;
+  // headerToggle: boolean;
+  // setHeaderToggle: (value: boolean) => void;
 }
 
 const Header = ({
@@ -15,9 +16,10 @@ const Header = ({
   setSelectedIcon,
   sidebarToggle,
   setSidebarToggle,
-  headerToggle,
-  setHeaderToggle,
 }: Props) => {
+  const { headerToggle, makeHeaderToggleTrue, makeHeaderToggleFalse } =
+    useHeaderToggleStore();
+
   return (
     <>
       <div className="flex flex-row justify-between items-center my-10">
@@ -37,7 +39,7 @@ const Header = ({
           {!headerToggle && (
             <button
               className="relative my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
-              onClick={() => setHeaderToggle(true)}
+              onClick={() => makeHeaderToggleTrue()}
             >
               <AiOutlineSearch />
             </button>
@@ -46,7 +48,7 @@ const Header = ({
             <div className="flex flex-col gap-5 z-50 absolute top-0 left-0 sm:left-32 mx-5">
               <button
                 className="relative my-1 mx-auto shadow-lg bg-red-600 hover:bg-white text-white hover:text-red-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
-                onClick={() => setHeaderToggle(false)}
+                onClick={() => makeHeaderToggleFalse()}
               >
                 <AiOutlineClose />
               </button>

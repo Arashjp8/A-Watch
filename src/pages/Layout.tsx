@@ -3,11 +3,12 @@ import Footer from "../components/Footer";
 import SideBar from "../components/SideBar";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
+import useHeaderToggleStore from "./store";
 
 const Layout = () => {
   const [selectedIcon, setSelectedIcon] = useState("Home");
   const [sidebarToggle, setSidebarToggle] = useState(false);
-  const [headerToggle, setHeaderToggle] = useState(false);
+  const { headerToggle } = useHeaderToggleStore();
 
   return (
     <div
@@ -30,10 +31,12 @@ const Layout = () => {
           setSelectedIcon={setSelectedIcon}
           sidebarToggle={sidebarToggle}
           setSidebarToggle={setSidebarToggle}
-          headerToggle={headerToggle}
-          setHeaderToggle={setHeaderToggle}
+          // headerToggle={headerToggle}
+          // setHeaderToggle={setHeaderToggle}
         />
-        <Outlet />
+        <div className={`${headerToggle ? "opacity-20" : "opacity-100"}`}>
+          <Outlet />
+        </div>
       </main>
       {/* <Footer /> */}
     </div>
