@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
 interface SidebarToggle {
-  sidebarToggle: boolean;
-  makeSidebarToggleTrue: () => void;
-  makeSidebarToggleFalse: () => void;
+  isSidebarOpen: boolean;
+  openSidebar: () => void;
+  closeSidebar: () => void;
 }
 
 export const useSidebarToggleStore = create<SidebarToggle>((set) => ({
-  sidebarToggle: false,
-  makeSidebarToggleTrue: () => set(() => ({ sidebarToggle: true })),
-  makeSidebarToggleFalse: () => set(() => ({ sidebarToggle: false })),
+  isSidebarOpen: false,
+  openSidebar: () => set(() => ({ isSidebarOpen: true })),
+  closeSidebar: () => set(() => ({ isSidebarOpen: false })),
 }));
 
 interface SelectedIcon {

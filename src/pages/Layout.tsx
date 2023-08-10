@@ -6,8 +6,8 @@ import useHeaderToggleStore from "../components/header/store";
 import { useSidebarToggleStore } from "../components/sidebar/store";
 
 const Layout = () => {
-  const { headerToggle } = useHeaderToggleStore();
-  const { sidebarToggle } = useSidebarToggleStore();
+  const isSearchbarOpen = useHeaderToggleStore((s) => s.isSearchbarOpen);
+  const isSidebarOpen = useSidebarToggleStore((s) => s.isSidebarOpen);
 
   return (
     <div
@@ -17,11 +17,11 @@ const Layout = () => {
       <SideBar />
       <div
         className={`absolute top-0 md:left-9 left-0 w-[98%] md:pr-32 md:pl-40 px-10 bg-slate-800 text-white ${
-          sidebarToggle ? "opacity-80" : "opacity-100"
+          isSidebarOpen ? "opacity-80" : "opacity-100"
         } overflow-hidden `}
       >
         <Header />
-        <main className={`${headerToggle ? "opacity-20" : "opacity-100"}`}>
+        <main className={`${isSearchbarOpen ? "opacity-20" : "opacity-100"}`}>
           <Outlet />
         </main>
       </div>

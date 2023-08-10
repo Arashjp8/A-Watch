@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
 interface HeaderToggle {
-  headerToggle: boolean;
-  makeHeaderToggleTrue: () => void;
-  makeHeaderToggleFalse: () => void;
+  isSearchbarOpen: boolean;
+  openSearchbar: () => void;
+  closeSearchbar: () => void;
 }
 
 const useHeaderToggleStore = create<HeaderToggle>((set) => ({
-  headerToggle: false,
-  makeHeaderToggleTrue: () => set(() => ({ headerToggle: true })),
-  makeHeaderToggleFalse: () => set(() => ({ headerToggle: false })),
+  isSearchbarOpen: false,
+  openSearchbar: () => set(() => ({ isSearchbarOpen: true })),
+  closeSearchbar: () => set(() => ({ isSearchbarOpen: false })),
 }));
 
 export default useHeaderToggleStore;
