@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
 import { Movie } from "./Home";
-import MovieDetailHero from "../components/MovieDetailHero";
+import MovieDetailHero from "../components/movie/MovieDetailHero";
 import VoteAverage from "../components/VoteAverage";
 import CastAndCrewCard from "../components/CastAndCrewCard";
 import { BaseUrl, apiKey } from "../services/config";
-import MovieInfo from "../components/MovieInfo";
+import MovieInfo from "../components/movie/MovieInfo";
+import useSelectedMovieId from "../components/movie/store";
 
 export interface Cast {
   name: string;
@@ -18,18 +19,19 @@ const MovieDetail = () => {
   const [movie, setMovie] = useState<Movie>();
   const [cast, setCast] = useState<Cast[]>([]);
   const [crew, setCrew] = useState<Cast[]>([]);
+  const selectedMovieId = useSelectedMovieId((s) => s.selectedMovieId);
 
   useEffect(() => {
-    apiClient(`${BaseUrl}movie/872585?api_key=${apiKey}&language=en-US`).then(
-      (response) => {
-        setMovie(response.data);
-      }
-    );
+    apiClient(
+      `${BaseUrl}movie/${selectedMovieId}?api_key=${apiKey}&language=en-US`
+    ).then((response) => {
+      setMovie(response.data);
+    });
   }, []);
 
   useEffect(() => {
     apiClient(
-      `${BaseUrl}movie/872585/credits?api_key=${apiKey}&language=en-US`
+      `${BaseUrl}movie/${selectedMovieId}/credits?api_key=${apiKey}&language=en-US`
     ).then((response) => {
       setCast(response.data.cast);
       setCrew(response.data.crew);

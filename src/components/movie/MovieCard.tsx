@@ -1,22 +1,30 @@
 import { useNavigate } from "react-router-dom";
-import { Movie, TvShow } from "../pages/Home";
-import VoteAverage from "./VoteAverage";
+import { Movie, TvShow } from "../../pages/Home";
+import VoteAverage from "../VoteAverage";
+import useSelectedMovieId from "./store";
 
 interface Props {
   data: Movie | TvShow;
   styleProp?: string;
 }
 
-const isMovie = (data: Movie | TvShow): data is Movie => {
+export const isMovie = (data: Movie | TvShow): data is Movie => {
   return (data as Movie).title !== undefined;
 };
 
 const MovieCard = ({ data, styleProp }: Props) => {
   const navigate = useNavigate();
 
+  const { changeSelectedMovieId } = useSelectedMovieId();
+
   return (
     <div
-      onClick={() => navigate(`/movies/:${data.id}`)}
+      onClick={() => {
+        isMovie(data)
+          ? navigate(`/movies/:${data.id}`)
+          : navigate(`/tvshows/:${data.id}`);
+        changeSelectedMovieId(data.id);
+      }}
       className={`${styleProp} group cursor-pointer relative w-52 h-[480px] flex flex-col items-center overflow-hidden`}
     >
       <img

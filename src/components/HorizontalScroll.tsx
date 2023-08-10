@@ -1,5 +1,5 @@
 import { Movie, TvShow } from "../pages/Home";
-import MovieCard from "./MovieCard";
+import MovieCard from "./movie/MovieCard";
 
 interface Props {
   movies?: Movie[];
