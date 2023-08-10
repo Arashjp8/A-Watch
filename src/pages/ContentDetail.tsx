@@ -74,6 +74,7 @@ const ContentDetail = () => {
             <span className="grid grid-cols-6 grid-row-2 gap-10">
               {crew
                 .filter((c) => c.job === "Director")
+                .slice(0, 1)
                 .map((c, index) => (
                   <CastAndCrewCard key={c.id} c={c} index={index} />
                 ))}

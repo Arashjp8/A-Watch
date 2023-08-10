@@ -14,7 +14,6 @@ export const isMovie = (data: Movie | TvShow): data is Movie => {
 
 const ContentCard = ({ data, styleProp }: Props) => {
   const navigate = useNavigate();
-
   const { changeSelectedContentId, isAMovie, isATvShow } = useSelectedMovieId();
 
   return (
