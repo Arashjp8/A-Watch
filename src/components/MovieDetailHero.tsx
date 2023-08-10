@@ -6,6 +6,7 @@ interface Props {
 const MovieDetailHero = ({ movie }: Props) => {
   return (
     <>
+      {/* desktop view */}
       <div className="md:block hidden">
         <img
           src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
@@ -23,6 +24,8 @@ const MovieDetailHero = ({ movie }: Props) => {
           className="absolute z-50 top-24 right-14 w-60 rounded-3xl"
         />
       </div>
+
+      {/* mobile view */}
       <div className="md:hidden flex flex-col gap-20">
         <img
           src={`https://image.tmdb.org/t/p/w1280${movie?.poster_path}`}

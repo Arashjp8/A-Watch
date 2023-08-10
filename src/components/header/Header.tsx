@@ -48,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center my-10">
+    <header className="flex flex-row justify-between items-center my-10">
       <h2 className="text-5xl font-bold">{selectedIcon}</h2>
       <div className="hidden md:block">
         <SearchBar />
@@ -57,7 +57,7 @@ const Header = () => {
         {renderSidebarButton()}
         {renderSearchbarButton()}
       </div>
-    </div>
+    </header>
   );
 };
 

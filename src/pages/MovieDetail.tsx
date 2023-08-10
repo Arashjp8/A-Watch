@@ -5,6 +5,7 @@ import MovieDetailHero from "../components/MovieDetailHero";
 import VoteAverage from "../components/VoteAverage";
 import CastAndCrewCard from "../components/CastAndCrewCard";
 import { BaseUrl, apiKey } from "../services/config";
+import MovieInfo from "../components/MovieInfo";
 
 export interface Cast {
   name: string;
@@ -45,42 +46,45 @@ const MovieDetail = () => {
         <MovieDetailHero movie={movie} />
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 items-start gap-20">
-        <span>
-          <h3 className="text-white text-3xl font-semibold mb-5">Overview: </h3>
-          <p className="text-white/80 text-2xl font-light max-w-3xl">
-            {movie?.overview}
-          </p>
-        </span>
-        <span>
-          <h3 className="text-white text-3xl font-semibold mb-5">Rating: </h3>
-          <VoteAverage data={movie} />
-        </span>
-        <span>
-          <h3 className="text-white text-3xl font-semibold mb-5">
-            Release Date:{" "}
-          </h3>
-          <p className="text-white/80 text-2xl font-light">
-            {movie?.release_date}
-          </p>
-        </span>
-        <span>
-          <h3 className="text-white text-3xl font-semibold mb-5">Director: </h3>
-          <span className="grid grid-cols-6 grid-row-2 gap-10">
-            {crew
-              .filter((c) => c.job === "Director")
-              .map((c, index) => (
+        <MovieInfo
+          title="Overview"
+          content={
+            <p className="text-white/80 text-2xl font-light max-w-3xl">
+              {movie?.overview}
+            </p>
+          }
+        />
+        <MovieInfo title="Rating" content={<VoteAverage data={movie} />} />
+        <MovieInfo
+          title="Release Date"
+          content={
+            <p className="text-white/80 text-2xl font-light">
+              {movie?.release_date}
+            </p>
+          }
+        />
+        <MovieInfo
+          title="Director"
+          content={
+            <span className="grid grid-cols-6 grid-row-2 gap-10">
+              {crew
+                .filter((c) => c.job === "Director")
+                .map((c, index) => (
+                  <CastAndCrewCard key={c.id} c={c} index={index} />
+                ))}
+            </span>
+          }
+        />
+        <MovieInfo
+          title="Cast"
+          content={
+            <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10">
+              {cast.map((c, index) => (
                 <CastAndCrewCard key={c.id} c={c} index={index} />
               ))}
-          </span>
-        </span>
-        <span className="col-span-1 xl:col-span-2">
-          <h3 className="text-white text-3xl font-semibold mb-5">Cast: </h3>
-          <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10">
-            {cast.map((c, index) => (
-              <CastAndCrewCard key={c.id} c={c} index={index} />
-            ))}
-          </span>
-        </span>
+            </span>
+          }
+        />
       </div>
     </div>
   );
