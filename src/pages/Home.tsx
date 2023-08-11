@@ -56,25 +56,25 @@ const Home = () => {
         title="Trending Movies"
         link="/trending"
         selectedIcon="Trending"
-        content={<HorizontalScroll movies={trendingMovies?.results} />}
+        content={<HorizontalScroll items={trendingMovies?.results} />}
       />
       <Section
         title="Trending Tv Shows"
         link="/trending"
         selectedIcon="Trending"
-        content={<HorizontalScroll tvShows={trendingTvShows?.results} />}
+        content={<HorizontalScroll items={trendingTvShows?.results} />}
       />
       <Section
         title="Movies"
         link="/movies"
         selectedIcon="Movies"
-        content={<HorizontalScroll movies={movies?.results} />}
+        content={<HorizontalScroll items={movies?.results} />}
       />
       <Section
         title="Tv Shows"
         link="/tvshows"
         selectedIcon="Tv Shows"
-        content={<HorizontalScroll tvShows={tvShows?.results} />}
+        content={<HorizontalScroll items={tvShows?.results} />}
       />
     </>
   );
