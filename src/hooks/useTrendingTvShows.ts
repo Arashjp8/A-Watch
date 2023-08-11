@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { FetchResponse } from "../services/apiClient";
-import { TvShow } from "../pages/Home";
+import { TvShow } from "../interfaces/TvShow";
 import { trendingTvShowsAPIURL } from "../services/config";
 
 const useTrendingTvShows = () => {

@@ -1,4 +1,5 @@
-import { Movie, TvShow } from "../../pages/Home";
+import { TvShow } from "../../interfaces/TvShow";
+import { Movie } from "../../interfaces/Movie";
 import { isMovie } from "./ContentCard";
 
 interface Props {

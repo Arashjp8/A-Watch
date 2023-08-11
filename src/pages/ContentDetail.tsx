@@ -33,11 +33,16 @@ const ContentDetail = () => {
     }
   }, [credits]);
 
-  if (contentDetailIsLoading || creditsIsLoading) return <Spinner />;
+  if (contentDetailIsLoading || creditsIsLoading)
+    return (
+      <div className="h-[100vh]">
+        <Spinner />
+      </div>
+    );
 
   if (contentDetailError || creditsError)
     return (
-      <p>
+      <p className="h-[100vh]">
         {contentDetailError
           ? contentDetailError.message
           : creditsError?.message}

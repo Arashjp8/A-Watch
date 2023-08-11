@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { Movie, TvShow } from "../../pages/Home";
+import { Movie } from "../../interfaces/Movie";
+import { TvShow } from "../../interfaces/TvShow";
 import VoteAverage from "../VoteAverage";
 import useSelectedContentId from "./store";
 

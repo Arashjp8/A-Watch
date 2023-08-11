@@ -5,26 +5,6 @@ import usePopularTvShows from "../hooks/usePopularTvShows";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTrendingTvShows from "../hooks/useTrendingTvShows";
 
-export interface Movie {
-  id: number;
-  title: string;
-  overview: string;
-  backdrop_path: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
-
-export interface TvShow {
-  id: number;
-  name: string;
-  overview: string;
-  backdrop_path: string;
-  poster_path: string;
-  vote_average: number;
-  first_air_date: string;
-}
-
 const Home = () => {
   const {
     data: movies,

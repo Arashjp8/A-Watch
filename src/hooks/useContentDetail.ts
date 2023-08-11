@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { Movie, TvShow } from "../pages/Home";
+import { Movie } from "../interfaces/Movie";
+import { TvShow } from "../interfaces/TvShow";
 import apiClient from "../services/apiClient";
 import { BaseUrl, apiKey } from "../services/config";
 

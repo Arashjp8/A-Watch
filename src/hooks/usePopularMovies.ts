@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { FetchResponse } from "../services/apiClient";
 import { popularMovieAPIURL } from "../services/config";
-import { Movie } from "../pages/Home";
+import { Movie } from "../interfaces/Movie";
 
 const usePopularMovies = () => {
   return useQuery<FetchResponse<Movie>, Error>({

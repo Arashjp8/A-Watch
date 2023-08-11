@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { FetchResponse } from "../services/apiClient";
-import { Movie } from "../pages/Home";
+import { Movie } from "../interfaces/Movie";
 import { trendingMoviesAPIURL } from "../services/config";
 
 const useTrendingMovies = () => {

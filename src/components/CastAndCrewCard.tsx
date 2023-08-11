@@ -1,7 +1,7 @@
-import { Cast } from "../pages/ContentDetail";
+import { CastAndCrew } from "../interfaces/Credits";
 
 interface Props {
-  c: Cast;
+  c: CastAndCrew;
   index?: number;
 }
 const CastAndCrewCard = ({ c, index }: Props) => {
