@@ -13,6 +13,7 @@ const useContentDetail = (content: string, selectedContentId: number) => {
         `${BaseUrl}/${content}/${selectedContentId}?api_key=${apiKey}&language=en-US`
       ).then((res) => res.data);
     },
+    staleTime: 24 * 60 * 60 * 1000, // 24h
   });
 };
 

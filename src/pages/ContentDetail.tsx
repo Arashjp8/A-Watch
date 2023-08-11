@@ -8,6 +8,7 @@ import { isMovie } from "../components/content/ContentCard";
 import { CastAndCrew } from "../interfaces/Credits";
 import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
+import Spinner from "../components/Spinner";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -31,6 +32,17 @@ const ContentDetail = () => {
       setCrew(credits.crew);
     }
   }, [credits]);
+
+  if (contentDetailIsLoading || creditsIsLoading) return <Spinner />;
+
+  if (contentDetailError || creditsError)
+    return (
+      <p>
+        {contentDetailError
+          ? contentDetailError.message
+          : creditsError?.message}
+      </p>
+    );
 
   return (
     <div className="flex flex-col my-10 gap-0">
