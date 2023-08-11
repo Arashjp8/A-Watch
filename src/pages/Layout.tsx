@@ -20,7 +20,11 @@ const Layout = () => {
         } overflow-hidden `}
       >
         <Header />
-        <main className={`${isSearchbarOpen ? "opacity-20" : "opacity-100"}`}>
+        <main
+          className={`${
+            isSearchbarOpen ? "opacity-20" : "opacity-100"
+          } h-[100vh]`}
+        >
           <Outlet />
         </main>
       </div>

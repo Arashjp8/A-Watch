@@ -1,4 +1,5 @@
 import { Movie, TvShow } from "../pages/Home";
+import Spinner from "./Spinner";
 import ContentCard from "./content/ContentCard";
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
   error: Error | null;
 }
 const HorizontalScroll = ({ items, isLoading, error }: Props) => {
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spinner />;
 
   if (error) return <p>{error.message}</p>;
 
