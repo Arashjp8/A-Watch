@@ -6,6 +6,7 @@ import HorizontalScroll from "../components/HorizontalScroll";
 import { useSelectedIconStore } from "../components/sidebar/store";
 import usePopularMovies from "../hooks/usePopularMovies";
 import { useEffect } from "react";
+import usePopularTvShows from "../hooks/usePopularTvShows";
 
 export interface Movie {
   id: number;
@@ -28,11 +29,20 @@ export interface TvShow {
 }
 
 const Home = () => {
-  const { data, isLoading, error } = usePopularMovies();
+  const {
+    data: movies,
+    isLoading: movieIsLoading,
+    error: movieError,
+  } = usePopularMovies();
+  const {
+    data: tvShows,
+    isLoading: tvShowsIsLoading,
+    error: tvShowsError,
+  } = usePopularTvShows();
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(movies);
+  }, [movies]);
 
   const { setSelectedIcon } = useSelectedIconStore();
 
@@ -49,13 +59,13 @@ const Home = () => {
           Movies
         </Link>
       </h3>
-      <HorizontalScroll movies={data?.results} />
+      <HorizontalScroll movies={movies?.results} />
       <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
         <Link to="/tvshows" onClick={() => setSelectedIcon("Tv Shows")}>
           Tv Shows
         </Link>
       </h3>
-      <HorizontalScroll tvShows={tvShows} />
+      <HorizontalScroll tvShows={tvShows?.results} />
     </>
   );
 };
