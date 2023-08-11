@@ -18,7 +18,7 @@ const SideBar = () => {
         >
           <SidebarContent />
           <button
-            className="sidebar-icons rounded-3xl text-red-500 bg-gray-800 hover:bg-red-600 hover:text-white hover:rounded-xl"
+            className="sidebar-icons rounded-3xl bg-red-600 text-white hover:rounded-xl"
             onClick={() => closeSidebar()}
           >
             <AiOutlineClose />
