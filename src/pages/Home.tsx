@@ -7,6 +7,8 @@ import { useSelectedIconStore } from "../components/sidebar/store";
 import usePopularMovies from "../hooks/usePopularMovies";
 import { useEffect } from "react";
 import usePopularTvShows from "../hooks/usePopularTvShows";
+import useTrendingMovies from "../hooks/useTrendingMovies";
+import useTrendingTvShows from "../hooks/useTrendingTvShows";
 
 export interface Movie {
   id: number;
@@ -34,26 +36,41 @@ const Home = () => {
     isLoading: movieIsLoading,
     error: movieError,
   } = usePopularMovies();
+
   const {
     data: tvShows,
     isLoading: tvShowsIsLoading,
     error: tvShowsError,
   } = usePopularTvShows();
 
-  useEffect(() => {
-    console.log(movies);
-  }, [movies]);
+  const {
+    data: trendingMovies,
+    isLoading: trendingMoviesIsLoading,
+    error: trendingMoviesError,
+  } = useTrendingMovies();
+
+  const {
+    data: trendingTvShows,
+    isLoading: trendingTvShowsIsLoading,
+    error: trendingTvShowsError,
+  } = useTrendingTvShows();
 
   const { setSelectedIcon } = useSelectedIconStore();
 
   return (
     <>
       <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/movies" onClick={() => setSelectedIcon("Trending")}>
-          Trending
+        <Link to="/trending" onClick={() => setSelectedIcon("Trending")}>
+          Trending Movies
         </Link>
       </h3>
-      <HorizontalScroll movies={trendingMovies} />
+      <HorizontalScroll movies={trendingMovies?.results} />
+      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
+        <Link to="/trending" onClick={() => setSelectedIcon("Trending")}>
+          Trending Tv shows
+        </Link>
+      </h3>
+      <HorizontalScroll tvShows={trendingTvShows?.results} />
       <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
         <Link to="/movies" onClick={() => setSelectedIcon("Movies")}>
           Movies
