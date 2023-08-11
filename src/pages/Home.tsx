@@ -1,11 +1,6 @@
-import { movies } from "../data/movies";
-import { tvShows } from "../data/tvShows";
-import { Link } from "react-router-dom";
-import { trendingMovies } from "../data/trendingMovies";
 import HorizontalScroll from "../components/HorizontalScroll";
-import { useSelectedIconStore } from "../components/sidebar/store";
+import Section from "../components/Section";
 import usePopularMovies from "../hooks/usePopularMovies";
-import { useEffect } from "react";
 import usePopularTvShows from "../hooks/usePopularTvShows";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTrendingTvShows from "../hooks/useTrendingTvShows";
@@ -55,34 +50,32 @@ const Home = () => {
     error: trendingTvShowsError,
   } = useTrendingTvShows();
 
-  const { setSelectedIcon } = useSelectedIconStore();
-
   return (
     <>
-      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/trending" onClick={() => setSelectedIcon("Trending")}>
-          Trending Movies
-        </Link>
-      </h3>
-      <HorizontalScroll movies={trendingMovies?.results} />
-      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/trending" onClick={() => setSelectedIcon("Trending")}>
-          Trending Tv shows
-        </Link>
-      </h3>
-      <HorizontalScroll tvShows={trendingTvShows?.results} />
-      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/movies" onClick={() => setSelectedIcon("Movies")}>
-          Movies
-        </Link>
-      </h3>
-      <HorizontalScroll movies={movies?.results} />
-      <h3 className="mt-10 mb-0 text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3 border-b-[1px] border-white/60">
-        <Link to="/tvshows" onClick={() => setSelectedIcon("Tv Shows")}>
-          Tv Shows
-        </Link>
-      </h3>
-      <HorizontalScroll tvShows={tvShows?.results} />
+      <Section
+        title="Trending Movies"
+        link="/trending"
+        selectedIcon="Trending"
+        content={<HorizontalScroll movies={trendingMovies?.results} />}
+      />
+      <Section
+        title="Trending Tv Shows"
+        link="/trending"
+        selectedIcon="Trending"
+        content={<HorizontalScroll tvShows={trendingTvShows?.results} />}
+      />
+      <Section
+        title="Movies"
+        link="/movies"
+        selectedIcon="Movies"
+        content={<HorizontalScroll movies={movies?.results} />}
+      />
+      <Section
+        title="Tv Shows"
+        link="/tvshows"
+        selectedIcon="Tv Shows"
+        content={<HorizontalScroll tvShows={tvShows?.results} />}
+      />
     </>
   );
 };
