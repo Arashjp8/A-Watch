@@ -1,3 +1,4 @@
+import React from "react";
 import HorizontalScroll from "../components/HorizontalScroll";
 import Section from "../components/Section";
 import usePopularMovies from "../hooks/usePopularMovies";
@@ -36,49 +37,57 @@ const Home = () => {
         title="Trending Movies"
         link="/trending"
         selectedIcon="Trending"
-        content={
-          <HorizontalScroll
-            items={trendingMovies?.results}
-            isLoading={trendingMoviesIsLoading}
-            error={trendingMoviesError}
-          />
-        }
+        content={trendingMovies?.pages.slice(0, 1).map((page, index) => (
+          <React.Fragment key={index}>
+            <HorizontalScroll
+              items={page?.results}
+              isLoading={trendingMoviesIsLoading}
+              error={trendingMoviesError}
+            />
+          </React.Fragment>
+        ))}
       />
       <Section
         title="Trending Tv Shows"
         link="/trending"
         selectedIcon="Trending"
-        content={
-          <HorizontalScroll
-            items={trendingTvShows?.results}
-            isLoading={trendingTvShowsIsLoading}
-            error={trendingTvShowsError}
-          />
-        }
+        content={trendingTvShows?.pages.slice(0, 1).map((page, index) => (
+          <React.Fragment key={index}>
+            <HorizontalScroll
+              items={page?.results}
+              isLoading={trendingTvShowsIsLoading}
+              error={trendingTvShowsError}
+            />
+          </React.Fragment>
+        ))}
       />
       <Section
         title="Movies"
         link="/movies"
         selectedIcon="Movies"
-        content={
-          <HorizontalScroll
-            items={movies?.results}
-            isLoading={movieIsLoading}
-            error={movieError}
-          />
-        }
+        content={movies?.pages.slice(0, 1).map((page, index) => (
+          <React.Fragment key={index}>
+            <HorizontalScroll
+              items={page?.results}
+              isLoading={movieIsLoading}
+              error={movieError}
+            />
+          </React.Fragment>
+        ))}
       />
       <Section
         title="Tv Shows"
         link="/tvshows"
         selectedIcon="Tv Shows"
-        content={
-          <HorizontalScroll
-            items={tvShows?.results}
-            isLoading={tvShowsIsLoading}
-            error={tvShowsError}
-          />
-        }
+        content={tvShows?.pages.slice(0, 1).map((page, index) => (
+          <React.Fragment key={index}>
+            <HorizontalScroll
+              items={page?.results}
+              isLoading={tvShowsIsLoading}
+              error={tvShowsError}
+            />
+          </React.Fragment>
+        ))}
       />
     </>
   );
