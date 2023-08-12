@@ -1,13 +1,12 @@
 import React from "react";
-import HorizontalScroll from "../components/HorizontalScroll";
-import Section from "../components/Section";
 import Spinner from "../components/Spinner";
-import usePopularMovies from "../hooks/usePopularMovies";
-import usePopularTvShows from "../hooks/usePopularTvShows";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTrendingTvShows from "../hooks/useTrendingTvShows";
+import HorizontalScroll from "../components/HorizontalScroll";
+import Section from "../components/Section";
 
-const Home = () => {
+//* trending page should have an option to direct user to /trending/movies or /trending/tvshows
+const Trending = () => {
   const sections = [
     {
       title: "Trending Movies",
@@ -15,27 +14,15 @@ const Home = () => {
       hookResponse: useTrendingMovies(),
     },
     {
-      title: "Movies",
-      link: "/movies",
-      hookResponse: usePopularMovies(),
-    },
-    {
       title: "Trending Tv Shows",
       link: "/trending/tvshows",
       hookResponse: useTrendingTvShows(),
     },
-    {
-      title: "Tv Shows",
-      link: "/tvshows",
-      hookResponse: usePopularTvShows(),
-    },
   ];
-
   return (
     <>
       {sections.map(({ title, link, hookResponse }) => {
         const { data: items, isLoading, error } = hookResponse;
-
         if (isLoading)
           return (
             <div key={title} className="h-[100vh]">
@@ -53,7 +40,7 @@ const Home = () => {
             selectedIcon={title}
             content={items?.pages.slice(0, 1).map((page, index) => (
               <React.Fragment key={index}>
-                <HorizontalScroll items={page?.results} title={title} />
+                <HorizontalScroll items={page?.results} />
               </React.Fragment>
             ))}
           />
@@ -63,4 +50,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Trending;

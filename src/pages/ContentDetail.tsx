@@ -4,7 +4,7 @@ import VoteAverage from "../components/VoteAverage";
 import CastAndCrewCard from "../components/CastAndCrewCard";
 import ContentInfo from "../components/content/ContentInfo";
 import useSelectedMovieId from "../components/content/store";
-import { isMovie } from "../components/content/ContentCard";
+import { isMovie } from "../components/content/ContentVerticalCard";
 import { CastAndCrew } from "../interfaces/Credits";
 import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";

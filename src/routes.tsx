@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import Search from "./pages/Search";
 import WatchList from "./pages/WatchList";
+import Trending from "./pages/Trending";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/trendingmovie", element: <Contents /> },
-      { path: "/trendingtv", element: <Contents /> },
+      { path: "/trending/movies", element: <Contents /> },
+      { path: "/trending/tvshows", element: <Contents /> },
+      { path: "/trending", element: <Trending /> },
       { path: "/movies", element: <Contents /> },
       { path: "/tvshows", element: <Contents /> },
       { path: "/tvshows/:id", element: <ContentDetail /> },

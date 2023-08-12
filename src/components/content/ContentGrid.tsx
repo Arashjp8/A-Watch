@@ -3,7 +3,7 @@ import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
 import { FetchResponse } from "../../services/apiClient";
 import { InfiniteData } from "@tanstack/react-query";
-import ContentCard from "./ContentCard";
+import ContentVerticalCard from "./ContentVerticalCard";
 
 interface Props {
   data?: InfiniteData<FetchResponse<Movie | TvShow>>;
@@ -15,7 +15,7 @@ const ContentGrid = ({ data }: Props) => {
       {data?.pages.map((page, index) => (
         <React.Fragment key={index}>
           {page.results.map((movie) => (
-            <ContentCard data={movie} key={movie.id} />
+            <ContentVerticalCard data={movie} key={movie.id} />
           ))}
         </React.Fragment>
       ))}

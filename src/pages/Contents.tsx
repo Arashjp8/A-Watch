@@ -19,8 +19,8 @@ const Contents = () => {
   > = {
     "/movies": usePopularMovies(),
     "/tvshows": usePopularTvShows(),
-    "/trendingmovie": useTrendingMovies(),
-    "/trendingtv": useTrendingTvShows(),
+    "/trending/movies": useTrendingMovies(),
+    "/trending/tvshows": useTrendingTvShows(),
   };
 
   const location = useLocation();

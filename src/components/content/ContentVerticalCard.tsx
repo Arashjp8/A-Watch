@@ -14,7 +14,7 @@ export const isMovie = (data: Movie | TvShow): data is Movie => {
   return (data as Movie).title !== undefined;
 };
 
-const ContentCard = ({ data, styleProp }: Props) => {
+const ContentVerticalCard = ({ data, styleProp }: Props) => {
   const navigate = useNavigate();
   const { changeSelectedContentId, isAMovie, isATvShow } =
     useSelectedContentId();
@@ -40,7 +40,7 @@ const ContentCard = ({ data, styleProp }: Props) => {
       <img
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
         alt="image"
-        className="w-52 rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear absoloute h-[312px] object-cover"
+        className="w-full rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear absoloute h-[312px] object-cover"
       />
       <div className="absolute top-72 left-0 flex flex-col gap-3 h-[250px]">
         <VoteAverage data={data} style="w-10 h-10" />
@@ -57,4 +57,4 @@ const ContentCard = ({ data, styleProp }: Props) => {
   );
 };
 
-export default ContentCard;
+export default ContentVerticalCard;

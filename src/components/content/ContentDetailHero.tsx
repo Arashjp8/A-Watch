@@ -1,6 +1,6 @@
 import { TvShow } from "../../interfaces/TvShow";
 import { Movie } from "../../interfaces/Movie";
-import { isMovie } from "./ContentCard";
+import { isMovie } from "./ContentVerticalCard";
 
 interface Props {
   data?: Movie | TvShow;
