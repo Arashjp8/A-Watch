@@ -1,12 +1,35 @@
 import SideBar from "../components/sidebar/SideBar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/header/Header";
 import useSearchbarToggleStore from "../components/header/store";
-import { useSidebarToggleStore } from "../components/sidebar/store";
+import {
+  useSelectedIconStore,
+  useSidebarToggleStore,
+} from "../components/sidebar/store";
+import { useEffect } from "react";
 
 const Layout = () => {
   const isSearchbarOpen = useSearchbarToggleStore((s) => s.isSearchbarOpen);
   const isSidebarOpen = useSidebarToggleStore((s) => s.isSidebarOpen);
+
+  const setSelectedIcon = useSelectedIconStore((s) => s.setSelectedIcon);
+  const location = useLocation();
+
+  const iconMappings: Record<string, string> = {
+    "/search": "Search",
+    "/trending": "Trending",
+    "/watchlist": "Watchlist",
+    "/movies": "Movies",
+    "/tvshows": "Tv Shows",
+  };
+
+  useEffect(() => {
+    const selectedIcon = Object.keys(iconMappings).find((path) =>
+      location.pathname.includes(path)
+    );
+
+    setSelectedIcon(iconMappings[selectedIcon ?? ""] || "Home");
+  }, [location]);
 
   return (
     <div
