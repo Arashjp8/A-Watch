@@ -14,7 +14,7 @@ const Section = ({ title, link, selectedIcon, content }: Props) => {
   const { setSelectedIcon } = useSelectedIconStore();
 
   return (
-    <section>
+    <section className="w-full">
       <span
         onClick={() => setSelectedIcon(selectedIcon)}
         className="mt-10 mb-0 flex flex-row justify-between items-center border-b-[1px] border-white/60 "

@@ -5,7 +5,6 @@ import useTrendingTvShows from "../hooks/useTrendingTvShows";
 import HorizontalScroll from "../components/HorizontalScroll";
 import Section from "../components/Section";
 
-//* trending page should have an option to direct user to /trending/movies or /trending/tvshows
 const Trending = () => {
   const sections = [
     {

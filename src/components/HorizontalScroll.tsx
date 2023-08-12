@@ -12,8 +12,8 @@ const HorizontalScroll = ({ items, title }: Props) => {
   const location = useLocation();
 
   return (
-    <div className="flex overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
-      <div className="flex flex-nowrap">
+    <div className="flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
+      <div className="flex flex-nowrap w-full">
         {items?.map((item, index) => (
           <div
             key={index}
