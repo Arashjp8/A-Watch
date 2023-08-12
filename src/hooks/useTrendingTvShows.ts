@@ -6,7 +6,18 @@ import { trendingTvShowsAPIURL } from "../services/config";
 const useTrendingTvShows = () => {
   return useInfiniteQuery<FetchResponse<TvShow>, Error>({
     queryKey: ["trending-tvshows"],
-    queryFn: () => apiClient(trendingTvShowsAPIURL).then((res) => res.data),
+    queryFn: ({ pageParam = 1 }) =>
+      apiClient(trendingTvShowsAPIURL, {
+        params: {
+          page: pageParam,
+        },
+      }).then((res) => res.data),
+    keepPreviousData: true,
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.total_pages !== allPages.length
+        ? lastPage.page + 1
+        : undefined;
+    },
     staleTime: 24 * 60 * 60 * 1000, // 24h
   });
 };

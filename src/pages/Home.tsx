@@ -11,30 +11,30 @@ const Home = () => {
   const sections = [
     {
       title: "Trending Movies",
-      link: "/trending",
-      fetchedData: useTrendingMovies(),
+      link: "/trendingmovie",
+      hookResponse: useTrendingMovies(),
     },
     {
       title: "Trending Tv Shows",
-      link: "/trending",
-      fetchedData: useTrendingTvShows(),
+      link: "/trendingtv",
+      hookResponse: useTrendingTvShows(),
     },
     {
       title: "Movies",
       link: "/movies",
-      fetchedData: usePopularMovies(),
+      hookResponse: usePopularMovies(),
     },
     {
       title: "Tv Shows",
       link: "/tvshows",
-      fetchedData: usePopularTvShows(),
+      hookResponse: usePopularTvShows(),
     },
   ];
 
   return (
     <>
-      {sections.map(({ title, link, fetchedData }) => {
-        const { data: items, isLoading, error } = fetchedData;
+      {sections.map(({ title, link, hookResponse }) => {
+        const { data: items, isLoading, error } = hookResponse;
 
         if (isLoading)
           return (
