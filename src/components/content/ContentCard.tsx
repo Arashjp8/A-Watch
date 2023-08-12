@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
 import VoteAverage from "../VoteAverage";
+import { useSelectedIconStore } from "../sidebar/store";
 import useSelectedContentId from "./store";
 
 interface Props {
@@ -17,6 +18,7 @@ const ContentCard = ({ data, styleProp }: Props) => {
   const navigate = useNavigate();
   const { changeSelectedContentId, isAMovie, isATvShow } =
     useSelectedContentId();
+  const { setSelectedIcon } = useSelectedIconStore();
 
   return (
     <div
@@ -25,10 +27,12 @@ const ContentCard = ({ data, styleProp }: Props) => {
           navigate(`/movies/:${data.id}`);
           changeSelectedContentId(data.id);
           isAMovie();
+          setSelectedIcon("Movies");
         } else if (!isMovie(data)) {
           navigate(`/tvshows/:${data.id}`);
           changeSelectedContentId(data.id);
           isATvShow();
+          setSelectedIcon("Tv Shows");
         }
       }}
       className={`${styleProp} group cursor-pointer relative w-52 h-[480px] flex flex-col items-center overflow-hidden`}

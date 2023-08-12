@@ -33,6 +33,10 @@ const ContentDetail = () => {
     }
   }, [credits]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (contentDetailIsLoading || creditsIsLoading)
     return (
       <div className="h-[100vh]">
