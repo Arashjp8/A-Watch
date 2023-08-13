@@ -52,7 +52,7 @@ const Header = () => {
       <h2
         className={`${
           isSearchbarOpen ? "opacity-20" : "opacity-100"
-        } text-5xl font-bold`}
+        } text-3xl ssm:text-5xl font-bold`}
       >
         {selectedIcon}
       </h2>

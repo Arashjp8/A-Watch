@@ -19,12 +19,12 @@ const Section = ({ title, link, selectedIcon, content }: Props) => {
         onClick={() => setSelectedIcon(selectedIcon)}
         className="mt-10 mb-0 flex flex-row justify-between items-center border-b-[1px] border-white/60 "
       >
-        <h3 className="text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3">
+        <h3 className="text-2xl ssm:text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3">
           <Link to={link}>{title}</Link>
         </h3>
         <Link
           to={link}
-          className="mb-1 text-sm font-semibold text-white bg-blue-600 hover:bg-white hover:text-blue-600 py-2 px-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center"
+          className="mb-1 text-xs ssm:text-sm font-semibold text-white bg-blue-600 hover:bg-white hover:text-blue-600 py-2 px-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center"
         >
           <p>More</p>
           <TbArrowRight size={18} />
