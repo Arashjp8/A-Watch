@@ -7,6 +7,13 @@ export interface FetchResponse<T> {
   total_results?: number;
 }
 
+export interface SearchFetchResponse<T, U> {
+  page: number;
+  results: [T, U];
+  total_pages?: number;
+  total_results?: number;
+}
+
 const apiClient = (url: string, config?: AxiosRequestConfig) => {
   axios.create({
     params: {

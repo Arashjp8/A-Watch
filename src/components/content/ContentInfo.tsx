@@ -9,7 +9,9 @@ const ContentInfo = ({ title, content }: Props) => {
     <section
       className={`${title === "Cast" ? "col-span-1 xl:col-span-2" : ""}`}
     >
-      <h3 className="text-white text-3xl font-semibold mb-5">{title}: </h3>
+      <h3 className="text-white text-2xl md:text-3xl font-semibold mb-5">
+        {title}:{" "}
+      </h3>
       {content}
     </section>
   );

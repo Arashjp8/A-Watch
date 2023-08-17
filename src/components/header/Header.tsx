@@ -1,5 +1,5 @@
 import useSearchbarToggleStore from "./store";
-import SearchBar from "../SearchBar";
+import SearchBar from "../search/SearchBar";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useSelectedIconStore, useSidebarToggleStore } from "../sidebar/store";
 

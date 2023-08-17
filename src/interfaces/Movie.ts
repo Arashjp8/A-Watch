@@ -6,4 +6,5 @@ export interface Movie {
   poster_path: string;
   vote_average: number;
   release_date: string;
+  media_type: string;
 }
