@@ -6,7 +6,7 @@ import useSearch from "../hooks/useSearch";
 
 const Search = () => {
   const { data, isLoading, error, fetchNextPage, hasNextPage } = useSearch();
-  const { searchQuery } = useSearchQuery();
+  const searchQuery = useSearchQuery((s) => s.searchQuery);
 
   if (isLoading)
     return (

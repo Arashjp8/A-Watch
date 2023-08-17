@@ -15,7 +15,7 @@ const useSearch = () => {
       apiClient(searchAPIURL, { params: { page: pageParam } }).then(
         (res) => res.data
       ),
-    keepPreviousData: true,
+    keepPreviousData: false,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.total_pages !== allPages.length
         ? lastPage.page + 1
