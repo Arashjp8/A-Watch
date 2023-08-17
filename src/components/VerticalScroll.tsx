@@ -3,6 +3,7 @@ import { Movie } from "../interfaces/Movie";
 import ContentVerticalCard from "./content/ContentVerticalCard";
 import ContentHorizontalCard from "./content/ContentHorizontalCard";
 import { useEffect, useState } from "react";
+import SearchPageCard from "./search/SearchPageCard";
 
 interface Props {
   items?: Movie[] | TvShow[] | any[];
@@ -35,7 +36,7 @@ const VerticalScroll = ({ items }: Props) => {
           {isSmallScreen ? (
             <ContentVerticalCard data={item} />
           ) : (
-            <ContentHorizontalCard data={item} />
+            <SearchPageCard data={item} />
           )}
         </div>
       ))}

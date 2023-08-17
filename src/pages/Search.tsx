@@ -18,7 +18,7 @@ const Search = () => {
         <div key={index} className="grid grid-cols-2">
           <section>
             <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
-              Movie
+              Movies
             </h3>
             <VerticalScroll
               items={page.results.filter((item) => item.media_type === "movie")}
@@ -26,7 +26,7 @@ const Search = () => {
           </section>
           <section>
             <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
-              Tv Show
+              Tv Shows
             </h3>
             <VerticalScroll
               items={page.results.filter((item) => item.media_type === "tv")}
