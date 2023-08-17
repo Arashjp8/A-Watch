@@ -730,6 +730,10 @@ video {
   margin-top: 0.75rem;
 }
 
+.mb-6{
+  margin-bottom: 1.5rem;
+}
+
 .block{
   display: block;
 }
@@ -824,6 +828,10 @@ video {
 
 .h-screen{
   height: 100vh;
+}
+
+.h-\[100\%\]{
+  height: 100%;
 }
 
 .w-10{
@@ -928,6 +936,10 @@ video {
   cursor: pointer;
 }
 
+.resize{
+  resize: both;
+}
+
 .snap-mandatory{
   --tw-scroll-snap-strictness: mandatory;
 }
@@ -1017,6 +1029,10 @@ video {
 
 .overflow-x-scroll{
   overflow-x: scroll;
+}
+
+.overflow-y-scroll{
+  overflow-y: scroll;
 }
 
 .rounded-3xl{
@@ -1217,6 +1233,14 @@ video {
 
 .pt-5{
   padding-top: 1.25rem;
+}
+
+.pb-5{
+  padding-bottom: 1.25rem;
+}
+
+.pb-10{
+  padding-bottom: 2.5rem;
 }
 
 .text-left{

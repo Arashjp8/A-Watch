@@ -1,5 +1,5 @@
 import Spinner from "../components/Spinner";
-import ContentHorizontalCard from "../components/content/ContentHorizontalCard";
+import VerticalScroll from "../components/VerticalScroll";
 import useSearch from "../hooks/useSearch";
 
 const Search = () => {
@@ -15,19 +15,23 @@ const Search = () => {
   return (
     <>
       {data?.pages.map((page, index) => (
-        <div key={index} className="flex flex-col">
-          <h2>movie</h2>
-          {page?.results
-            .filter((item) => item.media_type === "movie")
-            .map((item, index) => (
-              <ContentHorizontalCard key={index} data={item} />
-            ))}
-          <h2>tv</h2>
-          {page?.results
-            .filter((item) => item.media_type === "tv")
-            .map((item, index) => (
-              <ContentHorizontalCard key={index} data={item} />
-            ))}
+        <div key={index} className="grid grid-cols-2">
+          <section>
+            <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
+              Movie
+            </h3>
+            <VerticalScroll
+              items={page.results.filter((item) => item.media_type === "movie")}
+            />
+          </section>
+          <section>
+            <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
+              Tv Show
+            </h3>
+            <VerticalScroll
+              items={page.results.filter((item) => item.media_type === "tv")}
+            />
+          </section>
         </div>
       ))}
     </>
