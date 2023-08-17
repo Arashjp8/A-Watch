@@ -1,9 +1,11 @@
 import Spinner from "../components/Spinner";
 import VerticalScroll from "../components/VerticalScroll";
+import useSearchQuery from "../components/search/store";
 import useSearch from "../hooks/useSearch";
 
 const Search = () => {
   const { data, isLoading, error } = useSearch();
+  const { searchQuery } = useSearchQuery();
 
   if (isLoading)
     <div className="h-[100vh]">
@@ -16,7 +18,7 @@ const Search = () => {
     <>
       {data?.pages.map((page, index) => (
         <div key={index} className="grid grid-cols-2">
-          <section>
+          {/* <section>
             <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
               Movies
             </h3>
@@ -31,6 +33,12 @@ const Search = () => {
             <VerticalScroll
               items={page.results.filter((item) => item.media_type === "tv")}
             />
+          </section> */}
+          <section>
+            <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
+              Results for <span className="text-white">{searchQuery}</span>
+            </h3>
+            <VerticalScroll items={page.results} />
           </section>
         </div>
       ))}

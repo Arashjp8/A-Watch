@@ -1,13 +1,11 @@
 import { TvShow } from "../interfaces/TvShow";
 import { Movie } from "../interfaces/Movie";
 import ContentVerticalCard from "./content/ContentVerticalCard";
-import ContentHorizontalCard from "./content/ContentHorizontalCard";
 import { useEffect, useState } from "react";
 import SearchPageCard from "./search/SearchPageCard";
 
 interface Props {
   items?: Movie[] | TvShow[] | any[];
-  title?: string;
 }
 
 const VerticalScroll = ({ items }: Props) => {

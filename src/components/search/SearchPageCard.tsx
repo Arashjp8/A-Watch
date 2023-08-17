@@ -5,6 +5,7 @@ import VoteAverage from "../VoteAverage";
 import { isMovie } from "../content/ContentVerticalCard";
 import useSelectedContentId from "../content/store";
 import { useSelectedIconStore } from "../sidebar/store";
+import ContentType from "../ContentType";
 
 interface Props {
   data: Movie | TvShow;
@@ -58,9 +59,11 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
               {isMovie(data) ? data.release_date : data.first_air_date}
             </p>
           </span>
+          <ContentType data={data} />
         </section>
         <p className="hidden xl:block text-sm xl:text-lg max-w-[200px] font-semibold text-left text-white/80 mx-5">
-          Overview: {data.overview.slice(0, 100) + "..."}
+          <h5 className="font-bold">Overview:</h5>{" "}
+          {data.overview.slice(0, 100) + "..."}
         </p>
       </div>
     </div>
