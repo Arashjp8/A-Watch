@@ -32,19 +32,21 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
           setSelectedIcon("Tv Shows");
         }
       }}
-      className={`${styleProp} group relative w-72 xl:w-[680px] h-[450px] cursor-pointer overflow-hidden`}
+      className={`${styleProp} group relative w-72 xl:w-full h-[450px] cursor-pointer overflow-hidden`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
         alt="backdrop"
         className="absolute z-0 w-full h-[380px] object-cover rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"
       />
-      <div className="absolute w-full h-[380px] flex flex-row gap-3 bg-black/90 rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"></div>
-      <div className="absolute bottom-40 left-10 flex items-center gap-5 xl:gap-10">
+      <div className="absolute w-full h-[380px] flex z-10 bg-black/90 rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"></div>
+      <div
+        className={`absolute bottom-32 left-10 z-20 flex flex-row justify-between items-center gap-5 xl:gap-96`}
+      >
         <img
           src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
           alt="image"
-          className="w-36 min-w-36 h-[212px] rounded-3xl object-cover border-[1px] border-blue-400"
+          className="w-48 min-w-44 h-[282px] rounded-3xl object-cover border-[1px] border-blue-400"
         />
         <section className="flex flex-col gap-1 xl:gap-3">
           <VoteAverage
@@ -61,10 +63,10 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
           </span>
           <ContentType data={data} />
         </section>
-        <p className="hidden xl:block text-sm xl:text-lg max-w-[200px] font-semibold text-left text-white/80 mx-5">
+        <div className="hidden xl:block text-sm xl:text-lg max-w-[200px] font-semibold text-left text-white/80 mx-5">
           <h5 className="font-bold">Overview:</h5>{" "}
-          {data.overview.slice(0, 100) + "..."}
-        </p>
+          {data.overview && data.overview.slice(0, 100) + "..."}
+        </div>
       </div>
     </div>
   );

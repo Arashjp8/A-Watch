@@ -1,10 +1,11 @@
+import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "../components/Spinner";
 import VerticalScroll from "../components/VerticalScroll";
 import useSearchQuery from "../components/search/store";
 import useSearch from "../hooks/useSearch";
 
 const Search = () => {
-  const { data, isLoading, error } = useSearch();
+  const { data, isLoading, error, fetchNextPage, hasNextPage } = useSearch();
   const { searchQuery } = useSearchQuery();
 
   if (isLoading)
@@ -14,34 +15,28 @@ const Search = () => {
 
   if (error) return <p className="h-[100vh]">{error.message}</p>;
 
+  const fetchCount =
+    data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+
   return (
     <>
-      {data?.pages.map((page, index) => (
-        <div key={index} className="grid grid-cols-2">
-          {/* <section>
-            <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
-              Movies
-            </h3>
-            <VerticalScroll
-              items={page.results.filter((item) => item.media_type === "movie")}
-            />
-          </section>
-          <section>
-            <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
-              Tv Shows
-            </h3>
-            <VerticalScroll
-              items={page.results.filter((item) => item.media_type === "tv")}
-            />
-          </section> */}
-          <section>
-            <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-5">
-              Results for <span className="text-white">{searchQuery}</span>
-            </h3>
-            <VerticalScroll items={page.results} />
-          </section>
-        </div>
-      ))}
+      <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-3">
+        Results for <span className="text-white">{searchQuery}</span>
+      </h3>
+      <InfiniteScroll
+        dataLength={fetchCount}
+        next={fetchNextPage}
+        hasMore={hasNextPage || false}
+        loader={<Spinner />}
+      >
+        {data?.pages.map((page, index) => (
+          <div key={index} className="flex flex-col">
+            <section>
+              <VerticalScroll items={page.results} />
+            </section>
+          </div>
+        ))}
+      </InfiniteScroll>
     </>
   );
 };

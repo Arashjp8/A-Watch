@@ -25,7 +25,7 @@ const VerticalScroll = ({ items }: Props) => {
   }, []);
 
   return (
-    <div className="flex flex-col h-[100%] overflow-y-scroll mt-10 mb-2 snap-mandatory snap-start">
+    <div className="flex flex-col border-2 border-yellow-600 h-[100%] overflow-y-scroll mt-10 mb-2 snap-mandatory snap-start">
       {items?.map((item, index) => (
         <div
           key={index}
