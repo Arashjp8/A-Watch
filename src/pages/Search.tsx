@@ -9,9 +9,11 @@ const Search = () => {
   const { searchQuery } = useSearchQuery();
 
   if (isLoading)
-    <div className="h-[100vh]">
-      <Spinner />
-    </div>;
+    return (
+      <div className="h-[100vh]">
+        <Spinner />
+      </div>
+    );
 
   if (error) return <p className="h-[100vh]">{error.message}</p>;
 
