@@ -748,6 +748,10 @@ video {
   left: 8rem;
 }
 
+.right-0{
+  right: 0px;
+}
+
 .z-0{
   z-index: 0;
 }
@@ -964,6 +968,10 @@ video {
   height: 282px;
 }
 
+.h-\[400px\]{
+  height: 400px;
+}
+
 .w-10{
   width: 2.5rem;
 }
@@ -1050,6 +1058,18 @@ video {
 
 .w-48{
   width: 12rem;
+}
+
+.w-\[50\%\]{
+  width: 50%;
+}
+
+.w-\[60\%\]{
+  width: 60%;
+}
+
+.w-\[70\%\]{
+  width: 70%;
 }
 
 .min-w-\[150px\]{

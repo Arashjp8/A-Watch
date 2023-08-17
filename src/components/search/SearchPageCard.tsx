@@ -37,7 +37,11 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
         alt="backdrop"
-        className="absolute z-0 w-full h-[380px] object-cover rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"
+        style={{
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 20%)",
+          maskImage: "linear-gradient(to right, transparent, black 20%)",
+        }}
+        className="absolute z-0 w-[70%] h-[380px] right-0 object-cover rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"
       />
       <div className="absolute w-full h-[380px] flex z-10 bg-black/90 group-hover:bg-black/80 rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"></div>
       <div
