@@ -35,7 +35,8 @@ const VerticalScroll = ({ items }: Props) => {
           className={`mb-6 ${index === items.length - 1 ? "mb-0" : ""}`}
         >
           {isSmallScreen ? (
-            <ContentVerticalCard data={item} />
+            // <ContentVerticalCard data={item} />
+            <SearchPageCard data={item} />
           ) : (
             <SearchPageCard data={item} />
           )}

@@ -22,7 +22,7 @@ const Search = () => {
 
   return (
     <>
-      <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-3">
+      <h3 className="text-2xl ssm:text-3xl text-white/60 font-light pb-3 border-b-[1px] border-white/60">
         Results for <span className="text-white">{searchQuery}</span>
       </h3>
       <InfiniteScroll

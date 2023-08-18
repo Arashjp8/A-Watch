@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ContentDetailHero from "../components/content/ContentDetailHero";
-import VoteAverage from "../components/VoteAverage";
 import CastAndCrewCard from "../components/CastAndCrewCard";
 import ContentInfo from "../components/content/ContentInfo";
 import useSelectedMovieId from "../components/content/store";
@@ -9,6 +8,7 @@ import { CastAndCrew } from "../interfaces/Credits";
 import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
 import Spinner from "../components/Spinner";
+import Gauge from "../components/Gauge";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -69,9 +69,7 @@ const ContentDetail = () => {
         />
         <ContentInfo
           title="Rating"
-          content={
-            <VoteAverage data={contentDetail} style="w-14 h-14 text-xl" />
-          }
+          content={<Gauge data={contentDetail} size="w-14 h-14 text-xl" />}
         />
         <ContentInfo
           title="Release Date"

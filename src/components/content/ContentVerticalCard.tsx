@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
-import VoteAverage from "../VoteAverage";
 import { useSelectedIconStore } from "../sidebar/store";
 import useSelectedContentId from "./store";
+import Gauge from "../Gauge";
 
 interface Props {
   data: Movie | TvShow;
@@ -43,7 +43,7 @@ const ContentVerticalCard = ({ data, styleProp }: Props) => {
         className="w-36 md:w-full h-[212px] md:h-[312px] rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear absoloute object-cover"
       />
       <div className="absolute top-48 md:top-72 left-0 flex flex-col gap-3 h-[250px]">
-        <VoteAverage data={data} style="w-10 h-10" />
+        <Gauge data={data} size="w-10 h-10" />
         <span className="flex flex-col gap-1">
           <p className="text-md font-bold text-left max-w-[152px] group-hover:text-blue-400 transition-all duration-75 ease-linear">
             {isMovie(data) ? data.title : data.name}
