@@ -46,7 +46,12 @@ const ContentHorizontalCard = ({ data, styleProp }: Props) => {
           className="w-36 min-w-36 h-[212px] rounded-3xl object-cover border-[1px] border-blue-400"
         />
         <section className="flex flex-col gap-1 xl:gap-3">
-          <Gauge data={data} size="w-10 h-10 xl:w-12 xl:h-12 xl:text-xl" />
+          <div className="hidden xl:block">
+            <Gauge data={data} size="w-12 h-12" />
+          </div>
+          <div className="block xl:hidden">
+            <Gauge data={data} size="w-10 h-10" />
+          </div>
           <span className="flex flex-col gap-1 mb-2 xl:mb-0">
             <h4 className="text-base xl:text-2xl font-bold text-left max-w-[320px] group-hover:text-blue-400 transition-all duration-75 ease-linear">
               {isMovie(data) ? data.title : data.name}
