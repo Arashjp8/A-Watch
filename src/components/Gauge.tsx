@@ -6,25 +6,29 @@ interface Props {
   size: string;
 }
 const Gauge = ({ data, size }: Props) => {
-  const numberSize = size.includes("w-14 h-14 text-xl")
-    ? 16
-    : size.includes("w-10 h-10 xl:w-14 xl:h-14")
-    ? 15
-    : size.includes("w-10 h-10 xl:w-12 xl:h-12 xl:text-xl")
-    ? 14
-    : size.includes("w-10 h-10")
-    ? 13
-    : 0;
+  const numberSize =
+    size === "w-14 h-14 text-xl"
+      ? 16
+      : size === "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
+      ? 15
+      : size === "w-10 h-10 xl:w-12 xl:h-12 xl:text-xl"
+      ? 14
+      : size === "w-10 h-10"
+      ? 13
+      : 0;
 
-  const strokeDasharray = size.includes("w-14 h-14 text-xl")
-    ? 157
-    : size.includes("w-10 h-10 xl:w-14 xl:h-14")
-    ? 156
-    : size.includes("w-10 h-10 xl:w-12 xl:h-12 xl:text-xl")
-    ? 135
-    : size.includes("w-10 h-10")
-    ? 115
-    : 0;
+  const strokeDasharray =
+    size === "w-14 h-14 text-xl"
+      ? 157
+      : size === "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
+      ? 159
+      : size === "w-10 h-10 xl:w-12 xl:h-12 xl:text-xl"
+      ? 135
+      : size === "w-10 h-10"
+      ? 115
+      : 0;
+
+  const strokeSize = size === "w-10 h-10" ? 3 : 4;
 
   let calc = 0;
   if (data)
@@ -48,7 +52,7 @@ const Gauge = ({ data, size }: Props) => {
                 : data.vote_average * 10 > 50
                 ? "stroke-yellow-400"
                 : "stroke-red-500"
-            } stroke-[4] translate-x-[5%] translate-y-[5%]`}
+            } stroke-[${strokeSize}] translate-x-[5%] translate-y-[5%]`}
             style={{
               strokeLinecap: "round",
               strokeDasharray: `${strokeDasharray}`,
@@ -62,7 +66,7 @@ const Gauge = ({ data, size }: Props) => {
               numberSize + 1
             }px] text-gray-600 group-hover:text-white font-bold transition-all duration-150`}
           >
-            {Math.floor(data.vote_average * 10)}
+            {data.vote_average ? Math.floor(data.vote_average * 10) : 0}
             <span className="text-[10px] text-gray-600 group-hover:text-white transition-all duration-150">
               %
             </span>

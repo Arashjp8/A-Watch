@@ -1436,6 +1436,10 @@ video {
   stroke-width: 4;
 }
 
+.stroke-\[3\]{
+  stroke-width: 3;
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
