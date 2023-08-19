@@ -1,16 +1,19 @@
-import { Movie } from "../interfaces/Movie";
-import { TvShow } from "../interfaces/TvShow";
+import { Movie } from "../../interfaces/Movie";
+import { TvShow } from "../../interfaces/TvShow";
+import useIsHoveredStore from "./store";
 
 interface Props {
   data?: Movie | TvShow;
   size: string;
 }
 const Gauge = ({ data, size }: Props) => {
+  const { isHovered } = useIsHoveredStore();
+
   const voteAverage = data?.vote_average
     ? Math.floor(data.vote_average * 10)
     : 0;
 
-  const numberSize =
+  const numberFontSize =
     size === "w-14 h-14 text-xl"
       ? 16
       : size === "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
@@ -32,7 +35,7 @@ const Gauge = ({ data, size }: Props) => {
       ? 115
       : 0;
 
-  const strokeSize = size === "w-10 h-10" ? 3 : 4;
+  const strokeSize = size === "w-10 h-10" ? "3" : "4";
 
   let calc = 0;
   if (data) calc = strokeDasharray - (strokeDasharray * voteAverage) / 100;
@@ -53,8 +56,9 @@ const Gauge = ({ data, size }: Props) => {
                 : data.vote_average * 10 >= 50
                 ? "stroke-yellow-400"
                 : "stroke-red-500"
-            } stroke-[${strokeSize}] translate-x-[5%] translate-y-[5%]`}
+            } translate-x-[5%] translate-y-[5%]`}
             style={{
+              strokeWidth: `${strokeSize}`,
               strokeLinecap: "round",
               strokeDasharray: `${strokeDasharray}`,
               strokeDashoffset: `${calc}`,
@@ -63,9 +67,12 @@ const Gauge = ({ data, size }: Props) => {
         </svg>
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
           <h2
-            className={`text-[${numberSize}px] group-hover:text-[${
-              numberSize + 1
-            }px] text-gray-500 group-hover:text-white font-bold transition-all duration-150`}
+            style={{
+              fontSize: isHovered
+                ? `${numberFontSize + 1}px`
+                : `${numberFontSize}px`,
+            }}
+            className={`text-gray-500 group-hover:text-white font-bold transition-all duration-150`}
           >
             {voteAverage}
             <span className="text-[10px] text-gray-500 group-hover:text-white transition-all duration-150">

@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
 import ContentType from "../ContentType";
-import Gauge from "../Gauge";
+import Gauge from "../gauge/Gauge";
 import { isMovie } from "../content/ContentVerticalCard";
 import useSelectedContentId from "../content/store";
 import { useSelectedIconStore } from "../sidebar/store";
+import useIsHoveredStore from "../gauge/store";
 
 interface Props {
   data: Movie | TvShow;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const SearchPageCard = ({ data, styleProp }: Props) => {
+  const { setHovered } = useIsHoveredStore();
   const navigate = useNavigate();
   const { changeSelectedContentId, isAMovie, isATvShow } =
     useSelectedContentId();
@@ -32,6 +34,8 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
           setSelectedIcon("Tv Shows");
         }
       }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       className={`${styleProp} group relative w-72 xl:w-full h-[450px] cursor-pointer overflow-hidden`}
     >
       <img

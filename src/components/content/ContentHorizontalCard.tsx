@@ -4,7 +4,8 @@ import { TvShow } from "../../interfaces/TvShow";
 import { useSelectedIconStore } from "../sidebar/store";
 import { isMovie } from "./ContentVerticalCard";
 import useSelectedContentId from "./store";
-import Gauge from "../Gauge";
+import Gauge from "../gauge/Gauge";
+import useIsHoveredStore from "../gauge/store";
 
 interface Props {
   data: Movie | TvShow;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const ContentHorizontalCard = ({ data, styleProp }: Props) => {
+  const { setHovered } = useIsHoveredStore();
   const navigate = useNavigate();
   const { changeSelectedContentId, isAMovie, isATvShow } =
     useSelectedContentId();
@@ -31,6 +33,8 @@ const ContentHorizontalCard = ({ data, styleProp }: Props) => {
           setSelectedIcon("Tv Shows");
         }
       }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       className={`${styleProp} group relative w-72 xl:w-[580px] h-[450px] cursor-pointer overflow-hidden`}
     >
       <img

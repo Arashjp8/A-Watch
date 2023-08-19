@@ -8,7 +8,7 @@ import { CastAndCrew } from "../interfaces/Credits";
 import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
 import Spinner from "../components/Spinner";
-import Gauge from "../components/Gauge";
+import Gauge from "../components/gauge/Gauge";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);

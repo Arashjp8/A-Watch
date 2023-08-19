@@ -24,6 +24,8 @@ const VerticalScroll = ({ items }: Props) => {
     };
   }, []);
 
+  const lengthIsOne = items?.length === 1;
+
   return (
     <div className="flex flex-col h-[100%] overflow-y-scroll mt-10 mb-2 snap-mandatory snap-start">
       {items?.length === 0 && (
@@ -32,7 +34,9 @@ const VerticalScroll = ({ items }: Props) => {
       {items?.map((item, index) => (
         <div
           key={index}
-          className={`mb-6 ${index === items.length - 1 ? "mb-0" : ""}`}
+          className={`mb-6 ${index === items.length - 1 ? "mb-0" : ""} ${
+            lengthIsOne ? "h-[100vh]" : ""
+          }`}
         >
           {isSmallScreen ? (
             <ContentVerticalCard data={item} />
