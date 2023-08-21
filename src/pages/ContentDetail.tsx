@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 import ContentDetailHero from "../components/content/ContentDetailHero";
 import CastAndCrewCard from "../components/CastAndCrewCard";
 import ContentInfo from "../components/content/ContentInfo";
-import useSelectedMovieId from "../components/content/store";
 import { isMovie } from "../components/content/ContentVerticalCard";
 import { CastAndCrew } from "../interfaces/Credits";
 import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
 import Spinner from "../components/Spinner";
 import Gauge from "../components/gauge/Gauge";
-import { TbPlus } from "react-icons/tb";
+import { TbCheck, TbPlus } from "react-icons/tb";
+import useBookmarkStore from "./store";
+import useSelectedContentId from "../components/content/store";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
   const [crew, setCrew] = useState<CastAndCrew[]>([]);
-  const { selectedContentId, content } = useSelectedMovieId();
+  const { selectedContentId, content } = useSelectedContentId();
   const {
     data: contentDetail,
     isLoading: contentDetailIsLoading,
@@ -26,6 +27,23 @@ const ContentDetail = () => {
     isLoading: creditsIsLoading,
     error: creditsError,
   } = useCredits(content, selectedContentId);
+
+  const {
+    isBookmarked,
+    changeIsBookmarkedToTrue,
+    bookmarkedContent,
+    bookmarkTheContent,
+    removeFromBookmarked,
+    checkContentBookmarked,
+  } = useBookmarkStore();
+
+  useEffect(() => {
+    console.log(bookmarkedContent);
+  }, [bookmarkedContent]);
+
+  useEffect(() => {
+    if (contentDetail) checkContentBookmarked(contentDetail);
+  }, [contentDetail]);
 
   useEffect(() => {
     if (credits) {
@@ -107,9 +125,33 @@ const ContentDetail = () => {
         />
         <ContentInfo title="Companies" content="" />
 
-        <button className="mb-1 text-xl max-w-[300px] font-semibold text-white bg-blue-600 hover:bg-white hover:text-blue-600 p-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center">
-          <p>Add it to your watchlist</p>
-          <TbPlus size={22} />
+        <button
+          onClick={() => {
+            changeIsBookmarkedToTrue();
+            if (!isBookmarked) {
+              bookmarkTheContent(contentDetail);
+            }
+            if (isBookmarked) {
+              removeFromBookmarked(contentDetail);
+            }
+          }}
+          className={`mb-1 text-xl font-semibold ${
+            isBookmarked
+              ? "text-white bg-green-600 max-w-[250px]"
+              : "text-white bg-blue-600 hover:bg-white hover:text-blue-600 max-w-[300px]"
+          } p-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center`}
+        >
+          {isBookmarked ? (
+            <>
+              <p>Added to watchlist</p>
+              <TbCheck size={22} />
+            </>
+          ) : (
+            <>
+              <p>Add it to your watchlist</p>
+              <TbPlus size={22} />
+            </>
+          )}
         </button>
       </div>
     </div>
