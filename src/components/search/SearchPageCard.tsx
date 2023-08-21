@@ -59,8 +59,14 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
           />
           <section className="flex flex-col gap-1 xl:gap-3">
             <span className="flex flex-col gap-1 mb-2 xl:mb-0">
-              <h4 className="text-base xl:text-2xl font-bold text-left max-w-[170px] group-hover:text-blue-400 transition-all duration-75 ease-linear">
-                {isMovie(data) ? data.title : data.name}
+              <h4 className="text-base xl:text-2xl font-bold text-left max-w-[170px] max-h-[96px] overflow-hidden  group-hover:text-blue-400 transition-all duration-75 ease-linear">
+                {isMovie(data)
+                  ? data.title.length > 25
+                    ? data.title.slice(0, 25) + "..."
+                    : data.title
+                  : data.name.length > 25
+                  ? data.name.slice(0, 25) + "..."
+                  : data.name}
               </h4>
               <p className="text-sm xl:text-lg text-left text-white/60 group-hover:text-white/90">
                 {isMovie(data) ? data.release_date : data.first_air_date}

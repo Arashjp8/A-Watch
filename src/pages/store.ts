@@ -17,10 +17,12 @@ const useBookmarkStore = create<BookmarkStore>((set) => ({
   bookmarkedContent: [],
   bookmarkTheContent: (content: TvShow | Movie) =>
     set((prev) => ({
+      isBookmarked: true,
       bookmarkedContent: [...prev.bookmarkedContent, content],
     })),
   removeFromBookmarked: (content: TvShow | Movie) =>
     set((prev) => ({
+      isBookmarked: false,
       bookmarkedContent: prev.bookmarkedContent.filter(
         (item) => item.id !== content.id
       ),

@@ -43,7 +43,7 @@ const ContentDetail = () => {
 
   useEffect(() => {
     if (contentDetail) checkContentBookmarked(contentDetail);
-  }, [contentDetail]);
+  }, [contentDetail, isBookmarked]);
 
   useEffect(() => {
     if (credits) {

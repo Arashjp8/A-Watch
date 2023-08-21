@@ -859,6 +859,10 @@ video {
   height: 100vh;
 }
 
+.max-h-\[96px\]{
+  max-height: 96px;
+}
+
 .w-10{
   width: 2.5rem;
 }
@@ -1112,6 +1116,10 @@ video {
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.overflow-y-hidden{
+  overflow-y: hidden;
 }
 
 .overflow-x-scroll{

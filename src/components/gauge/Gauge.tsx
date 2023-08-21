@@ -1,27 +1,24 @@
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
-import useIsHoveredStore from "./store";
 
 interface Props {
   data?: Movie | TvShow;
   size: string;
 }
 const Gauge = ({ data, size }: Props) => {
-  const { isHovered } = useIsHoveredStore();
-
   const voteAverage = data?.vote_average
     ? Math.floor(data.vote_average * 10)
     : 0;
 
   const numberFontSize =
     size === "w-14 h-14 text-xl"
-      ? 16
+      ? 17
       : size === "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
-      ? 15
+      ? 16
       : size === "w-12 h-12"
-      ? 14
+      ? 15
       : size === "w-10 h-10"
-      ? 13
+      ? 14
       : 0;
 
   const strokeDasharray =
@@ -68,9 +65,7 @@ const Gauge = ({ data, size }: Props) => {
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
           <h2
             style={{
-              fontSize: isHovered
-                ? `${numberFontSize + 1}px`
-                : `${numberFontSize}px`,
+              fontSize: `${numberFontSize}px`,
             }}
             className={`text-gray-500 group-hover:text-white font-bold transition-all duration-150`}
           >
