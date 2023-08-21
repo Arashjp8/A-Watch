@@ -9,6 +9,7 @@ import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
 import Spinner from "../components/Spinner";
 import Gauge from "../components/gauge/Gauge";
+import { TbPlus } from "react-icons/tb";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -104,6 +105,12 @@ const ContentDetail = () => {
             </span>
           }
         />
+        <ContentInfo title="Companies" content="" />
+
+        <button className="mb-1 text-xl max-w-[300px] font-semibold text-white bg-blue-600 hover:bg-white hover:text-blue-600 p-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center">
+          <p>Add it to your watchlist</p>
+          <TbPlus size={22} />
+        </button>
       </div>
     </div>
   );
