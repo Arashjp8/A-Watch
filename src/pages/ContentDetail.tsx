@@ -11,6 +11,7 @@ import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
 import { CastAndCrew } from "../interfaces/Credits";
 import useBookmarkStore from "./store";
+import useContentVideos from "../hooks/useContentVideos";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -27,6 +28,10 @@ const ContentDetail = () => {
     isLoading: creditsIsLoading,
     error: creditsError,
   } = useCredits(content, selectedContentId);
+
+  const { data: videos } = useContentVideos(content, selectedContentId);
+
+  const videoUrl = `https://www.youtube.com/embed/${videos?.results[2].key}`;
 
   const {
     isBookmarked,
@@ -84,6 +89,21 @@ const ContentDetail = () => {
         <ContentInfo
           title="Rating"
           content={<Gauge data={contentDetail} size="w-14 h-14 text-xl" />}
+        />
+        <ContentInfo
+          title="Trailer"
+          content={
+            <>
+              <iframe
+                width="560"
+                height="315"
+                src={videoUrl}
+                title={videos?.results[0].name}
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            </>
+          }
         />
         <ContentInfo
           title="Release Date"
