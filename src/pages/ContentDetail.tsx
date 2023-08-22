@@ -95,10 +95,16 @@ const ContentDetail = () => {
         <ContentInfo
           title="Videos"
           content={
-            <div className=" flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
+            <div className="flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
               <div className="flex flex-nowrap w-full mb-6 gap-5">
                 {videos?.results.slice(0, 10).map((video) => (
-                  <div className="w-full min-w-[260px] md:min-w-[520px] min-h-[230px] md:min-h-[400px]">
+                  <div
+                    className={`w-full min-w-[260px] md:min-w-[520px] min-h-[230px] ${
+                      videos.results.length === 1
+                        ? "md:min-h-[700px]"
+                        : "md:min-h-[400px]"
+                    }`}
+                  >
                     <iframe
                       src={`https://www.youtube.com/embed/${video.key}`}
                       width="100%"
