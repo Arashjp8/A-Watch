@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import ContentDetailHero from "../components/content/ContentDetailHero";
+import { TbBookmark, TbBookmarkFilled } from "react-icons/tb";
 import CastAndCrewCard from "../components/CastAndCrewCard";
+import Spinner from "../components/Spinner";
+import ContentDetailHero from "../components/content/ContentDetailHero";
 import ContentInfo from "../components/content/ContentInfo";
 import { isMovie } from "../components/content/ContentVerticalCard";
-import { CastAndCrew } from "../interfaces/Credits";
+import useSelectedContentId from "../components/content/store";
+import Gauge from "../components/gauge/Gauge";
 import useContentDetail from "../hooks/useContentDetail";
 import useCredits from "../hooks/useCredits";
-import Spinner from "../components/Spinner";
-import Gauge from "../components/gauge/Gauge";
-import { TbCheck, TbPlus } from "react-icons/tb";
+import { CastAndCrew } from "../interfaces/Credits";
 import useBookmarkStore from "./store";
-import useSelectedContentId from "../components/content/store";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -123,8 +123,12 @@ const ContentDetail = () => {
             </span>
           }
         />
-        <ContentInfo title="Companies" content="" />
-
+        <ContentInfo
+          title="Companies"
+          content={contentDetail.production_companies.map((company) => (
+            <p className="text-white/80 text-2xl font-light">{company.name}</p>
+          ))}
+        />
         <button
           onClick={() => {
             changeIsBookmarkedToTrue();
@@ -137,19 +141,19 @@ const ContentDetail = () => {
           }}
           className={`mb-1 text-xl font-semibold ${
             isBookmarked
-              ? "text-white bg-green-600 max-w-[250px]"
-              : "text-white bg-blue-600 hover:bg-white hover:text-blue-600 max-w-[300px]"
-          } p-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center`}
+              ? "text-white bg-green-600"
+              : "text-white bg-blue-600 hover:bg-white hover:text-blue-600"
+          } max-w-[300px] p-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center`}
         >
           {isBookmarked ? (
             <>
-              <p>Added to watchlist</p>
-              <TbCheck size={22} />
+              <p>Added to your watchlist</p>
+              <TbBookmarkFilled size={22} />
             </>
           ) : (
             <>
               <p>Add it to your watchlist</p>
-              <TbPlus size={22} />
+              <TbBookmark size={22} />
             </>
           )}
         </button>
