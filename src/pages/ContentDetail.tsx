@@ -12,6 +12,7 @@ import useCredits from "../hooks/useCredits";
 import { CastAndCrew } from "../interfaces/Credits";
 import useBookmarkStore from "./store";
 import useContentVideos from "../hooks/useContentVideos";
+import HorizontalScroll from "../components/HorizontalScroll";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -91,21 +92,6 @@ const ContentDetail = () => {
           content={<Gauge data={contentDetail} size="w-14 h-14 text-xl" />}
         />
         <ContentInfo
-          title="Trailer"
-          content={
-            <>
-              <iframe
-                width="560"
-                height="315"
-                src={videoUrl}
-                title={videos?.results[0].name}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </>
-          }
-        />
-        <ContentInfo
           title="Release Date"
           content={
             <p className="text-white/80 text-2xl font-light">
@@ -146,6 +132,34 @@ const ContentDetail = () => {
             </p>
           ))}
         />
+        <ContentInfo
+          title="Genres"
+          content={contentDetail.genres.map((genre) => (
+            <p key={genre.id} className="text-white/80 text-2xl font-light">
+              {genre.name}
+            </p>
+          ))}
+        />
+        <ContentInfo
+          title="Videos"
+          content={
+            <div className=" flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
+              <div className="flex flex-nowrap w-full mb-6 gap-10">
+                {videos?.results.map((video) => (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.key}`}
+                    width="520"
+                    height="400"
+                    title={video.name}
+                    allowFullScreen
+                    className="rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear border-none"
+                  ></iframe>
+                ))}
+              </div>
+            </div>
+          }
+        />
+
         <button
           onClick={() => {
             changeIsBookmarkedToTrue();

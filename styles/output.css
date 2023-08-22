@@ -667,26 +667,6 @@ video {
   top: 12rem;
 }
 
-.left-16{
-  left: 4rem;
-}
-
-.left-48{
-  left: 12rem;
-}
-
-.left-60{
-  left: 15rem;
-}
-
-.left-80{
-  left: 20rem;
-}
-
-.left-96{
-  left: 24rem;
-}
-
 .z-0{
   z-index: 0;
 }
@@ -823,6 +803,10 @@ video {
   height: 0.625rem;
 }
 
+.h-8{
+  height: 2rem;
+}
+
 .h-\[100\%\]{
   height: 100%;
 }
@@ -871,6 +855,10 @@ video {
   height: 60vh;
 }
 
+.h-\[87vh\]{
+  height: 87vh;
+}
+
 .h-full{
   height: 100%;
 }
@@ -879,28 +867,8 @@ video {
   height: 100vh;
 }
 
-.h-8{
-  height: 2rem;
-}
-
-.h-\[90vh\]{
-  height: 90vh;
-}
-
-.h-\[80vh\]{
-  height: 80vh;
-}
-
-.h-\[85vh\]{
-  height: 85vh;
-}
-
-.h-\[86vh\]{
-  height: 86vh;
-}
-
-.h-\[87vh\]{
-  height: 87vh;
+.h-\[400px\]{
+  height: 400px;
 }
 
 .max-h-\[96px\]{
@@ -979,6 +947,10 @@ video {
   width: 100%;
 }
 
+.w-\[30\%\]{
+  width: 30%;
+}
+
 .min-w-\[150px\]{
   min-width: 150px;
 }
@@ -1001,10 +973,6 @@ video {
 
 .max-w-\[200px\]{
   max-width: 200px;
-}
-
-.max-w-\[250px\]{
-  max-width: 250px;
 }
 
 .max-w-\[300px\]{
@@ -1158,10 +1126,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded-2xl{
-  border-radius: 1rem;
-}
-
 .border-2{
   border-width: 2px;
 }
@@ -1176,6 +1140,10 @@ video {
 
 .border-t-2{
   border-top-width: 2px;
+}
+
+.border-none{
+  border-style: none;
 }
 
 .border-blue-200{
@@ -1266,10 +1234,6 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-transparent{
-  background-color: transparent;
 }
 
 .bg-gradient-to-t{
@@ -1571,20 +1535,8 @@ video {
   border-radius: 0.75rem;
 }
 
-.hover\:rounded-lg:hover{
-  border-radius: 0.5rem;
-}
-
 .hover\:border-b-2:hover{
   border-bottom-width: 2px;
-}
-
-.hover\:border-none:hover{
-  border-style: none;
-}
-
-.hover\:border-transparent:hover{
-  border-color: transparent;
 }
 
 .hover\:bg-blue-600:hover{
@@ -1845,28 +1797,24 @@ video {
     display: none;
   }
 
-  .xl\:h-14{
-    height: 3.5rem;
-  }
-
   .xl\:h-10{
     height: 2.5rem;
+  }
+
+  .xl\:h-14{
+    height: 3.5rem;
   }
 
   .xl\:w-14{
     width: 3.5rem;
   }
 
-  .xl\:w-\[580px\]{
-    width: 580px;
-  }
-
-  .xl\:w-full{
-    width: 100%;
-  }
-
   .xl\:w-16{
     width: 4rem;
+  }
+
+  .xl\:w-\[580px\]{
+    width: 580px;
   }
 
   .xl\:grid-cols-2{
@@ -1899,13 +1847,13 @@ video {
     line-height: 1.75rem;
   }
 
-  .xl\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .xl\:text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .xl\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }

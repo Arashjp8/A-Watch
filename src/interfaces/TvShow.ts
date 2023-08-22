@@ -1,4 +1,5 @@
 import { Companies } from "./Companies";
+import { Genre } from "./Genre";
 
 export interface TvShow {
   id: number;
@@ -9,5 +10,6 @@ export interface TvShow {
   vote_average: number;
   first_air_date: string;
   media_type: string;
+  genres: Genre[];
   production_companies: Companies[];
 }

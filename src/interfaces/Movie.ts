@@ -1,4 +1,5 @@
 import { Companies } from "./Companies";
+import { Genre } from "./Genre";
 
 export interface Movie {
   id: number;
@@ -9,5 +10,6 @@ export interface Movie {
   vote_average: number;
   release_date: string;
   media_type: string;
+  genres: Genre[];
   production_companies: Companies[];
 }
