@@ -7,6 +7,7 @@ import Layout from "./pages/Layout";
 import Search from "./pages/Search";
 import WatchList from "./pages/WatchList";
 import Trending from "./pages/Trending";
+import Person from "./pages/Person";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "/movies/:id", element: <ContentDetail /> },
       { path: "/search", element: <Search /> },
       { path: "/watchlist", element: <WatchList /> },
+      { path: "/person/:id", element: <Person /> },
     ],
   },
 ]);

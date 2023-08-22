@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TbBookmark, TbBookmarkFilled } from "react-icons/tb";
-import CastAndCrewCard from "../components/CastAndCrewCard";
+import CastAndCrewCard from "../components/castAndCrew/CastAndCrewCard";
 import Spinner from "../components/Spinner";
 import ContentDetailHero from "../components/content/ContentDetailHero";
 import ContentInfo from "../components/content/ContentInfo";
@@ -99,6 +99,7 @@ const ContentDetail = () => {
               <div className="flex flex-nowrap w-full mb-6 gap-5">
                 {videos?.results.slice(0, 10).map((video) => (
                   <div
+                    key={video.id}
                     className={`w-full min-w-[260px] md:min-w-[520px] min-h-[230px] ${
                       videos.results.length === 1
                         ? "md:min-h-[700px]"
