@@ -43,7 +43,12 @@ const Home = () => {
             </div>
           );
 
-        if (error) return <p className="h-[100vh]">{error.message}</p>;
+        if (error)
+          return (
+            <p key={title} className="h-[100vh]">
+              {error.message}
+            </p>
+          );
 
         return (
           <Section

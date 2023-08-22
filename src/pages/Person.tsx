@@ -17,13 +17,33 @@ const Person = () => {
     );
 
   return (
-    <>
-      <CastAndCrewCard c={person} />
-      <span>
-        <h3>Biography: </h3>
-        <p>{person?.biography}</p>
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-row justify-between items-center">
+        <CastAndCrewCard c={person} />
+        <section className="flex flex-col gap-5">
+          <span className="flex flex-row items-center gap-5 font-light">
+            <h3 className="text-xl ssm:text-2xl text-white/60">Known for: </h3>
+            <p className="text-lg text-white">{person.known_for_department}</p>
+          </span>
+          <span className="flex flex-row items-center gap-5 font-light">
+            <h3 className="text-xl ssm:text-2xl text-white/60">Birthday: </h3>
+            <p className="text-lg text-white">{person.birthday}</p>
+          </span>
+          <span className="flex flex-row items-center gap-5 font-light">
+            <h3 className="text-xl ssm:text-2xl text-white/60">
+              Place of birth:{" "}
+            </h3>
+            <p className="text-lg text-white">{person.place_of_birth}</p>
+          </span>
+        </section>
+      </div>
+      <span className="">
+        <h3 className="text-xl ssm:text-2xl text-white/60 cursor-pointer font-light pb-3">
+          Biography:{" "}
+        </h3>
+        <p className="text-lg text-white font-light">{person?.biography}</p>
       </span>
-    </>
+    </div>
   );
 };
 
