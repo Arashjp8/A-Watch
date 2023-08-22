@@ -121,7 +121,9 @@ const ContentDetail = () => {
         <ContentInfo
           title="Companies"
           content={contentDetail.production_companies.map((company) => (
-            <p className="text-white/80 text-2xl font-light">{company.name}</p>
+            <p key={company.id} className="text-white/80 text-2xl font-light">
+              {company.name}
+            </p>
           ))}
         />
         <button

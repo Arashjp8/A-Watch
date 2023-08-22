@@ -8,7 +8,7 @@ const SidebarContent = () => {
   return (
     <>
       <NavLink to={"/"} onClick={() => setSelectedIcon("Home")}>
-        <img src="/dist/assets/logo.svg" alt="logo" className="w-12" />
+        <img src="/assets/logo.svg" alt="logo" className="w-12" />
       </NavLink>
       <div>
         {sidebarButtons.map((button) => (
