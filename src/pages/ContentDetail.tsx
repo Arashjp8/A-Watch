@@ -12,7 +12,6 @@ import useCredits from "../hooks/useCredits";
 import { CastAndCrew } from "../interfaces/Credits";
 import useBookmarkStore from "./store";
 import useContentVideos from "../hooks/useContentVideos";
-import HorizontalScroll from "../components/HorizontalScroll";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -31,8 +30,6 @@ const ContentDetail = () => {
   } = useCredits(content, selectedContentId);
 
   const { data: videos } = useContentVideos(content, selectedContentId);
-
-  const videoUrl = `https://www.youtube.com/embed/${videos?.results[2].key}`;
 
   const {
     isBookmarked,
@@ -159,7 +156,6 @@ const ContentDetail = () => {
             </div>
           }
         />
-
         <button
           onClick={() => {
             changeIsBookmarkedToTrue();
