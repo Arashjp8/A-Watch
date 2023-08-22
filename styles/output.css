@@ -879,6 +879,10 @@ video {
   height: 100vh;
 }
 
+.h-8{
+  height: 2rem;
+}
+
 .max-h-\[96px\]{
   max-height: 96px;
 }
@@ -1689,6 +1693,10 @@ video {
 }
 
 @media (min-width: 860px){
+  .ssm\:block{
+    display: block;
+  }
+
   .ssm\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1817,6 +1825,10 @@ video {
     height: 3.5rem;
   }
 
+  .xl\:h-10{
+    height: 2.5rem;
+  }
+
   .xl\:w-14{
     width: 3.5rem;
   }
@@ -1827,6 +1839,10 @@ video {
 
   .xl\:w-full{
     width: 100%;
+  }
+
+  .xl\:w-16{
+    width: 4rem;
   }
 
   .xl\:grid-cols-2{
@@ -1862,5 +1878,10 @@ video {
   .xl\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .xl\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }

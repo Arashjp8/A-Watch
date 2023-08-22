@@ -36,7 +36,7 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${styleProp} group relative w-72 xl:w-full h-[450px] cursor-pointer overflow-hidden`}
+      className={`${styleProp} group relative w-full h-[450px] cursor-pointer overflow-hidden`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
@@ -73,12 +73,20 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
               </p>
             </span>
             <div className="flex items-center gap-5">
-              <Gauge data={data} size="w-10 h-10 xl:w-14 xl:h-14 xl:text-xl" />
+              <div className="xl:block hidden">
+                <Gauge
+                  data={data}
+                  size="w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
+                />
+              </div>
+              <div className="block xl:hidden">
+                <Gauge data={data} size="w-10 h-10" />
+              </div>
               <ContentType data={data} />
             </div>
           </section>
         </div>
-        <div className="text-sm xl:text-lg max-w-[200px] font-semibold text-left text-white/80 group-hover:text-blue-400 group-hover:shadow-2xl mx-5">
+        <div className="ssm:block hidden text-sm xl:text-lg max-w-[200px] font-semibold text-left text-white/80 group-hover:text-blue-400 group-hover:shadow-2xl mx-5">
           <h5 className="font-bold">Overview:</h5>{" "}
           {data.overview && data.overview.slice(0, 100) + "..."}
         </div>
