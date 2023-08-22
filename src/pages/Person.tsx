@@ -19,7 +19,7 @@ const Person = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-row justify-between items-center">
-        <CastAndCrewCard c={person} />
+        <CastAndCrewCard c={person} imageSize="w-56 h-70" fontSize="text-3xl" />
         <section className="flex flex-col gap-5">
           <span className="flex flex-row items-center gap-5 font-light">
             <h3 className="text-xl ssm:text-2xl text-white/60">Known for: </h3>

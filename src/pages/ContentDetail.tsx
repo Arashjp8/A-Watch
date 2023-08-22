@@ -138,7 +138,13 @@ const ContentDetail = () => {
                 .filter((c) => c.job === "Director")
                 .slice(0, 1)
                 .map((c, index) => (
-                  <CastAndCrewCard key={c.id} c={c} index={index} />
+                  <CastAndCrewCard
+                    key={c.id}
+                    c={c}
+                    index={index}
+                    imageSize="w-[150px] min-w-[150px] h-[220px]"
+                    fontSize="text-2xl"
+                  />
                 ))}
             </span>
           }
@@ -148,7 +154,13 @@ const ContentDetail = () => {
           content={
             <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10">
               {cast.map((c, index) => (
-                <CastAndCrewCard key={c.id} c={c} index={index} />
+                <CastAndCrewCard
+                  key={c.id}
+                  c={c}
+                  index={index}
+                  imageSize="w-[150px] min-w-[150px] h-[220px]"
+                  fontSize="text-2xl"
+                />
               ))}
             </span>
           }
