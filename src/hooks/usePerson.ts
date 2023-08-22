@@ -5,7 +5,7 @@ import { BaseUrl, apiKey } from "../services/config";
 
 const usePerson = (id: number) => {
   return useQuery<Person, Error>({
-    queryKey: ["person"],
+    queryKey: ["person", id],
     queryFn: async () => {
       return apiClient(
         `${BaseUrl}/person/${id}?api_key=${apiKey}&language=en-US`
