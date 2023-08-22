@@ -715,6 +715,11 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mb-0{
   margin-bottom: 0px;
 }
@@ -1424,6 +1429,14 @@ video {
   line-height: 1rem;
 }
 
+.text-\[26px\]{
+  font-size: 26px;
+}
+
+.text-\[28px\]{
+  font-size: 28px;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -1715,6 +1728,11 @@ video {
   .ssm\:text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .ssm\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 

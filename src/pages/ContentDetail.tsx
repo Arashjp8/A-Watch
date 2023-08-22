@@ -144,6 +144,8 @@ const ContentDetail = () => {
                     index={index}
                     imageSize="w-[150px] min-w-[150px] h-[220px]"
                     fontSize="text-2xl"
+                    cursor="cursor-pointer"
+                    onHover="hover:rounded-xl hover:opacity-50"
                   />
                 ))}
             </span>
@@ -160,6 +162,8 @@ const ContentDetail = () => {
                   index={index}
                   imageSize="w-[150px] min-w-[150px] h-[220px]"
                   fontSize="text-2xl"
+                  cursor="cursor-pointer"
+                  onHover="hover:rounded-xl hover:opacity-50"
                 />
               ))}
             </span>
