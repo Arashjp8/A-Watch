@@ -29,7 +29,11 @@ const ContentDetail = () => {
     error: creditsError,
   } = useCredits(content, selectedContentId);
 
-  const { data: videos } = useContentVideos(content, selectedContentId);
+  const {
+    data: videos,
+    isLoading: videosAreLoading,
+    error: videosError,
+  } = useContentVideos(content, selectedContentId);
 
   const {
     isBookmarked,
@@ -54,14 +58,14 @@ const ContentDetail = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (contentDetailIsLoading || creditsIsLoading)
+  if (contentDetailIsLoading || creditsIsLoading || videosAreLoading)
     return (
       <div className="h-[100vh]">
         <Spinner />
       </div>
     );
 
-  if (contentDetailError || creditsError)
+  if (contentDetailError || creditsError || videosError)
     return (
       <p className="h-[100vh]">
         {contentDetailError
