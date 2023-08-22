@@ -7,7 +7,7 @@ const WatchList = () => {
   return (
     <section
       className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sxl:grid-cols-5 xl:grid-cols-6 gap-5 md:gap-0 ${
-        bookmarkedContent.length < 6 ? "h-[100vh]" : ""
+        bookmarkedContent.length < 6 ? "h-[87vh] sm:h-[100vh]" : ""
       }`}
     >
       {bookmarkedContent.map((content) => (

@@ -883,6 +883,26 @@ video {
   height: 2rem;
 }
 
+.h-\[90vh\]{
+  height: 90vh;
+}
+
+.h-\[80vh\]{
+  height: 80vh;
+}
+
+.h-\[85vh\]{
+  height: 85vh;
+}
+
+.h-\[86vh\]{
+  height: 86vh;
+}
+
+.h-\[87vh\]{
+  height: 87vh;
+}
+
 .max-h-\[96px\]{
   max-height: 96px;
 }
@@ -1685,6 +1705,10 @@ video {
 @media (min-width: 768px){
   .sm\:left-32{
     left: 8rem;
+  }
+
+  .sm\:h-\[100vh\]{
+    height: 100vh;
   }
 
   .sm\:grid-cols-2{

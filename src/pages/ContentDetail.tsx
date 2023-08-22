@@ -31,15 +31,10 @@ const ContentDetail = () => {
   const {
     isBookmarked,
     changeIsBookmarkedToTrue,
-    bookmarkedContent,
     bookmarkTheContent,
     removeFromBookmarked,
     checkContentBookmarked,
   } = useBookmarkStore();
-
-  useEffect(() => {
-    console.log(bookmarkedContent);
-  }, [bookmarkedContent]);
 
   useEffect(() => {
     if (contentDetail) checkContentBookmarked(contentDetail);
