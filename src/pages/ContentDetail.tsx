@@ -89,6 +89,27 @@ const ContentDetail = () => {
           content={<Gauge data={contentDetail} size="w-14 h-14 text-xl" />}
         />
         <ContentInfo
+          title="Videos"
+          content={
+            <div className=" flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
+              <div className="flex flex-nowrap w-full mb-6 gap-5">
+                {videos?.results.slice(0, 10).map((video) => (
+                  <div className="w-full min-w-[260px] md:min-w-[520px] min-h-[230px] md:min-h-[400px]">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.key}`}
+                      width="100%"
+                      height="100%"
+                      title={video.name}
+                      allowFullScreen
+                      className="focus:border-none rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear border-none"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          }
+        />
+        <ContentInfo
           title="Release Date"
           content={
             <p className="text-white/80 text-2xl font-light">
@@ -136,27 +157,6 @@ const ContentDetail = () => {
               {genre.name}
             </p>
           ))}
-        />
-        <ContentInfo
-          title="Videos"
-          content={
-            <div className=" flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
-              <div className="flex flex-nowrap w-full mb-6 gap-10">
-                {videos?.results.map((video) => (
-                  <div className="w-full min-w-[260px] md:min-w-[520px] min-h-[230px] md:min-h-[400px]">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.key}`}
-                      width="100%"
-                      height="100%"
-                      title={video.name}
-                      allowFullScreen
-                      className="focus:border-none rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear border-none"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          }
         />
         <button
           onClick={() => {

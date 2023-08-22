@@ -14,7 +14,9 @@
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
     "axios": "^1.4.0",
+    "express": "^4.18.2",
     "ms": "^2.1.3",
+    "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@types/ms": "^0.7.31",
+    "@types/node": "^20.5.2",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
