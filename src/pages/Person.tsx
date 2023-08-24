@@ -6,6 +6,7 @@ import usePerson from "../hooks/usePerson";
 import usePersonMovie from "../hooks/usePersonMovie";
 import HorizontalScroll from "../components/HorizontalScroll";
 import Section from "../components/Section";
+import usePersonTvShows from "../hooks/usePersonTvShows";
 
 const Person = () => {
   const [isExpand, setExpand] = useState(false);
@@ -20,6 +21,11 @@ const Person = () => {
     isLoading: isMoviesLoading,
     error: moviesError,
   } = usePersonMovie(selectedCastAndCrewId);
+  const {
+    data: tvShows,
+    // isLoading: tvShowsIsLoading,
+    // error: tvShowsError,
+  } = usePersonTvShows(selectedCastAndCrewId);
 
   if (personError || moviesError)
     return (
@@ -87,6 +93,12 @@ const Person = () => {
         link=""
         selectedIcon=""
         content={<HorizontalScroll items={movies?.cast} title="Movies" />}
+      />
+      <Section
+        title="Tv Shows"
+        link=""
+        selectedIcon=""
+        content={<HorizontalScroll items={tvShows?.cast} title="Tv Shows" />}
       />
     </div>
   );
