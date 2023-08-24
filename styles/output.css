@@ -1279,6 +1279,10 @@ video {
   border-radius: 0.75rem;
 }
 
+.rounded-2xl{
+  border-radius: 1rem;
+}
+
 .border-2{
   border-width: 2px;
 }
@@ -1438,6 +1442,30 @@ video {
   background-color: transparent;
 }
 
+.bg-blue-500\/50{
+  background-color: rgb(59 130 246 / 0.5);
+}
+
+.bg-blue-500\/30{
+  background-color: rgb(59 130 246 / 0.3);
+}
+
+.bg-blue-500\/20{
+  background-color: rgb(59 130 246 / 0.2);
+}
+
+.bg-blue-500\/10{
+  background-color: rgb(59 130 246 / 0.1);
+}
+
+.bg-blue-600\/20{
+  background-color: rgb(37 99 235 / 0.2);
+}
+
+.bg-blue-600\/30{
+  background-color: rgb(37 99 235 / 0.3);
+}
+
 .bg-gradient-to-t{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -1548,6 +1576,11 @@ video {
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .pb-3{
