@@ -23,18 +23,22 @@ const Person = () => {
   } = usePersonMovie(selectedCastAndCrewId);
   const {
     data: tvShows,
-    // isLoading: tvShowsIsLoading,
-    // error: tvShowsError,
+    isLoading: isTvShowsLoading,
+    error: tvShowsError,
   } = usePersonTvShows(selectedCastAndCrewId);
 
-  if (personError || moviesError)
+  if (personError || moviesError || tvShowsError)
     return (
       <p className="h-[100vh]">
-        {personError ? personError.message : moviesError?.message}
+        {personError
+          ? personError.message
+          : moviesError
+          ? moviesError?.message
+          : tvShowsError?.message}
       </p>
     );
 
-  if (isPersonLoading || isMoviesLoading)
+  if (isPersonLoading || isMoviesLoading || isTvShowsLoading)
     return (
       <div className="h-[100vh]">
         <Spinner />
