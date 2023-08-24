@@ -5,6 +5,7 @@ import apiClient from "../services/apiClient";
 
 interface PersonMovies {
   cast: Movie[];
+  crew: Movie[];
 }
 
 const usePersonMovie = (personId: number) => {

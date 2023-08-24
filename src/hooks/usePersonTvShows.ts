@@ -5,6 +5,7 @@ import { BaseUrl, apiKey } from "../services/config";
 
 interface PersonTvShows {
   cast: TvShow[];
+  crew: TvShow[];
 }
 const usePersonTvShows = (personId: number) => {
   return useQuery<PersonTvShows, Error>({

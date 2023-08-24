@@ -8,9 +8,16 @@ interface Props {
   link: string;
   selectedIcon: string;
   content: ReactNode | ReactNode[];
+  numberOfItems?: number;
 }
 
-const Section = ({ title, link, selectedIcon, content }: Props) => {
+const Section = ({
+  title,
+  link,
+  selectedIcon,
+  content,
+  numberOfItems,
+}: Props) => {
   const { setSelectedIcon } = useSelectedIconStore();
 
   return (
@@ -24,7 +31,11 @@ const Section = ({ title, link, selectedIcon, content }: Props) => {
             link.length > 0 ? "hover:text-white" : ""
           } pb-3 font-light`}
         >
-          {link.length > 0 ? <Link to={link}>{title}</Link> : title}
+          {link.length > 0 ? (
+            <Link to={link}>{title}</Link>
+          ) : (
+            title + numberOfItems
+          )}
         </h3>
         <Link
           to={link}

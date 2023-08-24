@@ -17,15 +17,24 @@ const Person = () => {
     error: personError,
   } = usePerson(selectedCastAndCrewId);
   const {
-    data: movies,
+    data: fetchedMovies,
     isLoading: isMoviesLoading,
     error: moviesError,
   } = usePersonMovie(selectedCastAndCrewId);
   const {
-    data: tvShows,
+    data: fetchedTvShows,
     isLoading: isTvShowsLoading,
     error: tvShowsError,
   } = usePersonTvShows(selectedCastAndCrewId);
+
+  const movies =
+    person?.known_for_department === "Acting"
+      ? fetchedMovies?.cast
+      : fetchedMovies?.crew;
+  const tvShows =
+    person?.known_for_department === "Acting"
+      ? fetchedTvShows?.cast
+      : fetchedTvShows?.crew;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -96,18 +105,24 @@ const Person = () => {
           </p>
         </section>
       </div>
-      <Section
-        title="Movies"
-        link=""
-        selectedIcon=""
-        content={<HorizontalScroll items={movies?.cast} title="Movies" />}
-      />
-      <Section
-        title="Tv Shows"
-        link=""
-        selectedIcon=""
-        content={<HorizontalScroll items={tvShows?.cast} title="Tv Shows" />}
-      />
+      {movies && movies.length > 0 && (
+        <Section
+          title="Movies"
+          link=""
+          selectedIcon=""
+          numberOfItems={movies.length}
+          content={<HorizontalScroll items={movies} title="Movies" />}
+        />
+      )}
+      {tvShows && tvShows.length > 0 && (
+        <Section
+          title="Tv Shows"
+          link=""
+          selectedIcon=""
+          numberOfItems={tvShows.length}
+          content={<HorizontalScroll items={tvShows} title="Tv Shows" />}
+        />
+      )}
     </div>
   );
 };
