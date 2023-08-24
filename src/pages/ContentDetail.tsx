@@ -75,15 +75,15 @@ const ContentDetail = () => {
     );
 
   return (
-    <div className="flex flex-col my-10 gap-0">
-      <div className="relative w-full h-[60vh] bg-slate-800">
+    <div className="my-10 flex flex-col gap-0">
+      <div className="relative h-[60vh] w-full bg-slate-800">
         <ContentDetailHero data={contentDetail} />
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-2 items-start gap-20">
+      <div className="grid grid-cols-1 items-start gap-20 xl:grid-cols-2">
         <ContentInfo
           title="Overview"
           content={
-            <p className="text-white/80 text-2xl font-light max-w-3xl">
+            <p className="max-w-3xl text-2xl font-light text-white/80">
               {contentDetail?.overview}
             </p>
           }
@@ -95,12 +95,12 @@ const ContentDetail = () => {
         <ContentInfo
           title="Videos"
           content={
-            <div className="flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
-              <div className="flex flex-nowrap w-full mb-6 gap-5">
+            <div className="mb-2 mt-10 flex w-[100%] snap-mandatory snap-start overflow-x-scroll">
+              <div className="mb-6 flex w-full flex-nowrap gap-5">
                 {videos?.results.slice(0, 10).map((video) => (
                   <div
                     key={video.id}
-                    className={`w-full min-w-[260px] md:min-w-[520px] min-h-[230px] ${
+                    className={`min-h-[230px] w-full min-w-[260px] md:min-w-[520px] ${
                       videos.results.length === 1
                         ? "md:min-h-[700px]"
                         : "md:min-h-[400px]"
@@ -112,7 +112,7 @@ const ContentDetail = () => {
                       height="100%"
                       title={video.name}
                       allowFullScreen
-                      className="focus:border-none rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear border-none"
+                      className="rounded-3xl border-none transition-all duration-150 ease-linear hover:rounded-xl focus:border-none"
                     />
                   </div>
                 ))}
@@ -123,7 +123,7 @@ const ContentDetail = () => {
         <ContentInfo
           title="Release Date"
           content={
-            <p className="text-white/80 text-2xl font-light">
+            <p className="text-2xl font-light text-white/80">
               {contentDetail && isMovie(contentDetail)
                 ? contentDetail?.release_date
                 : contentDetail?.first_air_date}
@@ -133,7 +133,7 @@ const ContentDetail = () => {
         <ContentInfo
           title="Director"
           content={
-            <span className="grid grid-cols-6 grid-row-2 gap-10">
+            <span className="grid-row-2 grid grid-cols-6 gap-10">
               {crew
                 .filter((c) => c.job === "Director")
                 .slice(0, 1)
@@ -146,6 +146,7 @@ const ContentDetail = () => {
                     fontSize="text-2xl"
                     cursor="cursor-pointer"
                     onHover="hover:rounded-xl hover:opacity-50"
+                    isName={true}
                   />
                 ))}
             </span>
@@ -154,7 +155,7 @@ const ContentDetail = () => {
         <ContentInfo
           title="Cast"
           content={
-            <span className="grid grid-cols-1 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-row-2 gap-10">
+            <span className="grid-row-2 grid grid-cols-1 gap-10 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {cast.map((c, index) => (
                 <CastAndCrewCard
                   key={c.id}
@@ -164,6 +165,7 @@ const ContentDetail = () => {
                   fontSize="text-2xl"
                   cursor="cursor-pointer"
                   onHover="hover:rounded-xl hover:opacity-50"
+                  isName={true}
                 />
               ))}
             </span>
@@ -172,7 +174,7 @@ const ContentDetail = () => {
         <ContentInfo
           title="Companies"
           content={contentDetail.production_companies.map((company) => (
-            <p key={company.id} className="text-white/80 text-2xl font-light">
+            <p key={company.id} className="text-2xl font-light text-white/80">
               {company.name}
             </p>
           ))}
@@ -180,7 +182,7 @@ const ContentDetail = () => {
         <ContentInfo
           title="Genres"
           content={contentDetail.genres.map((genre) => (
-            <p key={genre.id} className="text-white/80 text-2xl font-light">
+            <p key={genre.id} className="text-2xl font-light text-white/80">
               {genre.name}
             </p>
           ))}
@@ -197,9 +199,9 @@ const ContentDetail = () => {
           }}
           className={`mb-1 text-xl font-semibold ${
             isBookmarked
-              ? "text-white bg-green-600"
-              : "text-white bg-blue-600 hover:bg-white hover:text-blue-600"
-          } max-w-[300px] p-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center`}
+              ? "bg-green-600 text-white"
+              : "bg-blue-600 text-white hover:bg-white hover:text-blue-600"
+          } flex max-w-[300px] flex-row items-center gap-1 rounded-3xl p-4 transition-all duration-150 ease-linear hover:rounded-xl`}
         >
           {isBookmarked ? (
             <>

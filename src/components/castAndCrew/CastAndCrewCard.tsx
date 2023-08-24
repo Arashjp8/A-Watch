@@ -10,6 +10,7 @@ interface Props {
   fontSize: string;
   cursor?: string;
   onHover?: string;
+  isName: boolean;
 }
 const CastAndCrewCard = ({
   c,
@@ -18,6 +19,7 @@ const CastAndCrewCard = ({
   fontSize,
   cursor,
   onHover,
+  isName,
 }: Props) => {
   const navigate = useNavigate();
   const { changeSelectedCastAndCrewId } = useCastAndCrewStore();
@@ -38,7 +40,9 @@ const CastAndCrewCard = ({
           onClick={() => console.log(c)}
           className={`${imageSize} rounded-3xl ${onHover} border-2 border-blue-500 transition-all duration-150 ease-linear`}
         />
-        <p className={` text-white/80 ${fontSize} font-light`}>{c.name}</p>
+        {isName && (
+          <p className={`text-white/80 ${fontSize} font-light`}>{c.name}</p>
+        )}
       </div>
     );
   return <div></div>;
