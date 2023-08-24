@@ -26,17 +26,22 @@ const Section = ({
         onClick={() => setSelectedIcon(selectedIcon)}
         className="mb-0 mt-10 flex flex-row items-center justify-between border-b-[1px] border-white/60 "
       >
-        <h3
-          className={`text-2xl text-white/60 ssm:text-3xl ${
-            link.length > 0 ? "hover:text-white" : ""
-          } pb-3 font-light`}
-        >
-          {link.length > 0 ? (
-            <Link to={link}>{title}</Link>
-          ) : (
-            title + numberOfItems
-          )}
-        </h3>
+        <div className="flex flex-row items-start gap-5">
+          <h3
+            className={`text-2xl text-white/60 ssm:text-3xl ${
+              link.length > 0 ? "hover:text-white" : ""
+            } pb-3 font-light`}
+          >
+            {link.length > 0 ? <Link to={link}>{title}</Link> : title}
+          </h3>
+          <p
+            className={`${
+              numberOfItems ? "block" : "hidden"
+            } flex h-[40px] w-[40px] flex-row items-center justify-center rounded-full border-2 border-emerald-400 p-1 text-lg text-emerald-400`}
+          >
+            {numberOfItems}
+          </p>
+        </div>
         <Link
           to={link}
           className={`${
