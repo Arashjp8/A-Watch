@@ -60,7 +60,7 @@ const Person = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-col gap-10 sm:flex-row">
         <div className="flex flex-col items-center gap-5">
           <CastAndCrewCard
             c={person}
@@ -69,23 +69,23 @@ const Person = () => {
             isName={false}
           />
           <section className="flex flex-col gap-5">
-            <span className="flex flex-row items-center gap-5 font-light">
+            <div className="flex flex-row items-center gap-5 font-light">
               <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
                 Known for:{" "}
               </h3>
               <p className="text-lg text-white">
                 {person.known_for_department}
               </p>
-            </span>
-            <span className="flex flex-row items-center gap-5 font-light">
+            </div>
+            <div className="flex flex-row items-center gap-5 font-light">
               <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
                 Birthday:{" "}
               </h3>
               <p className="text-lg text-white">{person.birthday}</p>
-            </span>
+            </div>
           </section>
         </div>
-        <div className="flex w-[85%] flex-col gap-8">
+        <div className="flex w-[90%] flex-col gap-8 p-0 sm:pr-20">
           <p className={`text-2xl font-semibold text-white/80 md:text-3xl`}>
             {person.name}
           </p>
@@ -96,13 +96,13 @@ const Person = () => {
             <p className="text-lg font-light text-white">
               {isExpand
                 ? person?.biography
-                : person?.biography.length > 1000
-                ? person?.biography.slice(0, 1000) + "..."
+                : person?.biography.length > 500
+                ? person?.biography.slice(0, 500) + "..."
                 : person?.biography}
               <button
                 onClick={() => setExpand(!isExpand)}
                 className={`${
-                  person?.biography.length > 1000 ? "block" : "hidden"
+                  person?.biography.length > 500 ? "block" : "hidden"
                 } my-2 flex flex-row items-center gap-1 rounded-3xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600`}
               >
                 {isExpand ? "Show less" : "Show more"}

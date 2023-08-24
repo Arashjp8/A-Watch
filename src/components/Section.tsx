@@ -37,7 +37,7 @@ const Section = ({
           <p
             className={`${
               numberOfItems ? "block" : "hidden"
-            } flex flex-row items-center justify-center rounded-lg bg-blue-600/20 px-2 text-lg text-blue-400`}
+            } flex flex-row items-center justify-center rounded-lg bg-blue-600/20 px-2 text-base text-blue-400 md:text-lg`}
           >
             {numberOfItems}
           </p>
