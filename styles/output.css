@@ -1020,6 +1020,14 @@ video {
   cursor: pointer;
 }
 
+.cursor-none{
+  cursor: none;
+}
+
+.cursor-auto{
+  cursor: auto;
+}
+
 .resize{
   resize: both;
 }

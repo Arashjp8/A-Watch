@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import CastAndCrewCard from "../components/castAndCrew/CastAndCrewCard";
 import useCastAndCrewStore from "../components/castAndCrew/store";
@@ -26,6 +26,10 @@ const Person = () => {
     isLoading: isTvShowsLoading,
     error: tvShowsError,
   } = usePersonTvShows(selectedCastAndCrewId);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (personError || moviesError || tvShowsError)
     return (

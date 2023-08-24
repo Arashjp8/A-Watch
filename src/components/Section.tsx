@@ -17,14 +17,20 @@ const Section = ({ title, link, selectedIcon, content }: Props) => {
     <section className="w-full">
       <span
         onClick={() => setSelectedIcon(selectedIcon)}
-        className="mt-10 mb-0 flex flex-row justify-between items-center border-b-[1px] border-white/60 "
+        className="mb-0 mt-10 flex flex-row items-center justify-between border-b-[1px] border-white/60 "
       >
-        <h3 className="text-2xl ssm:text-3xl text-white/60 hover:text-white cursor-pointer font-light pb-3">
-          <Link to={link}>{title}</Link>
+        <h3
+          className={`text-2xl text-white/60 ssm:text-3xl ${
+            link.length > 0 ? "hover:text-white" : ""
+          } pb-3 font-light`}
+        >
+          {link.length > 0 ? <Link to={link}>{title}</Link> : title}
         </h3>
         <Link
           to={link}
-          className="mb-1 text-xs ssm:text-sm font-semibold text-white bg-blue-600 hover:bg-white hover:text-blue-600 py-2 px-4 rounded-3xl hover:rounded-xl transition-all duration-150 ease-linear flex flex-row gap-1 items-center"
+          className={`${
+            link.length > 0 ? "block" : "hidden"
+          } mb-1 flex flex-row items-center gap-1 rounded-3xl bg-blue-600 px-4 py-2 text-xs font-semibold text-white transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600 ssm:text-sm`}
         >
           <p>More</p>
           <TbArrowRight size={18} />
