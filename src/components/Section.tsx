@@ -26,7 +26,7 @@ const Section = ({
         onClick={() => setSelectedIcon(selectedIcon)}
         className="mb-0 mt-10 flex flex-row items-center justify-between border-b-[1px] border-white/60 "
       >
-        <div className="flex flex-row items-start gap-5">
+        <div className="flex flex-row items-start gap-3">
           <h3
             className={`text-2xl text-white/60 ssm:text-3xl ${
               link.length > 0 ? "hover:text-white" : ""
