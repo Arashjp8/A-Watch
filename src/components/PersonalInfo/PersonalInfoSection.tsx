@@ -1,4 +1,4 @@
-import { Person } from "../interfaces/Person";
+import { Person } from "../../interfaces/Person";
 import PersonalInfo from "./PersonalInfo";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Spinner from "../components/Spinner";
 import CastAndCrewCard from "../components/castAndCrew/CastAndCrewCard";
 import useCastAndCrewStore from "../components/castAndCrew/store";
@@ -7,10 +7,10 @@ import usePersonMovie from "../hooks/usePersonMovie";
 import HorizontalScroll from "../components/HorizontalScroll";
 import Section from "../components/Section";
 import usePersonTvShows from "../hooks/usePersonTvShows";
-import PersonalInfoSection from "../components/PersonalInfoSection";
+import PersonalInfoSection from "../components/PersonalInfo/PersonalInfoSection";
+import BiographySection from "../components/PersonalInfo/BiographySection";
 
 const Person = () => {
-  const [isExpand, setExpand] = useState(false);
   const { selectedCastAndCrewId } = useCastAndCrewStore();
   const {
     data: person,
@@ -76,26 +76,7 @@ const Person = () => {
             {person.name}
           </p>
           <PersonalInfoSection person={person} mobileView={true} />
-          <section className="">
-            <h3 className="pb-3 text-xl font-light text-white/60 ssm:text-2xl">
-              Biography:{" "}
-            </h3>
-            <p className="text-lg font-light text-white">
-              {isExpand
-                ? person?.biography
-                : person?.biography.length > 500
-                ? person?.biography.slice(0, 500) + "..."
-                : person?.biography}
-              <button
-                onClick={() => setExpand(!isExpand)}
-                className={`${
-                  person?.biography.length > 500 ? "block" : "hidden"
-                } my-2 flex flex-row items-center gap-1 rounded-3xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600`}
-              >
-                {isExpand ? "Show less" : "Show more"}
-              </button>
-            </p>
-          </section>
+          <BiographySection biography={person.biography} />
           {movies && movies.length > 0 && (
             <Section
               title="Movies"
