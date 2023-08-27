@@ -872,10 +872,6 @@ video {
   height: 100vh;
 }
 
-.h-72{
-  height: 18rem;
-}
-
 .max-h-\[96px\]{
   max-height: 96px;
 }
@@ -960,16 +956,12 @@ video {
   width: 100%;
 }
 
-.w-\[15\%\]{
-  width: 15%;
-}
-
-.w-64{
-  width: 16rem;
-}
-
 .min-w-\[150px\]{
   min-width: 150px;
+}
+
+.min-w-\[200px\]{
+  min-width: 200px;
 }
 
 .min-w-\[240px\]{
@@ -978,18 +970,6 @@ video {
 
 .min-w-\[260px\]{
   min-width: 260px;
-}
-
-.min-w-\[15\%\]{
-  min-width: 15%;
-}
-
-.min-w-\[50\%\]{
-  min-width: 50%;
-}
-
-.min-w-\[200px\]{
-  min-width: 200px;
 }
 
 .max-w-3xl{
@@ -1088,10 +1068,6 @@ video {
   align-items: center;
 }
 
-.justify-start{
-  justify-content: flex-start;
-}
-
 .justify-center{
   justify-content: center;
 }
@@ -1112,6 +1088,10 @@ video {
   gap: 2.5rem;
 }
 
+.gap-2{
+  gap: 0.5rem;
+}
+
 .gap-20{
   gap: 5rem;
 }
@@ -1126,10 +1106,6 @@ video {
 
 .gap-8{
   gap: 2rem;
-}
-
-.gap-2{
-  gap: 0.5rem;
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]){
@@ -1787,11 +1763,6 @@ video {
   .ssm\:text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .ssm\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
 

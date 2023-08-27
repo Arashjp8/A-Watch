@@ -7,6 +7,7 @@ import usePersonMovie from "../hooks/usePersonMovie";
 import HorizontalScroll from "../components/HorizontalScroll";
 import Section from "../components/Section";
 import usePersonTvShows from "../hooks/usePersonTvShows";
+import PersonalInfoSection from "../components/PersonalInfoSection";
 
 const Person = () => {
   const [isExpand, setExpand] = useState(false);
@@ -35,8 +36,6 @@ const Person = () => {
     person?.known_for_department === "Acting"
       ? fetchedTvShows?.cast
       : fetchedTvShows?.crew;
-
-  const gender = person?.gender === 1 ? "Female" : "Male";
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -70,77 +69,13 @@ const Person = () => {
             fontSize="text-[26px]"
             isName={false}
           />
-          <section className="hidden flex-col gap-1 sm:flex">
-            <h3 className="pb-3 text-xl font-light text-white/60 ssm:text-2xl">
-              Personal Info
-            </h3>
-            <div className="flex flex-col gap-5">
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Known for:{" "}
-                </h3>
-                <p className="text-lg text-white">
-                  {person.known_for_department}
-                </p>
-              </div>
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Birthday:{" "}
-                </h3>
-                <p className="text-lg text-white">{person.birthday}</p>
-              </div>
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Gender:{" "}
-                </h3>
-                <p className="text-lg text-white">{gender}</p>
-              </div>
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Place Of Birth:{" "}
-                </h3>
-                <p className="text-lg text-white">{person.place_of_birth}</p>
-              </div>
-            </div>
-          </section>
+          <PersonalInfoSection person={person} mobileView={false} />
         </div>
         <div className="flex w-[90%] flex-col gap-8 p-0 sm:pr-20">
           <p className={`text-2xl font-semibold text-white/80 md:text-3xl`}>
             {person.name}
           </p>
-          <section className="flex flex-col gap-2 sm:hidden">
-            <h3 className="pb-3 text-xl font-light text-white/60 ssm:text-2xl">
-              Personal Info
-            </h3>
-            <div className="flex flex-col gap-5">
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Known for:{" "}
-                </h3>
-                <p className="text-lg text-white">
-                  {person.known_for_department}
-                </p>
-              </div>
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Birthday:{" "}
-                </h3>
-                <p className="text-lg text-white">{person.birthday}</p>
-              </div>
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Gender:{" "}
-                </h3>
-                <p className="text-lg text-white">{gender}</p>
-              </div>
-              <div className="flex min-w-[200px] flex-col items-start gap-1 font-light">
-                <h3 className="text-base font-semibold text-white/60 ssm:text-lg">
-                  Place Of Birth:{" "}
-                </h3>
-                <p className="text-lg text-white">{person.place_of_birth}</p>
-              </div>
-            </div>
-          </section>
+          <PersonalInfoSection person={person} mobileView={true} />
           <section className="">
             <h3 className="pb-3 text-xl font-light text-white/60 ssm:text-2xl">
               Biography:{" "}
