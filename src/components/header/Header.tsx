@@ -1,27 +1,27 @@
 import useSearchbarToggleStore from "./store";
 import SearchBar from "../search/SearchBar";
-import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
-import { useSelectedIconStore, useSidebarToggleStore } from "../sidebar/store";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
+import { useSelectedIconStore } from "../sidebar/store";
 
 const Header = () => {
   const { isSearchbarOpen, openSearchbar, closeSearchbar } =
     useSearchbarToggleStore();
-  const { isSidebarOpen, openSidebar } = useSidebarToggleStore();
+  // const { isSidebarOpen, openSidebar } = useSidebarToggleStore();
   const selectedIcon = useSelectedIconStore((s) => s.selectedIcon);
 
-  const renderSidebarButton = () => {
-    if (!isSidebarOpen && !isSearchbarOpen) {
-      return (
-        <button
-          className="relative mx-auto my-1 cursor-pointer rounded-3xl bg-blue-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600"
-          onClick={() => openSidebar()}
-        >
-          <AiOutlineMenu />
-        </button>
-      );
-    }
-    return null;
-  };
+  // const renderSidebarButton = () => {
+  //   if (!isSidebarOpen && !isSearchbarOpen) {
+  //     return (
+  //       <button
+  //         className="relative mx-auto my-1 cursor-pointer rounded-3xl bg-blue-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600"
+  //         onClick={() => openSidebar()}
+  //       >
+  //         <AiOutlineMenu />
+  //       </button>
+  //     );
+  //   }
+  //   return null;
+  // };
 
   const renderSearchbarButton = () => {
     if (!isSearchbarOpen) {
@@ -61,7 +61,7 @@ const Header = () => {
       </div>
       <div className="flex flex-row gap-5 md:hidden">
         {renderSearchbarButton()}
-        {renderSidebarButton()}
+        {/* {renderSidebarButton()} */}
       </div>
     </header>
   );

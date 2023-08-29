@@ -7,14 +7,14 @@ const SideBar = () => {
 
   return (
     <>
-      <aside className="bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 hidden md:flex flex-col justify-between items-center shadow-lg">
+      <aside className="fixed left-0 top-0 z-50 m-0 hidden h-screen w-16 flex-col items-center justify-between bg-black pt-5 text-white shadow-lg md:flex">
         <SidebarContent />
         <div className="sidebar-icons"></div>
       </aside>
 
       {isSidebarOpen && (
         <aside
-          className={`bg-black text-white fixed top-0 left-0 z-50 h-screen w-16 m-0 pt-5 flex flex-col items-center shadow-lg`}
+          className={`fixed left-0 top-0 z-50 m-0 flex h-screen w-16 flex-col items-center bg-black pt-5 text-white shadow-lg`}
         >
           <SidebarContent />
           <button

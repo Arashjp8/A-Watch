@@ -7,6 +7,7 @@ import {
   useSidebarToggleStore,
 } from "../components/sidebar/store";
 import { useEffect } from "react";
+import MobileNavbar from "../components/sidebar/MobileNavbar";
 
 const Layout = () => {
   const isSearchbarOpen = useSearchbarToggleStore((s) => s.isSearchbarOpen);
@@ -25,7 +26,7 @@ const Layout = () => {
 
   useEffect(() => {
     const selectedIcon = Object.keys(iconMappings).find((path) =>
-      location.pathname.includes(path)
+      location.pathname.includes(path),
     );
 
     setSelectedIcon(iconMappings[selectedIcon ?? ""] || "Home");
@@ -34,11 +35,11 @@ const Layout = () => {
   return (
     <div
       style={{ fontFamily: "Poppins" }}
-      className="bg-slate-800 overflow-hidden flex flex-row gap-10 w-full h-full"
+      className="flex h-full w-full flex-row gap-10 overflow-hidden bg-slate-800"
     >
       <SideBar />
       <div
-        className={`absolute top-0 md:left-9 left-0 w-[98%] md:pr-32 md:pl-40 px-10 bg-slate-800 text-white ${
+        className={`absolute left-0 top-0 w-[98%] bg-slate-800 px-10 text-white md:left-9 md:pl-40 md:pr-32 ${
           isSidebarOpen ? "opacity-80" : "opacity-100"
         } overflow-hidden `}
       >
@@ -47,6 +48,7 @@ const Layout = () => {
           <Outlet />
         </main>
       </div>
+      <MobileNavbar />
     </div>
   );
 };
