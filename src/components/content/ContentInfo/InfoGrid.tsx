@@ -3,8 +3,9 @@ import { Movie } from "../../../interfaces/Movie";
 import { TvShow } from "../../../interfaces/TvShow";
 import { FetchVideosResponse } from "../../../interfaces/Videos";
 import CastAndCrewCard from "../../castAndCrew/CastAndCrewCard";
-import ContentInfo from "../ContentInfo";
+import ContentInfo from "./ContentInfo";
 import { isMovie } from "../ContentVerticalCard";
+import ExpandableText from "../../ExpandableText";
 
 interface Props {
   cast: CastAndCrew[];
@@ -19,9 +20,15 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
       <ContentInfo
         title="Overview"
         content={
-          <p className="max-w-3xl text-2xl font-light text-white/80">
-            {contentDetail?.overview}
-          </p>
+          <>
+            <ExpandableText
+              content={contentDetail.overview}
+              fontSize="text-2xl"
+              maxWidth="max-w-3xl"
+              limit={100}
+              color="text-white/80"
+            />
+          </>
         }
       />
       <ContentInfo
