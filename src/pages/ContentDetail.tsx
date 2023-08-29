@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import CastAndCrewCard from "../components/castAndCrew/CastAndCrewCard";
-import ContentDetailHero from "../components/content/ContentDetailHero";
+import ContentDetailHero from "../components/content/ContentDetailHero/ContentDetailHero";
 import ContentInfo from "../components/content/ContentInfo";
 import { isMovie } from "../components/content/ContentVerticalCard";
 import useSelectedContentId from "../components/content/store";
