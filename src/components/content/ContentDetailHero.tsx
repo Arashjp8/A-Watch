@@ -1,25 +1,20 @@
-import { TvShow } from "../../interfaces/TvShow";
-import { Movie } from "../../interfaces/Movie";
-import { isMovie } from "./ContentVerticalCard";
 import { useEffect } from "react";
-import { TbBookmarkFilled, TbBookmark } from "react-icons/tb";
+import { Movie } from "../../interfaces/Movie";
+import { TvShow } from "../../interfaces/TvShow";
 import useBookmarkStore from "../../pages/store";
-import Gauge from "../gauge/Gauge";
+import Actions from "./Actions";
+import { isMovie } from "./ContentVerticalCard";
 
 interface Props {
   data?: Movie | TvShow;
 }
 const ContentDetailHero = ({ data }: Props) => {
-  const {
-    isBookmarked,
-    changeIsBookmarkedToTrue,
-    bookmarkTheContent,
-    removeFromBookmarked,
-    checkContentBookmarked,
-  } = useBookmarkStore();
+  const { isBookmarked, checkContentBookmarked } = useBookmarkStore();
+
   useEffect(() => {
     if (data) checkContentBookmarked(data);
   }, [data, isBookmarked]);
+
   return (
     <>
       {/* desktop view */}
@@ -37,31 +32,7 @@ const ContentDetailHero = ({ data }: Props) => {
           <h2 className="absolute bottom-28 left-14  max-w-[30%] text-4xl font-bold leading-tight text-white">
             {data && isMovie(data) ? data?.title : data?.name}
           </h2>
-          <div className="absolute bottom-10 left-14 flex flex-row gap-5">
-            <button
-              onClick={() => {
-                changeIsBookmarkedToTrue();
-                if (data && !isBookmarked) {
-                  bookmarkTheContent(data);
-                }
-                if (data && isBookmarked) {
-                  removeFromBookmarked(data);
-                }
-              }}
-              className={`mb-1 text-xl font-semibold ${
-                isBookmarked
-                  ? "bg-green-600 text-white"
-                  : "bg-blue-600 text-white hover:bg-white hover:text-blue-600"
-              } flex flex-row items-center gap-1 rounded-3xl p-4 transition-all duration-150 ease-linear hover:rounded-xl`}
-            >
-              {isBookmarked ? (
-                <TbBookmarkFilled size={22} />
-              ) : (
-                <TbBookmark size={22} />
-              )}
-            </button>
-            <Gauge data={data} size="w-14 h-14 text-xl" />
-          </div>
+          <Actions data={data} />
         </div>
         <img
           src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
@@ -81,31 +52,7 @@ const ContentDetailHero = ({ data }: Props) => {
           <h2 className="text-3xl font-bold text-white">
             {data && isMovie(data) ? data?.title : data?.name}
           </h2>
-          <div className="flex flex-row gap-5">
-            <button
-              onClick={() => {
-                changeIsBookmarkedToTrue();
-                if (data && !isBookmarked) {
-                  bookmarkTheContent(data);
-                }
-                if (data && isBookmarked) {
-                  removeFromBookmarked(data);
-                }
-              }}
-              className={`mb-1 text-xl font-semibold ${
-                isBookmarked
-                  ? "bg-green-600 text-white"
-                  : "bg-blue-600 text-white hover:bg-white hover:text-blue-600"
-              } flex flex-row items-center gap-1 rounded-3xl p-4 transition-all duration-150 ease-linear hover:rounded-xl`}
-            >
-              {isBookmarked ? (
-                <TbBookmarkFilled size={22} />
-              ) : (
-                <TbBookmark size={22} />
-              )}
-            </button>
-            <Gauge data={data} size="w-14 h-14 text-xl" />
-          </div>
+          <Actions data={data} />
         </div>
       </div>
     </>
