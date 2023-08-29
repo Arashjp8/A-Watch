@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
-import useBookmarkStore from "../../pages/store";
 import Actions from "./Actions";
 import { isMovie } from "./ContentVerticalCard";
 
@@ -9,12 +7,6 @@ interface Props {
   data?: Movie | TvShow;
 }
 const ContentDetailHero = ({ data }: Props) => {
-  const { isBookmarked, checkContentBookmarked } = useBookmarkStore();
-
-  useEffect(() => {
-    if (data) checkContentBookmarked(data);
-  }, [data, isBookmarked]);
-
   return (
     <>
       {/* desktop view */}

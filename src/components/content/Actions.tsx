@@ -3,6 +3,7 @@ import Gauge from "../gauge/Gauge";
 import useBookmarkStore from "../../pages/store";
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
+import { useEffect } from "react";
 
 interface Props {
   data?: Movie | TvShow;
@@ -14,20 +15,27 @@ const Actions = ({ data }: Props) => {
     changeIsBookmarkedToTrue,
     bookmarkTheContent,
     removeFromBookmarked,
+    checkContentBookmarked,
   } = useBookmarkStore();
 
+  useEffect(() => {
+    if (data) checkContentBookmarked(data);
+  }, [data, isBookmarked]);
+
+  const handleBookmark = () => {
+    changeIsBookmarkedToTrue();
+    if (data && !isBookmarked) {
+      bookmarkTheContent(data);
+    }
+    if (data && isBookmarked) {
+      removeFromBookmarked(data);
+    }
+  };
+
   return (
-    <div className="absolute bottom-10 left-14 flex flex-row gap-5">
+    <div className="flex flex-row gap-5 md:absolute md:bottom-10 md:left-14">
       <button
-        onClick={() => {
-          changeIsBookmarkedToTrue();
-          if (data && !isBookmarked) {
-            bookmarkTheContent(data);
-          }
-          if (data && isBookmarked) {
-            removeFromBookmarked(data);
-          }
-        }}
+        onClick={() => handleBookmark()}
         className={`mb-1 text-xl font-semibold ${
           isBookmarked
             ? "bg-green-600 text-white"

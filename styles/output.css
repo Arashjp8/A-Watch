@@ -1867,12 +1867,24 @@ video {
 }
 
 @media (min-width: 1060px){
+  .md\:absolute{
+    position: absolute;
+  }
+
   .md\:left-9{
     left: 2.25rem;
   }
 
   .md\:top-72{
     top: 18rem;
+  }
+
+  .md\:bottom-10{
+    bottom: 2.5rem;
+  }
+
+  .md\:left-14{
+    left: 3.5rem;
   }
 
   .md\:block{
