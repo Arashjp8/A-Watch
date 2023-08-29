@@ -28,7 +28,7 @@ const Section = ({
       >
         <div className="flex flex-row items-start gap-3">
           <h3
-            className={`text-2xl text-white/60 ssm:text-3xl ${
+            className={`text-2xl text-white/60 md:text-3xl ${
               link.length > 0 ? "hover:text-white" : ""
             } pb-3 font-light`}
           >

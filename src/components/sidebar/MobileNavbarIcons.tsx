@@ -25,7 +25,6 @@ const MobileNavbarIcons = ({ icon, text, path }: SidebarIconProps) => {
       }`}
     >
       <i className="text-2xl">{icon}</i>
-      {/* <p className="text-[10px] font-semibold">{text}</p> */}
     </NavLink>
   );
 };

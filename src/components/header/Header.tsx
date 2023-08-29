@@ -49,10 +49,15 @@ const Header = () => {
 
   return (
     <header className="my-10 flex flex-row items-center justify-between">
+      <img
+        src="/assets/logo.svg"
+        alt="logo"
+        className="block w-12 pb-1 md:hidden"
+      />
       <h2
         className={`${
           isSearchbarOpen ? "opacity-20" : "opacity-100"
-        } text-3xl font-bold ssm:text-5xl`}
+        } text-3xl font-bold md:text-5xl`}
       >
         {selectedIcon}
       </h2>

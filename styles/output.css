@@ -1405,6 +1405,14 @@ video {
   padding-top: 1.25rem;
 }
 
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
+.pb-1{
+  padding-bottom: 0.25rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -1755,6 +1763,10 @@ video {
     display: block;
   }
 
+  .ssm\:hidden{
+    display: none;
+  }
+
   .ssm\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1887,9 +1899,18 @@ video {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 
 @media (min-width: 1200px){
+  .lg\:block{
+    display: block;
+  }
+
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
