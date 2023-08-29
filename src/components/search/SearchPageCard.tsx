@@ -36,7 +36,7 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${styleProp} group relative w-full h-[450px] cursor-pointer overflow-hidden`}
+      className={`${styleProp} group relative h-[450px] w-full cursor-pointer overflow-hidden`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
@@ -45,21 +45,21 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
           WebkitMaskImage: "linear-gradient(to right, transparent, black 50%)",
           maskImage: "linear-gradient(to right, transparent, black 50%)",
         }}
-        className="absolute z-0 w-[70%] h-[380px] right-0 object-cover rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"
+        className="absolute right-0 z-0 h-[380px] w-[70%] rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl"
       />
-      <div className="absolute w-full h-[380px] flex z-10 bg-black/90 group-hover:bg-black/80 rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear"></div>
+      <div className="absolute z-10 flex h-[380px] w-full rounded-3xl bg-black/90 transition-all duration-150 ease-linear group-hover:rounded-xl group-hover:bg-black/80"></div>
       <div
-        className={`absolute bottom-32 left-32 z-20 flex flex-row justify-between items-center gap-5 xl:gap-[46rem]`}
+        className={`absolute bottom-32 left-32 z-20 flex flex-row items-center justify-between gap-5 xl:gap-[46rem]`}
       >
-        <div className="flex flex-row gap-10 items-center">
+        <div className="flex flex-row items-center gap-10">
           <img
             src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
             alt="image"
-            className="w-48 min-w-44 h-[282px] rounded-3xl object-cover border-[1px] border-blue-400"
+            className="min-w-44 h-[282px] w-48 rounded-3xl object-cover"
           />
           <section className="flex flex-col gap-1 xl:gap-3">
-            <span className="flex flex-col gap-1 mb-2 xl:mb-0">
-              <h4 className="text-base xl:text-2xl font-bold text-left max-w-[170px] max-h-[96px] overflow-hidden  group-hover:text-blue-400 transition-all duration-75 ease-linear">
+            <span className="mb-2 flex flex-col gap-1 xl:mb-0">
+              <h4 className="max-h-[96px] max-w-[170px] overflow-hidden text-left text-base font-bold transition-all  duration-75 ease-linear group-hover:text-blue-400 xl:text-2xl">
                 {isMovie(data)
                   ? data.title.length > 25
                     ? data.title.slice(0, 25) + "..."
@@ -68,12 +68,12 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
                   ? data.name.slice(0, 25) + "..."
                   : data.name}
               </h4>
-              <p className="text-sm xl:text-lg text-left text-white/60 group-hover:text-white/90">
+              <p className="text-left text-sm text-white/60 group-hover:text-white/90 xl:text-lg">
                 {isMovie(data) ? data.release_date : data.first_air_date}
               </p>
             </span>
             <div className="flex items-center gap-5">
-              <div className="xl:block hidden">
+              <div className="hidden xl:block">
                 <Gauge
                   data={data}
                   size="w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
@@ -86,7 +86,7 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
             </div>
           </section>
         </div>
-        <div className="ssm:block hidden text-sm xl:text-lg max-w-[200px] font-semibold text-left text-white/80 group-hover:text-blue-400 group-hover:shadow-2xl mx-5">
+        <div className="mx-5 hidden max-w-[200px] text-left text-sm font-semibold text-white/80 group-hover:text-blue-400 group-hover:shadow-2xl ssm:block xl:text-lg">
           <h5 className="font-bold">Overview:</h5>{" "}
           {data.overview && data.overview.slice(0, 100) + "..."}
         </div>

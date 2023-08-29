@@ -8,10 +8,10 @@ interface Props {
 }
 const ContentDetailHero = ({ data }: Props) => {
   return (
-    <>
+    <div className="relative w-full bg-slate-800 md:h-[60vh]">
       <DesktopView data={data} />
       <MobileView data={data} />
-    </>
+    </div>
   );
 };
 
