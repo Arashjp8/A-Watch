@@ -2,12 +2,13 @@ import useSearchbarToggleStore from "./store";
 import SearchBar from "../search/SearchBar";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import { useSelectedIconStore } from "../sidebar/store";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { isSearchbarOpen, openSearchbar, closeSearchbar } =
     useSearchbarToggleStore();
   // const { isSidebarOpen, openSidebar } = useSidebarToggleStore();
-  const selectedIcon = useSelectedIconStore((s) => s.selectedIcon);
+  const { selectedIcon, setSelectedIcon } = useSelectedIconStore();
 
   // const renderSidebarButton = () => {
   //   if (!isSidebarOpen && !isSearchbarOpen) {
@@ -49,11 +50,13 @@ const Header = () => {
 
   return (
     <header className="my-10 flex flex-row items-center justify-between">
-      <img
-        src="/assets/logo.svg"
-        alt="logo"
-        className="block w-12 pb-1 md:hidden"
-      />
+      <NavLink to={"/"} onClick={() => setSelectedIcon("Home")}>
+        <img
+          src="/assets/logo.svg"
+          alt="logo"
+          className="block w-12 pb-1 md:hidden"
+        />
+      </NavLink>
       <h2
         className={`${
           isSearchbarOpen ? "opacity-20" : "opacity-100"
