@@ -3,12 +3,30 @@ import SearchBar from "../search/SearchBar";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import { useSelectedIconStore } from "../sidebar/store";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const { isSearchbarOpen, openSearchbar, closeSearchbar } =
     useSearchbarToggleStore();
   // const { isSidebarOpen, openSidebar } = useSidebarToggleStore();
   const { selectedIcon, setSelectedIcon } = useSelectedIconStore();
+
+  //* refactor this chunck have been used in "VerticalScroll" as well
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1060);
+    };
+
+    handleResize(); // Call the handler initially
+    window.addEventListener("resize", handleResize); // Attach the event listener
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up the event listener on unmount
+    };
+  }, []);
 
   // const renderSidebarButton = () => {
   //   if (!isSidebarOpen && !isSearchbarOpen) {
@@ -50,13 +68,17 @@ const Header = () => {
 
   return (
     <header className="my-10 flex flex-row items-center justify-between">
-      <NavLink to={"/"} onClick={() => setSelectedIcon("Home")}>
-        <img
-          src="/assets/logo.svg"
-          alt="logo"
-          className="block w-12 pb-1 md:hidden"
-        />
-      </NavLink>
+      {isSmallScreen && (
+        <NavLink to={"/"} onClick={() => setSelectedIcon("Home")}>
+          <img
+            src="/assets/logo.svg"
+            alt="logo"
+            className={`${
+              isSearchbarOpen ? "opacity-20" : "opacity-100"
+            } w-12 pb-1`}
+          />
+        </NavLink>
+      )}
       <h2
         className={`${
           isSearchbarOpen ? "opacity-20" : "opacity-100"
