@@ -6,18 +6,18 @@
 
 @layer components {
   .sidebar-icons {
-    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto shadow-lg text-2xl transition-all duration-150 ease-linear cursor-pointer;
+    @apply relative mx-auto mb-2 mt-2 flex h-12 w-12 cursor-pointer flex-col items-center justify-center text-2xl shadow-lg transition-all duration-150 ease-linear md:flex-row;
   }
 
   .sidebar-tooltip {
-    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white bg-gray-900 text-sm font-bold transition-all duration-100 scale-0 origin-left;
+    @apply absolute left-14 m-2 w-auto min-w-max origin-left scale-0 rounded-md bg-gray-900 p-2 text-sm font-bold text-white shadow-md transition-all duration-100;
   }
 
   .card {
-    @apply w-60 flex flex-col items-center rounded-3xl;
+    @apply flex w-60 flex-col items-center rounded-3xl;
   }
 
   .card-title {
-    @apply scale-0 absolute top-0 w-full h-full rounded-3xl flex flex-col items-center justify-between bg-black bg-opacity-90;
+    @apply absolute top-0 flex h-full w-full scale-0 flex-col items-center justify-between rounded-3xl bg-black bg-opacity-90;
   }
 }

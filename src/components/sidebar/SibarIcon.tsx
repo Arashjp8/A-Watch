@@ -18,10 +18,10 @@ const SidebarIcon = ({ icon, text, path }: SidebarIconProps) => {
         setSelectedIcon(text);
         closeSidebar();
       }}
-      className={`sidebar-icons group hover:bg-blue-600 hover:text-white hover:rounded-xl ${
+      className={`sidebar-icons group hover:rounded-xl hover:bg-blue-600 hover:text-white ${
         selectedIcon === text
-          ? "rounded-xl text-white bg-blue-600"
-          : "rounded-3xl text-blue-500 bg-gray-800"
+          ? "rounded-xl bg-blue-600 text-white"
+          : "rounded-3xl bg-gray-800 text-blue-500"
       }`}
     >
       {icon}
