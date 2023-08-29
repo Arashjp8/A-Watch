@@ -1,9 +1,9 @@
-import { TbBookmarkFilled, TbBookmark } from "react-icons/tb";
-import Gauge from "../gauge/Gauge";
-import useBookmarkStore from "../../pages/store";
+import { useEffect } from "react";
+import { TbBookmark, TbBookmarkFilled } from "react-icons/tb";
 import { Movie } from "../../interfaces/Movie";
 import { TvShow } from "../../interfaces/TvShow";
-import { useEffect } from "react";
+import useBookmarkStore from "../../pages/store";
+import Gauge from "../gauge/Gauge";
 import Button from "./Button";
 
 interface Props {
@@ -35,13 +35,13 @@ const Actions = ({ data }: Props) => {
 
   return (
     <div className="flex flex-row gap-5 md:absolute md:bottom-10 md:left-14">
+      <Gauge data={data} size="w-14 h-14 text-xl" />
       <Button
         handleClick={handleBookmark}
         toggle={isBookmarked}
         beforeClickIcon={<TbBookmark size={22} />}
         afterClickIcon={<TbBookmarkFilled size={22} />}
       />
-      <Gauge data={data} size="w-14 h-14 text-xl" />
     </div>
   );
 };

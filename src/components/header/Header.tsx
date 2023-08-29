@@ -13,7 +13,7 @@ const Header = () => {
     if (!isSidebarOpen && !isSearchbarOpen) {
       return (
         <button
-          className="relative my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
+          className="relative mx-auto my-1 cursor-pointer rounded-3xl bg-blue-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600"
           onClick={() => openSidebar()}
         >
           <AiOutlineMenu />
@@ -27,7 +27,7 @@ const Header = () => {
     if (!isSearchbarOpen) {
       return (
         <button
-          className="relative my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
+          className="relative mx-auto my-1 cursor-pointer rounded-3xl bg-blue-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600"
           onClick={() => openSearchbar()}
         >
           <AiOutlineSearch />
@@ -35,9 +35,9 @@ const Header = () => {
       );
     }
     return (
-      <div className="flex flex-col gap-5 z-50 absolute top-0 left-0 sm:left-32 m-5">
+      <div className="absolute left-0 top-0 z-50 m-5 flex flex-col gap-5 sm:left-32">
         <button
-          className="relative my-1 mx-auto shadow-lg bg-red-600 hover:bg-white text-white hover:text-red-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl"
+          className="relative mx-auto my-1 cursor-pointer rounded-3xl bg-red-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-red-600"
           onClick={() => closeSearchbar()}
         >
           <AiOutlineClose />
@@ -48,20 +48,20 @@ const Header = () => {
   };
 
   return (
-    <header className="flex flex-row justify-between items-center my-10">
+    <header className="my-10 flex flex-row items-center justify-between">
       <h2
         className={`${
           isSearchbarOpen ? "opacity-20" : "opacity-100"
-        } text-3xl ssm:text-5xl font-bold`}
+        } text-3xl font-bold ssm:text-5xl`}
       >
         {selectedIcon}
       </h2>
       <div className="hidden md:block">
         <SearchBar />
       </div>
-      <div className="md:hidden flex flex-row gap-5">
-        {renderSidebarButton()}
+      <div className="flex flex-row gap-5 md:hidden">
         {renderSearchbarButton()}
+        {renderSidebarButton()}
       </div>
     </header>
   );

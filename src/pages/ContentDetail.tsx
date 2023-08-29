@@ -60,8 +60,8 @@ const ContentDetail = () => {
     );
 
   return (
-    <div className="my-10 flex flex-col gap-0">
-      <div className="relative h-[60vh] w-full bg-slate-800">
+    <div className="my-10 flex flex-col gap-10 md:gap-0">
+      <div className="relative w-full bg-slate-800 md:h-[60vh]">
         <ContentDetailHero data={contentDetail} />
       </div>
       <div className="grid grid-cols-1 items-start gap-20 xl:grid-cols-2">
