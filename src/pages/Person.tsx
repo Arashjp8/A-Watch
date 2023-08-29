@@ -60,7 +60,6 @@ const Person = () => {
     );
 
   return (
-    <div className="flex flex-col">
       <div className="flex flex-col gap-10 sm:flex-row">
         <div className="flex flex-col items-center gap-5">
           <CastAndCrewCard
@@ -97,7 +96,6 @@ const Person = () => {
           )}
         </div>
       </div>
-    </div>
   );
 };
 
