@@ -1,9 +1,9 @@
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useSelectedIconStore } from "../sidebar/store";
 import useSearchbarToggleStore from "../header/store";
 import useSearchQuery from "./store";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const SearchBar = () => {
   const { changeSearchQuery } = useSearchQuery();
 
   const ref = useRef<HTMLInputElement>(null);
+  const [text, setText] = useState("");
 
   return (
     <form
@@ -24,15 +25,28 @@ const SearchBar = () => {
           navigate("/search");
         }
       }}
-      className="flex flex-row items-center justify-between px-3 py-1 rounded-3xl bg-white text-lg"
+      className="flex flex-row items-center justify-between rounded-3xl bg-white px-3 py-1 text-lg"
     >
+      {text.length > 0 ? (
+        <button
+          type="button"
+          onClick={() => setText("")}
+          className="relative mx-auto my-1 mr-2 flex cursor-pointer items-center justify-center text-2xl text-blue-500"
+        >
+          <AiOutlineClose />
+        </button>
+      ) : (
+        ""
+      )}
       <input
         ref={ref}
         type="text"
-        className="shadow-lg border-2 border-blue-200 rounded-full px-6 py-2 mr-2 text-black w-[90%]"
         placeholder="Search for a movie or tv show..."
+        className="mr-2 w-[90%] rounded-full border-2 border-blue-200 px-6 py-2 text-black shadow-lg"
+        onChange={(event) => setText(event?.target.value)}
+        value={text}
       />
-      <button className="relative flex items-center justify-center my-1 mx-auto shadow-lg bg-blue-600 hover:bg-white text-white hover:text-blue-600 text-2xl py-3 px-4 transition-all duration-150 ease-linear cursor-pointer rounded-3xl hover:rounded-xl">
+      <button className="relative mx-auto my-1 flex cursor-pointer items-center justify-center rounded-3xl bg-blue-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600">
         <AiOutlineSearch />
       </button>
     </form>
