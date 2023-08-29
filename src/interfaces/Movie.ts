@@ -12,4 +12,5 @@ export interface Movie {
   media_type: string;
   genres: Genre[];
   production_companies: Companies[];
+  status: string;
 }

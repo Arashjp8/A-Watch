@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
-import { TbBookmark, TbBookmarkFilled } from "react-icons/tb";
-import CastAndCrewCard from "../components/castAndCrew/CastAndCrewCard";
 import Spinner from "../components/Spinner";
+import CastAndCrewCard from "../components/castAndCrew/CastAndCrewCard";
 import ContentDetailHero from "../components/content/ContentDetailHero";
 import ContentInfo from "../components/content/ContentInfo";
 import { isMovie } from "../components/content/ContentVerticalCard";
 import useSelectedContentId from "../components/content/store";
-import Gauge from "../components/gauge/Gauge";
 import useContentDetail from "../hooks/useContentDetail";
+import useContentVideos from "../hooks/useContentVideos";
 import useCredits from "../hooks/useCredits";
 import { CastAndCrew } from "../interfaces/Credits";
-import useBookmarkStore from "./store";
-import useContentVideos from "../hooks/useContentVideos";
 
 const ContentDetail = () => {
   const [cast, setCast] = useState<CastAndCrew[]>([]);
@@ -34,18 +31,6 @@ const ContentDetail = () => {
     isLoading: videosAreLoading,
     error: videosError,
   } = useContentVideos(content, selectedContentId);
-
-  const {
-    isBookmarked,
-    changeIsBookmarkedToTrue,
-    bookmarkTheContent,
-    removeFromBookmarked,
-    checkContentBookmarked,
-  } = useBookmarkStore();
-
-  useEffect(() => {
-    if (contentDetail) checkContentBookmarked(contentDetail);
-  }, [contentDetail, isBookmarked]);
 
   useEffect(() => {
     if (credits) {
@@ -89,8 +74,14 @@ const ContentDetail = () => {
           }
         />
         <ContentInfo
-          title="Rating"
-          content={<Gauge data={contentDetail} size="w-14 h-14 text-xl" />}
+          title="Release Date"
+          content={
+            <p className="text-2xl font-light text-white/80">
+              {contentDetail && isMovie(contentDetail)
+                ? contentDetail?.release_date
+                : contentDetail?.first_air_date}
+            </p>
+          }
         />
         <ContentInfo
           title="Videos"
@@ -121,14 +112,12 @@ const ContentDetail = () => {
           }
         />
         <ContentInfo
-          title="Release Date"
-          content={
-            <p className="text-2xl font-light text-white/80">
-              {contentDetail && isMovie(contentDetail)
-                ? contentDetail?.release_date
-                : contentDetail?.first_air_date}
+          title="Companies"
+          content={contentDetail.production_companies.map((company) => (
+            <p key={company.id} className="text-2xl font-light text-white/80">
+              {company.name}
             </p>
-          }
+          ))}
         />
         <ContentInfo
           title="Director"
@@ -172,14 +161,6 @@ const ContentDetail = () => {
           }
         />
         <ContentInfo
-          title="Companies"
-          content={contentDetail.production_companies.map((company) => (
-            <p key={company.id} className="text-2xl font-light text-white/80">
-              {company.name}
-            </p>
-          ))}
-        />
-        <ContentInfo
           title="Genres"
           content={contentDetail.genres.map((genre) => (
             <p key={genre.id} className="text-2xl font-light text-white/80">
@@ -187,34 +168,17 @@ const ContentDetail = () => {
             </p>
           ))}
         />
-        <button
-          onClick={() => {
-            changeIsBookmarkedToTrue();
-            if (!isBookmarked) {
-              bookmarkTheContent(contentDetail);
-            }
-            if (isBookmarked) {
-              removeFromBookmarked(contentDetail);
-            }
-          }}
-          className={`mb-1 text-xl font-semibold ${
-            isBookmarked
-              ? "bg-green-600 text-white"
-              : "bg-blue-600 text-white hover:bg-white hover:text-blue-600"
-          } flex max-w-[300px] flex-row items-center gap-1 rounded-3xl p-4 transition-all duration-150 ease-linear hover:rounded-xl`}
-        >
-          {isBookmarked ? (
-            <>
-              <p>Added to your watchlist</p>
-              <TbBookmarkFilled size={22} />
-            </>
-          ) : (
-            <>
-              <p>Add it to your watchlist</p>
-              <TbBookmark size={22} />
-            </>
-          )}
-        </button>
+        <ContentInfo
+          title="Status"
+          content={
+            <p
+              key={contentDetail.id}
+              className="text-2xl font-light text-white/80"
+            >
+              {contentDetail.status}
+            </p>
+          }
+        />
       </div>
     </div>
   );
