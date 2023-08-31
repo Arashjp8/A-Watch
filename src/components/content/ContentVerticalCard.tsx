@@ -8,6 +8,10 @@ import useIsHoveredStore from "../gauge/store";
 
 interface Props {
   data: Movie | TvShow;
+  size: string;
+  detailTop: string;
+  nameFontSize: string;
+  marginBottom: string;
   styleProp?: string;
 }
 
@@ -15,7 +19,14 @@ export const isMovie = (data: Movie | TvShow): data is Movie => {
   return (data as Movie).title !== undefined;
 };
 
-const ContentVerticalCard = ({ data, styleProp }: Props) => {
+const ContentVerticalCard = ({
+  data,
+  styleProp,
+  size,
+  detailTop,
+  nameFontSize,
+  marginBottom,
+}: Props) => {
   const { setHovered } = useIsHoveredStore();
   const navigate = useNavigate();
   const { changeSelectedContentId, isAMovie, isATvShow } =
@@ -39,17 +50,21 @@ const ContentVerticalCard = ({ data, styleProp }: Props) => {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${styleProp} group relative mx-1 mb-5 flex h-[340px] w-28 cursor-pointer flex-col items-start overflow-hidden sm:mx-0 md:h-[480px] md:w-52 md:items-center`}
+      className={`${styleProp} group relative mx-1 ${marginBottom} flex ${size} cursor-pointer flex-col items-start overflow-hidden sm:mx-0 md:h-[480px] md:w-52 md:items-center`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
         alt="image"
-        className="absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full"
+        className={`absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full`}
       />
-      <div className="absolute left-0 top-36 flex h-[250px] flex-col gap-3 md:top-72">
+      <div
+        className={`absolute left-0 ${detailTop} flex h-[250px] flex-col gap-3 md:top-72`}
+      >
         <Gauge data={data} size="w-10 h-10" />
         <span className="flex flex-col gap-1">
-          <p className="max-w-[152px] text-left text-sm font-bold transition-all duration-75 ease-linear group-hover:text-blue-400 md:text-lg">
+          <p
+            className={`max-w-[152px] text-left ${nameFontSize} font-bold transition-all duration-75 ease-linear group-hover:text-blue-400 md:text-lg`}
+          >
             {isMovie(data) ? data.title : data.name}
           </p>
           <p className="text-left text-sm text-white/60">

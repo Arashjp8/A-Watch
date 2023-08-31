@@ -25,7 +25,13 @@ const HorizontalScroll = ({ items, title }: Props) => {
             title?.includes("Trending") ? (
               <ContentHorizontalCard data={item} />
             ) : (
-              <ContentVerticalCard data={item} />
+              <ContentVerticalCard
+                data={item}
+                size="w-28 h-[340px]"
+                detailTop="top-36"
+                nameFontSize="text-sm"
+                marginBottom="mb-5"
+              />
             )}
           </div>
         ))}
