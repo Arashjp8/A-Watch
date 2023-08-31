@@ -11,7 +11,7 @@ interface Props {
 
 const ContentGrid = ({ data }: Props) => {
   return (
-    <section className="grid grid-cols-3 gap-1 ssm:grid-cols-3 md:gap-0 lg:grid-cols-4 sxl:grid-cols-5 xl:grid-cols-6">
+    <section className="grid grid-cols-3 gap-2 ssm:grid-cols-3 md:gap-0 lg:grid-cols-4 sxl:grid-cols-5 xl:grid-cols-6">
       {data?.pages.map((page, index) => (
         <React.Fragment key={index}>
           {page.results.map((movie) => (

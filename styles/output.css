@@ -743,6 +743,11 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.mx-1{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .mb-0{
   margin-bottom: 0px;
 }
@@ -1880,6 +1885,11 @@ video {
 @media (min-width: 768px){
   .sm\:left-32{
     left: 8rem;
+  }
+
+  .sm\:mx-0{
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .sm\:mb-10{
