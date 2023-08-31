@@ -12,13 +12,13 @@ const HorizontalScroll = ({ items, title }: Props) => {
   const location = useLocation();
 
   return (
-    <div className="flex w-[100%] overflow-x-scroll mt-10 mb-2 snap-mandatory snap-start">
-      <div className="flex flex-nowrap w-full">
+    <div className="mb-2 mt-10 flex w-[100%] snap-mandatory snap-start overflow-x-scroll">
+      <div className="flex w-full flex-nowrap">
         {items?.map((item, index) => (
           <div
             key={index}
             className={`inline-block ${
-              index === items.length - 1 ? "pr-0" : "pr-6"
+              index === items.length - 1 ? "pr-0" : "pr-4"
             }`}
           >
             {location.pathname === "/trending" ||

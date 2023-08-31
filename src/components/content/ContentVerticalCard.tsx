@@ -39,20 +39,20 @@ const ContentVerticalCard = ({ data, styleProp }: Props) => {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${styleProp} group cursor-pointer relative w-36 md:w-52 h-[370px] md:h-[480px] flex flex-col items-start md:items-center overflow-hidden`}
+      className={`${styleProp} group relative mb-5 flex h-[340px] w-28 cursor-pointer flex-col items-start overflow-hidden md:h-[480px] md:w-52 md:items-center`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
         alt="image"
-        className="w-36 md:w-full h-[212px] md:h-[312px] rounded-3xl group-hover:rounded-xl transition-all duration-150 ease-linear absoloute object-cover"
+        className="absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full"
       />
-      <div className="absolute top-48 md:top-72 left-0 flex flex-col gap-3 h-[250px]">
+      <div className="absolute left-0 top-36 flex h-[250px] flex-col gap-3 md:top-72">
         <Gauge data={data} size="w-10 h-10" />
         <span className="flex flex-col gap-1">
-          <p className="text-md font-bold text-left max-w-[152px] group-hover:text-blue-400 transition-all duration-75 ease-linear">
+          <p className="max-w-[152px] text-left text-sm font-bold transition-all duration-75 ease-linear group-hover:text-blue-400 md:text-lg">
             {isMovie(data) ? data.title : data.name}
           </p>
-          <p className="text-sm text-left text-white/60">
+          <p className="text-left text-sm text-white/60">
             {isMovie(data) ? data.release_date : data.first_air_date}
           </p>
         </span>

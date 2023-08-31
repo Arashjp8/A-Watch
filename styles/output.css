@@ -674,6 +674,22 @@ video {
   top: 12rem;
 }
 
+.top-52{
+  top: 13rem;
+}
+
+.top-44{
+  top: 11rem;
+}
+
+.top-40{
+  top: 10rem;
+}
+
+.top-36{
+  top: 9rem;
+}
+
 .z-0{
   z-index: 0;
 }
@@ -765,6 +781,22 @@ video {
 
 .mt-3{
   margin-top: 0.75rem;
+}
+
+.mr-1{
+  margin-right: 0.25rem;
+}
+
+.mb-3{
+  margin-bottom: 0.75rem;
+}
+
+.mb-4{
+  margin-bottom: 1rem;
+}
+
+.mb-10{
+  margin-bottom: 2.5rem;
 }
 
 .block{
@@ -875,6 +907,74 @@ video {
   height: 100vh;
 }
 
+.h-\[85\%\]{
+  height: 85%;
+}
+
+.h-\[80\%\]{
+  height: 80%;
+}
+
+.h-\[400px\]{
+  height: 400px;
+}
+
+.h-\[55\%\]{
+  height: 55%;
+}
+
+.h-\[50\%\]{
+  height: 50%;
+}
+
+.h-\[40\%\]{
+  height: 40%;
+}
+
+.h-\[60\%\]{
+  height: 60%;
+}
+
+.h-\[10\%\]{
+  height: 10%;
+}
+
+.h-\[70\%\]{
+  height: 70%;
+}
+
+.h-\[57\%\]{
+  height: 57%;
+}
+
+.h-\[58\%\]{
+  height: 58%;
+}
+
+.h-\[45\%\]{
+  height: 45%;
+}
+
+.h-\[47\%\]{
+  height: 47%;
+}
+
+.h-\[48\%\]{
+  height: 48%;
+}
+
+.h-\[300px\]{
+  height: 300px;
+}
+
+.h-\[320px\]{
+  height: 320px;
+}
+
+.h-\[340px\]{
+  height: 340px;
+}
+
 .max-h-\[96px\]{
   max-height: 96px;
 }
@@ -959,6 +1059,30 @@ video {
   width: 100%;
 }
 
+.w-\[30\%\]{
+  width: 30%;
+}
+
+.w-\[50\%\]{
+  width: 50%;
+}
+
+.w-\[80\%\]{
+  width: 80%;
+}
+
+.w-32{
+  width: 8rem;
+}
+
+.w-28{
+  width: 7rem;
+}
+
+.w-8{
+  width: 2rem;
+}
+
 .min-w-\[150px\]{
   min-width: 150px;
 }
@@ -973,6 +1097,22 @@ video {
 
 .min-w-\[260px\]{
   min-width: 260px;
+}
+
+.min-w-\[80\%\]{
+  min-width: 80%;
+}
+
+.min-w-\[50\%\]{
+  min-width: 50%;
+}
+
+.min-w-\[30\%\]{
+  min-width: 30%;
+}
+
+.min-w-\[40\%\]{
+  min-width: 40%;
 }
 
 .max-w-3xl{
@@ -997,6 +1137,10 @@ video {
 
 .max-w-\[320px\]{
   max-width: 320px;
+}
+
+.max-w-\[300px\]{
+  max-width: 300px;
 }
 
 .translate-x-\[5\%\]{
@@ -1047,6 +1191,10 @@ video {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
+.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .flex-row{
   flex-direction: row;
 }
@@ -1073,10 +1221,6 @@ video {
 
 .justify-between{
   justify-content: space-between;
-}
-
-.justify-around{
-  justify-content: space-around;
 }
 
 .gap-0{
@@ -1381,6 +1525,11 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.px-0{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .pb-1{
   padding-bottom: 0.25rem;
 }
@@ -1399,6 +1548,18 @@ video {
 
 .pt-5{
   padding-top: 1.25rem;
+}
+
+.pr-4{
+  padding-right: 1rem;
+}
+
+.pr-2{
+  padding-right: 0.5rem;
+}
+
+.pb-10{
+  padding-bottom: 2.5rem;
 }
 
 .text-left{
@@ -1717,6 +1878,10 @@ video {
     left: 8rem;
   }
 
+  .sm\:mb-10{
+    margin-bottom: 2.5rem;
+  }
+
   .sm\:block{
     display: block;
   }
@@ -1733,6 +1898,10 @@ video {
     height: 100vh;
   }
 
+  .sm\:w-72{
+    width: 18rem;
+  }
+
   .sm\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1741,20 +1910,27 @@ video {
     flex-direction: row;
   }
 
-  .sm\:gap-20{
-    gap: 5rem;
-  }
-
-  .sm\:gap-24{
-    gap: 6rem;
-  }
-
   .sm\:gap-16{
     gap: 4rem;
   }
 
+  .sm\:px-10{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .sm\:pr-20{
     padding-right: 5rem;
+  }
+
+  .sm\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -1763,12 +1939,12 @@ video {
     display: block;
   }
 
-  .ssm\:hidden{
-    display: none;
-  }
-
   .ssm\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ssm\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .ssm\:text-2xl{
@@ -1853,6 +2029,10 @@ video {
     width: 100%;
   }
 
+  .md\:w-32{
+    width: 8rem;
+  }
+
   .md\:min-w-\[520px\]{
     min-width: 520px;
   }
@@ -1915,6 +2095,10 @@ video {
   .sxl\:grid-cols-5{
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
+
+  .sxl\:grid-cols-6{
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1700px){
@@ -1924,6 +2108,18 @@ video {
 
   .xl\:mb-0{
     margin-bottom: 0px;
+  }
+
+  .xl\:mb-4{
+    margin-bottom: 1rem;
+  }
+
+  .xl\:mb-6{
+    margin-bottom: 1.5rem;
+  }
+
+  .xl\:mb-10{
+    margin-bottom: 2.5rem;
   }
 
   .xl\:block{
@@ -1940,6 +2136,14 @@ video {
 
   .xl\:h-14{
     height: 3.5rem;
+  }
+
+  .xl\:h-\[390px\]{
+    height: 390px;
+  }
+
+  .xl\:h-\[400px\]{
+    height: 400px;
   }
 
   .xl\:w-14{
