@@ -983,6 +983,10 @@ video {
   min-height: 230px;
 }
 
+.min-h-\[60\%\]{
+  min-height: 60%;
+}
+
 .w-10{
   width: 2.5rem;
 }

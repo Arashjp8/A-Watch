@@ -47,7 +47,7 @@ const ContentHorizontalCard = ({ data, styleProp }: Props) => {
         <img
           src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
           alt="image"
-          className="min-w-28 h-[60%] w-28 rounded-3xl border-[1px] border-blue-400 object-cover md:w-32"
+          className="min-w-28 h-[60%] min-h-[60%] w-28 rounded-3xl border-[1px] border-blue-400 object-cover md:w-32"
         />
         <section className="flex flex-col gap-1 xl:gap-3">
           <div className="hidden xl:block">
