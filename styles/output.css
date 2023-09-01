@@ -1008,6 +1008,10 @@ video {
   min-width: 260px;
 }
 
+.min-w-\[292px\]{
+  min-width: 292px;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
@@ -1776,6 +1780,14 @@ video {
 
   .sm\:flex-row{
     flex-direction: row;
+  }
+
+  .sm\:items-start{
+    align-items: flex-start;
+  }
+
+  .sm\:justify-start{
+    justify-content: flex-start;
   }
 
   .sm\:gap-16{

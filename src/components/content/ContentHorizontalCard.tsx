@@ -9,10 +9,11 @@ import useIsHoveredStore from "../gauge/store";
 
 interface Props {
   data: Movie | TvShow;
+  width: string;
   styleProp?: string;
 }
 
-const ContentHorizontalCard = ({ data, styleProp }: Props) => {
+const ContentHorizontalCard = ({ data, styleProp, width }: Props) => {
   const { setHovered } = useIsHoveredStore();
   const navigate = useNavigate();
   const { changeSelectedContentId, isAMovie, isATvShow } =
@@ -35,7 +36,7 @@ const ContentHorizontalCard = ({ data, styleProp }: Props) => {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${styleProp} group relative mb-10 h-[380px] w-60 cursor-pointer overflow-hidden sm:w-72 xl:h-[400px] xl:w-[580px]`}
+      className={`${styleProp} group relative mb-10 h-[380px] ${width} cursor-pointer overflow-hidden sm:w-72 xl:h-[400px] xl:w-[580px]`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}

@@ -27,7 +27,7 @@ const VerticalScroll = ({ items }: Props) => {
   const lengthIsOne = items?.length === 1;
 
   return (
-    <div className="flex flex-col h-[100%] overflow-y-scroll mt-10 mb-2 snap-mandatory snap-start">
+    <div className="mb-2 mt-10 flex h-[100%] flex-col">
       {items?.length === 0 && (
         <p className="h-[100vh]">Found nothing try something else</p>
       )}
@@ -39,7 +39,7 @@ const VerticalScroll = ({ items }: Props) => {
           }`}
         >
           {isSmallScreen ? (
-            <ContentHorizontalCard data={item} />
+            <ContentHorizontalCard data={item} width="min-w-[292px]" />
           ) : (
             <SearchPageCard data={item} />
           )}

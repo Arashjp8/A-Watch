@@ -23,7 +23,7 @@ const HorizontalScroll = ({ items, title }: Props) => {
           >
             {location.pathname === "/trending" ||
             title?.includes("Trending") ? (
-              <ContentHorizontalCard data={item} />
+              <ContentHorizontalCard data={item} width="w-60" />
             ) : (
               <ContentVerticalCard
                 data={item}
