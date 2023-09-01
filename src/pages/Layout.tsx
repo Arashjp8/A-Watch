@@ -41,7 +41,7 @@ const Layout = () => {
       <div
         className={`absolute left-0 top-0 w-[98%] bg-slate-800 px-5 text-white sm:px-10 md:left-9 md:pl-40 md:pr-32 ${
           isSidebarOpen ? "opacity-80" : "opacity-100"
-        } overflow-hidden `}
+        } overflow-hidden overflow-x-hidden `}
       >
         <Header />
         <main className={`${isSearchbarOpen ? "opacity-20" : "opacity-100"}`}>

@@ -74,13 +74,10 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
             </span>
             <div className="flex items-center gap-5">
               <div className="hidden xl:block">
-                <Gauge
-                  data={data}
-                  size="w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
-                />
+                <Gauge data={data} size={3} />
               </div>
               <div className="block xl:hidden">
-                <Gauge data={data} size="w-10 h-10" />
+                <Gauge data={data} size={1} />
               </div>
               <ContentType data={data} />
             </div>

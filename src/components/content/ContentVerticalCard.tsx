@@ -60,7 +60,7 @@ const ContentVerticalCard = ({
       <div
         className={`absolute left-0 ${detailTop} flex h-[250px] flex-col gap-3 md:top-72`}
       >
-        <Gauge data={data} size="w-10 h-10" />
+        <Gauge data={data} size={1} />
         <span className="flex flex-col gap-1">
           <p
             className={`max-w-[152px] text-left ${nameFontSize} font-bold transition-all duration-75 ease-linear group-hover:text-blue-400 md:text-lg`}

@@ -35,7 +35,7 @@ const Actions = ({ data }: Props) => {
 
   return (
     <div className="flex flex-row gap-5 md:absolute md:bottom-10 md:left-14">
-      <Gauge data={data} size="w-14 h-14 text-xl" />
+      <Gauge data={data} size={4} />
       <Button
         handleClick={handleBookmark}
         toggle={isBookmarked}

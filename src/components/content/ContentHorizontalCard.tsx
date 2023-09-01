@@ -51,10 +51,10 @@ const ContentHorizontalCard = ({ data, styleProp }: Props) => {
         />
         <section className="flex flex-col gap-1 xl:gap-3">
           <div className="hidden xl:block">
-            <Gauge data={data} size="w-12 h-12" />
+            <Gauge data={data} size={2} />
           </div>
           <div className="block xl:hidden">
-            <Gauge data={data} size="w-10 h-10" />
+            <Gauge data={data} size={1} />
           </div>
           <span className="mb-4 mr-2 flex flex-col gap-1 xl:mb-10">
             <h4 className="max-w-[320px] text-left text-sm font-bold transition-all duration-75 ease-linear group-hover:text-blue-400 sm:text-base xl:text-2xl">

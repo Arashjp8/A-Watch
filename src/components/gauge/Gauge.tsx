@@ -3,36 +3,39 @@ import { TvShow } from "../../interfaces/TvShow";
 
 interface Props {
   data?: Movie | TvShow;
-  size: string;
+  size: number;
 }
 const Gauge = ({ data, size }: Props) => {
   const voteAverage = data?.vote_average
     ? Math.floor(data.vote_average * 10)
     : 0;
 
+  const tailwindSize =
+    size === 4
+      ? "w-14 h-14 text-xl"
+      : size === 3
+      ? "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
+      : size === 2
+      ? "w-12 h-12"
+      : size === 1
+      ? "w-10 h-10"
+      : "";
+
   const numberFontSize =
-    size === "w-14 h-14 text-xl"
-      ? 17
-      : size === "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
-      ? 16
-      : size === "w-12 h-12"
-      ? 15
-      : size === "w-10 h-10"
-      ? 14
-      : 0;
+    size === 4 ? 17 : size === 3 ? 16 : size === 2 ? 15 : size === 1 ? 14 : 0;
 
   const strokeDasharray =
-    size === "w-14 h-14 text-xl"
+    size === 4
       ? 157
-      : size === "w-10 h-10 xl:w-14 xl:h-14 xl:text-xl"
+      : size === 3
       ? 159
-      : size === "w-12 h-12"
+      : size === 2
       ? 135
-      : size === "w-10 h-10"
+      : size === 1
       ? 115
       : 0;
 
-  const strokeSize = size === "w-10 h-10" ? "3" : "4";
+  const strokeSize = size === 1 ? "3" : "4";
 
   let calc = 0;
   if (data) calc = strokeDasharray - (strokeDasharray * voteAverage) / 100;
@@ -40,14 +43,14 @@ const Gauge = ({ data, size }: Props) => {
   if (data)
     return (
       <div
-        className={`relative bg-black/90 rounded-full ${size} shadow-lg z-50`}
+        className={`relative rounded-full bg-black/90 ${tailwindSize} z-50 shadow-lg`}
       >
-        <svg className="relative w-full h-full z-50">
+        <svg className="relative z-50 h-full w-full">
           <circle
             cx="45%"
             cy="45%"
             r="45%"
-            className={`w-full h-full fill-none ${
+            className={`h-full w-full fill-none ${
               data.vote_average * 10 >= 70
                 ? "stroke-green-500"
                 : data.vote_average * 10 >= 50
@@ -62,15 +65,15 @@ const Gauge = ({ data, size }: Props) => {
             }}
           ></circle>
         </svg>
-        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+        <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
           <h2
             style={{
               fontSize: `${numberFontSize}px`,
             }}
-            className={`text-gray-500 group-hover:text-white font-bold transition-all duration-150`}
+            className={`font-bold text-gray-500 transition-all duration-150 group-hover:text-white`}
           >
             {voteAverage}
-            <span className="text-[10px] text-gray-500 group-hover:text-white transition-all duration-150">
+            <span className="text-[10px] text-gray-500 transition-all duration-150 group-hover:text-white">
               %
             </span>
           </h2>
