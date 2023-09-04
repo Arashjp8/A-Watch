@@ -792,6 +792,10 @@ video {
   margin-bottom: 4rem;
 }
 
+.ml-5{
+  margin-left: 1.25rem;
+}
+
 .block{
   display: block;
 }
@@ -1497,6 +1501,10 @@ video {
   padding-top: 1.25rem;
 }
 
+.pl-5{
+  padding-left: 1.25rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -1838,6 +1846,10 @@ video {
     width: 18rem;
   }
 
+  .sm\:w-56{
+    width: 14rem;
+  }
+
   .sm\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1857,6 +1869,10 @@ video {
 
   .sm\:pr-20{
     padding-right: 5rem;
+  }
+
+  .sm\:text-left{
+    text-align: left;
   }
 
   .sm\:text-base{
