@@ -39,7 +39,11 @@ const VerticalScroll = ({ items }: Props) => {
           }`}
         >
           {isSmallScreen ? (
-            <ContentHorizontalCard data={item} width="min-w-[292px]" />
+            <ContentHorizontalCard
+              data={item}
+              width="min-w-[292px]"
+              searchPage={true}
+            />
           ) : (
             <SearchPageCard data={item} />
           )}
