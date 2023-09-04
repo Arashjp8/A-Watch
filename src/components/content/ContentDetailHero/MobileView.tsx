@@ -14,7 +14,7 @@ const MobileView = ({ data }: Props) => {
         alt="poster"
         className="w-36 rounded-3xl"
       />
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-center gap-5">
         <h2 className="text-center text-2xl font-bold text-white">
           {data && isMovie(data) ? data?.title : data?.name}
         </h2>
