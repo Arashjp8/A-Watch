@@ -23,7 +23,7 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
           <>
             <ExpandableText
               content={contentDetail.overview}
-              fontSize="text-2xl"
+              fontSize="text-base md:text-2xl"
               maxWidth="max-w-3xl"
               limit={100}
               color="text-white/80"
@@ -34,7 +34,7 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
       <ContentInfo
         title="Release Date"
         content={
-          <p className="text-2xl font-light text-white/80">
+          <p className="text-base font-light text-white/80 md:text-2xl">
             {contentDetail && isMovie(contentDetail)
               ? contentDetail?.release_date
               : contentDetail?.first_air_date}
@@ -72,7 +72,10 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
       <ContentInfo
         title="Companies"
         content={contentDetail.production_companies.map((company) => (
-          <p key={company.id} className="text-2xl font-light text-white/80">
+          <p
+            key={company.id}
+            className="text-base font-light text-white/80 md:text-2xl"
+          >
             {company.name}
           </p>
         ))}
@@ -89,8 +92,8 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
                   key={c.id}
                   c={c}
                   index={index}
-                  imageSize="w-[150px] min-w-[150px] h-[220px]"
-                  fontSize="text-2xl"
+                  imageSize="w-[110px] min-w-[110px] h-[170px] md:w-[150px] md:min-w-[150px] md:h-[220px]"
+                  fontSize="text-base md:text-2xl"
                   cursor="cursor-pointer"
                   onHover="hover:rounded-xl hover:opacity-50"
                   isName={true}
@@ -102,14 +105,14 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
       <ContentInfo
         title="Cast"
         content={
-          <span className="grid-row-2 grid grid-cols-1 gap-10 sm:grid-cols-2 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          <span className="grid-row-2 grid grid-cols-2 gap-10 ssm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
             {cast.map((c, index) => (
               <CastAndCrewCard
                 key={c.id}
                 c={c}
                 index={index}
-                imageSize="w-[150px] min-w-[150px] h-[220px]"
-                fontSize="text-2xl"
+                imageSize="w-[110px] min-w-[110px] h-[170px] md:w-[150px] md:min-w-[150px] md:h-[220px]"
+                fontSize="text-base md:text-2xl"
                 cursor="cursor-pointer"
                 onHover="hover:rounded-xl hover:opacity-50"
                 isName={true}
@@ -121,7 +124,10 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
       <ContentInfo
         title="Genres"
         content={contentDetail.genres.map((genre) => (
-          <p key={genre.id} className="text-2xl font-light text-white/80">
+          <p
+            key={genre.id}
+            className="text-base font-light text-white/80 md:text-2xl"
+          >
             {genre.name}
           </p>
         ))}
@@ -131,7 +137,7 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
         content={
           <p
             key={contentDetail.id}
-            className="text-2xl font-light text-white/80"
+            className="text-base font-light text-white/80 md:text-2xl"
           >
             {contentDetail.status}
           </p>

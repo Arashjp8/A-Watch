@@ -8,14 +8,14 @@ interface Props {
 }
 const MobileView = ({ data }: Props) => {
   return (
-    <div className="flex flex-col gap-20 md:hidden">
+    <div className="flex flex-col items-center gap-10 md:hidden">
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
         alt="poster"
-        className="w-60 min-w-[240px] rounded-3xl"
+        className="w-36 rounded-3xl"
       />
       <div className="flex flex-col gap-5">
-        <h2 className="text-3xl font-bold text-white">
+        <h2 className="text-center text-2xl font-bold text-white">
           {data && isMovie(data) ? data?.title : data?.name}
         </h2>
         <Actions data={data} gaugeSize={2} buttonSize={20} />
