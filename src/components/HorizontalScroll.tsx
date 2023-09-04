@@ -17,7 +17,7 @@ const HorizontalScroll = ({ items, title }: Props) => {
         {items?.map((item, index) => (
           <div
             key={index}
-            className={`inline-block ${
+            className={`inline-block  ${
               index === items.length - 1 ? "pr-0" : "pr-4"
             }`}
           >

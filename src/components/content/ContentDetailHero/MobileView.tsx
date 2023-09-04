@@ -18,7 +18,7 @@ const MobileView = ({ data }: Props) => {
         <h2 className="text-3xl font-bold text-white">
           {data && isMovie(data) ? data?.title : data?.name}
         </h2>
-        <Actions data={data} />
+        <Actions data={data} gaugeSize={2} buttonSize={20} />
       </div>
     </div>
   );

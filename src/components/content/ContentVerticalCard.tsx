@@ -50,7 +50,7 @@ const ContentVerticalCard = ({
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${styleProp} group relative mx-1 ${marginBottom} flex ${size} cursor-pointer flex-col items-start overflow-hidden sm:mx-0 md:h-[480px] md:w-52 md:items-center`}
+      className={`${styleProp} group relative mx-1 overflow-hidden ${marginBottom} flex ${size} cursor-pointer flex-col items-start sm:mx-0 md:h-[480px] md:w-52 md:items-center`}
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}

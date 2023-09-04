@@ -1167,10 +1167,6 @@ video {
   overflow-x: scroll;
 }
 
-.overflow-y-scroll{
-  overflow-y: scroll;
-}
-
 .rounded-2xl{
   border-radius: 1rem;
 }
@@ -1780,14 +1776,6 @@ video {
 
   .sm\:flex-row{
     flex-direction: row;
-  }
-
-  .sm\:items-start{
-    align-items: flex-start;
-  }
-
-  .sm\:justify-start{
-    justify-content: flex-start;
   }
 
   .sm\:gap-16{

@@ -23,7 +23,7 @@ const DesktopView = ({ data }: Props) => {
         <h2 className="absolute bottom-28 left-14  max-w-[30%] text-4xl font-bold leading-tight text-white">
           {data && isMovie(data) ? data?.title : data?.name}
         </h2>
-        <Actions data={data} />
+        <Actions data={data} gaugeSize={4} buttonSize={22} />
       </div>
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
