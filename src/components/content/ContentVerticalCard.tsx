@@ -56,6 +56,7 @@ const ContentVerticalCard = ({
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
         alt="image"
         className={`absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full`}
+        loading="lazy"
       />
       <div
         className={`absolute left-0 ${detailTop} flex h-[250px] flex-col gap-3 md:top-72`}

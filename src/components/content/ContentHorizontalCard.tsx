@@ -50,6 +50,7 @@ const ContentHorizontalCard = ({
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
         alt="backdrop"
         className="absolute z-0 h-[85%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl"
+        loading="lazy"
       />
       <div className="absolute flex h-[85%] w-full flex-row gap-3 rounded-3xl bg-gradient-to-t from-black transition-all duration-150 ease-linear group-hover:rounded-xl"></div>
       <div
@@ -63,6 +64,7 @@ const ContentHorizontalCard = ({
           className={`${
             searchPage ? "min-w-24 w-24" : "min-w-28 w-28"
           } h-[60%] min-h-[60%] rounded-3xl border-[1px] border-blue-400 object-cover md:w-32`}
+          loading="lazy"
         />
         <section
           className={`${searchPage ? "mb-5" : ""} flex flex-col gap-1 xl:gap-3`}

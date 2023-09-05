@@ -62,6 +62,7 @@ const InfoGrid = ({ cast, crew, contentDetail, videos }: Props) => {
                     title={video.name}
                     allowFullScreen
                     className="rounded-3xl border-none transition-all duration-150 ease-linear hover:rounded-xl focus:border-none"
+                    loading="lazy"
                   />
                 </div>
               ))}

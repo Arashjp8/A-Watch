@@ -18,6 +18,7 @@ const DesktopView = ({ data }: Props) => {
           maskImage: "linear-gradient(to left, transparent, black 40%)",
         }}
         className="absolute left-0 top-0 z-0 h-[420px] w-[90%] rounded-3xl object-cover object-center opacity-60"
+        loading="lazy"
       />
       <div className="absolute inset-0 z-20 h-[420px] w-full rounded-3xl bg-black/60 object-cover object-center">
         <h2 className="absolute bottom-28 left-14  max-w-[30%] text-4xl font-bold leading-tight text-white">
@@ -29,6 +30,7 @@ const DesktopView = ({ data }: Props) => {
         src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
         alt="poster"
         className="absolute right-14 top-24 z-50 w-60 rounded-3xl"
+        loading="lazy"
       />
     </div>
   );

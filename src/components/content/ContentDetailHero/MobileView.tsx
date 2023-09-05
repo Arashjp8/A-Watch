@@ -13,6 +13,7 @@ const MobileView = ({ data }: Props) => {
         src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
         alt="poster"
         className="w-36 rounded-3xl"
+        loading="lazy"
       />
       <div className="flex flex-col items-center gap-5">
         <h2 className="text-center text-2xl font-bold text-white">
