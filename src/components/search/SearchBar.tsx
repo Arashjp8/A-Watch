@@ -42,7 +42,7 @@ const SearchBar = () => {
         ref={ref}
         type="text"
         placeholder="Search for a movie or tv show..."
-        className="mx-4 w-[90%] rounded-full border-none border-blue-200 bg-transparent px-6 py-2 text-white"
+        className="ml-2 mr-4 w-[90%] rounded-full border-none border-blue-200 bg-transparent px-6 py-2 text-white"
         onChange={(event) => setText(event?.target.value)}
         value={text}
       />

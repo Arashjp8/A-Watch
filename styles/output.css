@@ -798,6 +798,14 @@ video {
   margin-top: 0.75rem;
 }
 
+.ml-3{
+  margin-left: 0.75rem;
+}
+
+.mr-4{
+  margin-right: 1rem;
+}
+
 .block{
   display: block;
 }
