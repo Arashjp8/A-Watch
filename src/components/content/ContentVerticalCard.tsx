@@ -54,7 +54,7 @@ const ContentVerticalCard = ({
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
-        alt="image"
+        alt={data && isMovie(data) ? data?.title : data?.name}
         className={`absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full`}
         loading="lazy"
       />

@@ -36,7 +36,7 @@ const CastAndCrewCard = ({
       >
         <img
           src={`https://image.tmdb.org/t/p/w1280${c.profile_path}`}
-          alt="profile-pic"
+          alt={c.name}
           className={`${imageSize} rounded-3xl ${onHover} border-2 border-blue-500 transition-all duration-150 ease-linear`}
           loading="lazy"
         />

@@ -40,7 +40,7 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
-        alt="backdrop"
+        alt={data && isMovie(data) ? data?.title : data?.name}
         style={{
           WebkitMaskImage: "linear-gradient(to right, transparent, black 50%)",
           maskImage: "linear-gradient(to right, transparent, black 50%)",
@@ -54,7 +54,7 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
         <div className="flex flex-row items-center gap-10">
           <img
             src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
-            alt="image"
+            alt={data && isMovie(data) ? data?.title : data?.name}
             className="min-w-44 h-[282px] w-48 rounded-3xl object-cover"
           />
           <section className="flex flex-col gap-1 xl:gap-3">

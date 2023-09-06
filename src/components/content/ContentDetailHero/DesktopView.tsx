@@ -12,7 +12,7 @@ const DesktopView = ({ data }: Props) => {
     <div className="hidden md:block">
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
-        alt="backdrop"
+        alt={data && isMovie(data) ? data?.title : data?.name}
         style={{
           WebkitMaskImage: "linear-gradient(to left, transparent, black 40%)",
           maskImage: "linear-gradient(to left, transparent, black 40%)",
@@ -28,7 +28,7 @@ const DesktopView = ({ data }: Props) => {
       </div>
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
-        alt="poster"
+        alt={data && isMovie(data) ? data?.title : data?.name}
         className="absolute right-14 top-24 z-50 w-60 rounded-3xl"
         loading="lazy"
       />

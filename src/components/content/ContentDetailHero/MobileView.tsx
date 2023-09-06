@@ -11,7 +11,7 @@ const MobileView = ({ data }: Props) => {
     <div className="flex flex-col items-center gap-10 md:hidden">
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
-        alt="poster"
+        alt={data && isMovie(data) ? data?.title : data?.name}
         className="w-36 rounded-3xl"
         loading="lazy"
       />

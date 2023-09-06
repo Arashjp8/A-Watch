@@ -48,7 +48,7 @@ const ContentHorizontalCard = ({
     >
       <img
         src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
-        alt="backdrop"
+        alt={data && isMovie(data) ? data?.title : data?.name}
         className="absolute z-0 h-[85%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl"
         loading="lazy"
       />
@@ -60,7 +60,7 @@ const ContentHorizontalCard = ({
       >
         <img
           src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
-          alt="image"
+          alt={data && isMovie(data) ? data?.title : data?.name}
           className={`${
             searchPage ? "min-w-24 w-24" : "min-w-28 w-28"
           } h-[60%] min-h-[60%] rounded-3xl border-[1px] border-blue-400 object-cover md:w-32`}
