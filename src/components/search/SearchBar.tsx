@@ -25,13 +25,13 @@ const SearchBar = () => {
           navigate("/search");
         }
       }}
-      className="flex flex-row items-center justify-between rounded-3xl bg-white px-3 py-1 text-lg"
+      className="flex flex-row items-center justify-between rounded-3xl border-2 border-white/20 bg-slate-800 px-3 py-1 text-lg"
     >
       {text.length > 0 ? (
         <button
           type="button"
           onClick={() => setText("")}
-          className="relative mx-auto my-1 mr-2 flex cursor-pointer items-center justify-center text-2xl text-blue-500"
+          className="relative mx-auto my-1 ml-2 mr-2 flex cursor-pointer items-center justify-center text-2xl text-white/80"
         >
           <AiOutlineClose />
         </button>
@@ -42,7 +42,7 @@ const SearchBar = () => {
         ref={ref}
         type="text"
         placeholder="Search for a movie or tv show..."
-        className="mr-2 w-[90%] rounded-full border-2 border-blue-200 px-6 py-2 text-black shadow-lg"
+        className="mx-4 w-[90%] rounded-full border-none border-blue-200 bg-transparent px-6 py-2 text-white"
         onChange={(event) => setText(event?.target.value)}
         value={text}
       />
