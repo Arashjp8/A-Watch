@@ -46,7 +46,7 @@ const SearchBar = () => {
         onChange={(event) => setText(event?.target.value)}
         value={text}
       />
-      <button className="relative mx-auto my-1 flex cursor-pointer items-center justify-center rounded-3xl bg-blue-600 px-4 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600">
+      <button className="relative mx-auto my-1 flex cursor-pointer items-center justify-center rounded-3xl bg-blue-600 px-3 py-3 text-2xl text-white shadow-lg transition-all duration-150 ease-linear hover:rounded-xl hover:bg-white hover:text-blue-600">
         <AiOutlineSearch />
       </button>
     </form>
