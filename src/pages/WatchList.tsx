@@ -4,6 +4,9 @@ import useBookmarkStore from "./store";
 const WatchList = () => {
   const { bookmarkedContent } = useBookmarkStore();
 
+  if (bookmarkedContent.length === 0)
+    return <div className="h-[100vh]">You have nothing in your watchlist</div>;
+
   return (
     <section
       className={`grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-0 lg:grid-cols-4 sxl:grid-cols-5 xl:grid-cols-6 ${
