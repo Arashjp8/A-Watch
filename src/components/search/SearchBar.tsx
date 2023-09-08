@@ -25,7 +25,7 @@ const SearchBar = () => {
           navigate("/search");
         }
       }}
-      className="flex flex-row items-center justify-between rounded-3xl border-2 border-white/20 bg-slate-800 px-3 py-1 text-lg"
+      className="flex flex-row items-center justify-between rounded-full border-2 border-white/20 bg-slate-800 px-3 py-1 text-lg"
     >
       {text.length > 0 ? (
         <button
