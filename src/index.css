@@ -4,6 +4,27 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1b1b1b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @layer components {
   .sidebar-icons {
     @apply relative mx-auto mb-2 mt-2 flex h-12 w-12 cursor-pointer flex-col items-center justify-center text-2xl shadow-lg transition-all duration-150 ease-linear md:flex-row;

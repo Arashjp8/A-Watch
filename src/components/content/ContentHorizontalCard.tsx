@@ -62,10 +62,8 @@ const ContentHorizontalCard = ({
           src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
           alt={data && isMovie(data) ? data?.title : data?.name}
           className={`${
-            searchPage
-              ? "w-[6rem] min-w-[6rem] max-w-[6rem]"
-              : "w-[7rem] min-w-[7rem] max-w-[7rem]"
-          } h-[60%] min-h-[60%] rounded-3xl border-[1px] border-blue-400 object-cover object-center md:w-32`}
+            searchPage ? "min-w-24 max-w-24 w-24" : "min-w-28 max-w-28 w-28"
+          } h-[60%] min-h-[60%] rounded-3xl border-[1px] border-blue-400 object-cover md:w-32`}
         />
         <section
           className={`${searchPage ? "mb-5" : ""} flex flex-col gap-1 xl:gap-3`}

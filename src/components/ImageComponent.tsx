@@ -4,16 +4,7 @@ interface Props {
   className?: string;
 }
 const ImageComponent = ({ src, alt, className }: Props) => {
-  return (
-    <>
-      <img
-        src={src}
-        alt={alt}
-        className={`h-[100%] w-[100%] object-cover ${className}`}
-        loading="lazy"
-      />
-    </>
-  );
+  return <img src={src} alt={alt} className={className} loading="lazy" />;
 };
 
 export default ImageComponent;
