@@ -54,7 +54,7 @@ const ContentVerticalCard = ({
       className={`${styleProp} group relative mx-1 overflow-hidden ${marginBottom} flex ${size} cursor-pointer flex-col items-start sm:mx-0 md:h-[480px] md:w-52 md:items-center`}
     >
       <ImageComponent
-        src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
         alt={data && isMovie(data) ? data?.title : data?.name}
         className={`absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full`}
       />

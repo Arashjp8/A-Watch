@@ -53,7 +53,7 @@ const SearchPageCard = ({ data, styleProp }: Props) => {
       >
         <div className="flex flex-row items-center gap-10">
           <img
-            src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
             alt={data && isMovie(data) ? data?.title : data?.name}
             className="min-w-44 h-[282px] w-48 rounded-3xl object-cover"
           />

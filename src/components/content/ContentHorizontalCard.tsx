@@ -59,7 +59,7 @@ const ContentHorizontalCard = ({
         } left-0 flex items-center gap-5 xl:gap-10`}
       >
         <ImageComponent
-          src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
           alt={data && isMovie(data) ? data?.title : data?.name}
           className={`${
             searchPage ? "min-w-24 max-w-24 w-24" : "min-w-28 max-w-28 w-28"

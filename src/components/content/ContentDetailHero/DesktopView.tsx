@@ -27,7 +27,7 @@ const DesktopView = ({ data }: Props) => {
         <Actions data={data} gaugeSize={4} buttonSize={22} />
       </div>
       <img
-        src={`https://image.tmdb.org/t/p/w1280${data?.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
         alt={data && isMovie(data) ? data?.title : data?.name}
         className="absolute right-14 top-24 z-50 w-60 rounded-3xl"
         loading="lazy"

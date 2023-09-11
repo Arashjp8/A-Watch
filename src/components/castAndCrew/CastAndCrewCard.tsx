@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { CastAndCrew } from "../../interfaces/Credits";
 import useCastAndCrewStore from "./store";
 import { Person } from "../../interfaces/Person";
+import ImageComponent from "../ImageComponent";
 
 interface Props {
   c?: CastAndCrew | Person;
@@ -34,11 +35,10 @@ const CastAndCrewCard = ({
           index && index > 10 ? "hidden" : "inline"
         } ${cursor}`}
       >
-        <img
-          src={`https://image.tmdb.org/t/p/w1280${c.profile_path}`}
+        <ImageComponent
+          src={`https://image.tmdb.org/t/p/w200${c.profile_path}`}
           alt={c.name}
           className={`${imageSize} rounded-3xl ${onHover} border-2 border-blue-500 transition-all duration-150 ease-linear`}
-          loading="lazy"
         />
         {isName && (
           <p className={`text-white/80 ${fontSize} font-light`}>{c.name}</p>
