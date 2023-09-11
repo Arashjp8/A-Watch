@@ -916,6 +916,18 @@ video {
   height: 100vh;
 }
 
+.h-\[99\%\]{
+  height: 99%;
+}
+
+.h-\[90\%\]{
+  height: 90%;
+}
+
+.h-\[80\%\]{
+  height: 80%;
+}
+
 .max-h-\[96px\]{
   max-height: 96px;
 }
@@ -1018,6 +1030,14 @@ video {
 
 .w-\[7rem\]{
   width: 7rem;
+}
+
+.w-\[99\%\]{
+  width: 99%;
+}
+
+.w-\[95\%\]{
+  width: 95%;
 }
 
 .min-w-\[110px\]{
@@ -1207,6 +1227,10 @@ video {
   overflow-x: hidden;
 }
 
+.overflow-y-hidden{
+  overflow-y: hidden;
+}
+
 .overflow-x-scroll{
   overflow-x: scroll;
 }
@@ -1237,6 +1261,42 @@ video {
 
 .border-\[1px\]{
   border-width: 1px;
+}
+
+.border-\[3px\]{
+  border-width: 3px;
+}
+
+.border-\[2px\]{
+  border-width: 2px;
+}
+
+.border-\[2\.5px\]{
+  border-width: 2.5px;
+}
+
+.border-\[1rem\]{
+  border-width: 1rem;
+}
+
+.border-\[0\.25rem\]{
+  border-width: 0.25rem;
+}
+
+.border-\[0\.1rem\]{
+  border-width: 0.1rem;
+}
+
+.border-\[0\.2rem\]{
+  border-width: 0.2rem;
+}
+
+.border-\[1\.5px\]{
+  border-width: 1.5px;
+}
+
+.border-\[1\.75px\]{
+  border-width: 1.75px;
 }
 
 .border-b-\[1px\]{
