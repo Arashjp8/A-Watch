@@ -8,7 +8,7 @@ const Image = ({ src, alt, className }: Props) => {
     <img
       src={src}
       alt={alt}
-      className={`h-full min-h-full w-full object-cover ${className}`}
+      className={`h-full w-full object-cover ${className}`}
       loading="lazy"
     />
   );

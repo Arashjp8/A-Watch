@@ -62,7 +62,9 @@ const ContentHorizontalCard = ({
       >
         <ImageWrapper
           className={`${
-            searchPage ? "min-w-24 w-24" : "min-w-28 w-28"
+            searchPage
+              ? "w-[6rem] min-w-[6rem] max-w-[6rem]"
+              : "w-[7rem] min-w-[7rem] max-w-[7rem]"
           } h-[60%] min-h-[60%] overflow-hidden rounded-3xl border-[1px] border-blue-400 object-cover md:w-32`}
         >
           <Image
