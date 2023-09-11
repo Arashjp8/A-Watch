@@ -5,6 +5,8 @@ import { useSelectedIconStore } from "../sidebar/store";
 import useSelectedContentId from "./store";
 import Gauge from "../gauge/Gauge";
 import useIsHoveredStore from "../gauge/store";
+import ImageWrapper from "../ImageWrapper";
+import Image from "../Image";
 
 interface Props {
   data: Movie | TvShow;
@@ -52,12 +54,20 @@ const ContentVerticalCard = ({
       onMouseLeave={() => setHovered(false)}
       className={`${styleProp} group relative mx-1 overflow-hidden ${marginBottom} flex ${size} cursor-pointer flex-col items-start sm:mx-0 md:h-[480px] md:w-52 md:items-center`}
     >
-      <img
+      <ImageWrapper
+        className={`absoloute h-[50%] w-full overflow-hidden rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full`}
+      >
+        <Image
+          src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
+          alt={data && isMovie(data) ? data?.title : data?.name}
+        />
+      </ImageWrapper>
+      {/* <img
         src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
         alt={data && isMovie(data) ? data?.title : data?.name}
         className={`absoloute h-[50%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl md:h-[312px] md:w-full`}
         loading="lazy"
-      />
+      /> */}
       <div
         className={`absolute left-0 ${detailTop} flex h-[250px] flex-col gap-3 md:top-72`}
       >

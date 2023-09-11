@@ -6,6 +6,8 @@ import { isMovie } from "./ContentVerticalCard";
 import useSelectedContentId from "./store";
 import Gauge from "../gauge/Gauge";
 import useIsHoveredStore from "../gauge/store";
+import ImageWrapper from "../ImageWrapper";
+import Image from "../Image";
 
 interface Props {
   data: Movie | TvShow;
@@ -46,26 +48,28 @@ const ContentHorizontalCard = ({
         searchPage ? "h-[180px]" : "h-[380px]"
       } ${width} cursor-pointer overflow-hidden sm:w-72 xl:h-[400px] xl:w-[580px]`}
     >
-      <img
-        src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
-        alt={data && isMovie(data) ? data?.title : data?.name}
-        className="absolute z-0 h-[85%] w-full rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl"
-        loading="lazy"
-      />
+      <ImageWrapper className="absolute z-0 h-[85%] w-full overflow-hidden rounded-3xl object-cover transition-all duration-150 ease-linear group-hover:rounded-xl">
+        <Image
+          src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
+          alt={data && isMovie(data) ? data?.title : data?.name}
+        />
+      </ImageWrapper>
       <div className="absolute flex h-[85%] w-full flex-row gap-3 rounded-3xl bg-gradient-to-t from-black transition-all duration-150 ease-linear group-hover:rounded-xl"></div>
       <div
         className={`absolute ${
           searchPage ? "bottom-0" : "bottom-12"
         } left-0 flex items-center gap-5 xl:gap-10`}
       >
-        <img
-          src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
-          alt={data && isMovie(data) ? data?.title : data?.name}
+        <ImageWrapper
           className={`${
             searchPage ? "min-w-24 w-24" : "min-w-28 w-28"
-          } h-[60%] min-h-[60%] rounded-3xl border-[1px] border-blue-400 object-cover md:w-32`}
-          loading="lazy"
-        />
+          } h-[60%] min-h-[60%] overflow-hidden rounded-3xl border-[1px] border-blue-400 object-cover md:w-32`}
+        >
+          <Image
+            src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`}
+            alt={data && isMovie(data) ? data?.title : data?.name}
+          />
+        </ImageWrapper>
         <section
           className={`${searchPage ? "mb-5" : ""} flex flex-col gap-1 xl:gap-3`}
         >
