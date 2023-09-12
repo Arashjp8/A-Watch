@@ -11,6 +11,7 @@ import { UseInfiniteQueryResult } from "@tanstack/react-query";
 import { FetchResponse } from "../services/apiClient";
 import { TvShow } from "../interfaces/TvShow";
 import { Movie } from "../interfaces/Movie";
+import { useSelectedIconStore } from "../components/sidebar/store";
 
 const Contents = () => {
   const contentHooksMapping: Record<
@@ -31,11 +32,13 @@ const Contents = () => {
 
   const { data, error, hasNextPage, fetchNextPage } = getContentHook();
 
+  const { selectedIcon } = useSelectedIconStore();
+
   if (error) return <p className="h-[100vh]">{error.message}</p>;
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [selectedIcon]);
 
   const fetchMoviesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
