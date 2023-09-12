@@ -916,18 +916,6 @@ video {
   height: 100vh;
 }
 
-.h-\[99\%\]{
-  height: 99%;
-}
-
-.h-\[90\%\]{
-  height: 90%;
-}
-
-.h-\[80\%\]{
-  height: 80%;
-}
-
 .max-h-\[96px\]{
   max-height: 96px;
 }
@@ -938,10 +926,6 @@ video {
 
 .min-h-\[60\%\]{
   min-height: 60%;
-}
-
-.min-h-full{
-  min-height: 100%;
 }
 
 .w-10{
@@ -1016,28 +1000,8 @@ video {
   width: 90%;
 }
 
-.w-\[98\%\]{
-  width: 98%;
-}
-
 .w-full{
   width: 100%;
-}
-
-.w-\[6rem\]{
-  width: 6rem;
-}
-
-.w-\[7rem\]{
-  width: 7rem;
-}
-
-.w-\[99\%\]{
-  width: 99%;
-}
-
-.w-\[95\%\]{
-  width: 95%;
 }
 
 .min-w-\[110px\]{
@@ -1054,18 +1018,6 @@ video {
 
 .min-w-\[292px\]{
   min-width: 292px;
-}
-
-.min-w-full{
-  min-width: 100%;
-}
-
-.min-w-\[6rem\]{
-  min-width: 6rem;
-}
-
-.min-w-\[7rem\]{
-  min-width: 7rem;
 }
 
 .max-w-3xl{
@@ -1090,14 +1042,6 @@ video {
 
 .max-w-\[320px\]{
   max-width: 320px;
-}
-
-.max-w-\[6rem\]{
-  max-width: 6rem;
-}
-
-.max-w-\[7rem\]{
-  max-width: 7rem;
 }
 
 .translate-x-\[5\%\]{
@@ -1208,6 +1152,18 @@ video {
   gap: 2rem;
 }
 
+.gap-12{
+  gap: 3rem;
+}
+
+.gap-14{
+  gap: 3.5rem;
+}
+
+.gap-16{
+  gap: 4rem;
+}
+
 .divide-y > :not([hidden]) ~ :not([hidden]){
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1225,10 +1181,6 @@ video {
 
 .overflow-x-hidden{
   overflow-x: hidden;
-}
-
-.overflow-y-hidden{
-  overflow-y: hidden;
 }
 
 .overflow-x-scroll{
@@ -1261,42 +1213,6 @@ video {
 
 .border-\[1px\]{
   border-width: 1px;
-}
-
-.border-\[3px\]{
-  border-width: 3px;
-}
-
-.border-\[2px\]{
-  border-width: 2px;
-}
-
-.border-\[2\.5px\]{
-  border-width: 2.5px;
-}
-
-.border-\[1rem\]{
-  border-width: 1rem;
-}
-
-.border-\[0\.25rem\]{
-  border-width: 0.25rem;
-}
-
-.border-\[0\.1rem\]{
-  border-width: 0.1rem;
-}
-
-.border-\[0\.2rem\]{
-  border-width: 0.2rem;
-}
-
-.border-\[1\.5px\]{
-  border-width: 1.5px;
-}
-
-.border-\[1\.75px\]{
-  border-width: 1.75px;
 }
 
 .border-b-\[1px\]{
@@ -1421,10 +1337,6 @@ video {
   --tw-gradient-from: #000 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.bg-cover{
-  background-size: cover;
 }
 
 .fill-blue-500{
@@ -1702,11 +1614,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.blur{
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1727,6 +1634,31 @@ video {
 
 .ease-linear{
   transition-timing-function: linear;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #1b1b1b;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .hover\:rounded-xl:hover{
@@ -1898,9 +1830,9 @@ video {
     gap: 4rem;
   }
 
-  .sm\:px-10{
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+  .sm\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .sm\:pr-20{
@@ -1960,12 +1892,32 @@ video {
     left: 3.5rem;
   }
 
-  .md\:left-9{
-    left: 2.25rem;
+  .md\:left-8{
+    left: 2rem;
   }
 
   .md\:top-72{
     top: 18rem;
+  }
+
+  .md\:left-7{
+    left: 1.75rem;
+  }
+
+  .md\:left-6{
+    left: 1.5rem;
+  }
+
+  .md\:left-2{
+    left: 0.5rem;
+  }
+
+  .md\:left-1{
+    left: 0.25rem;
+  }
+
+  .md\:left-0{
+    left: 0px;
   }
 
   .md\:block{
@@ -2048,12 +2000,45 @@ video {
     gap: 0px;
   }
 
+  .md\:gap-20{
+    gap: 5rem;
+  }
+
+  .md\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:pl-40{
     padding-left: 10rem;
   }
 
   .md\:pr-32{
     padding-right: 8rem;
+  }
+
+  .md\:pr-28{
+    padding-right: 7rem;
+  }
+
+  .md\:pr-24{
+    padding-right: 6rem;
+  }
+
+  .md\:pr-20{
+    padding-right: 5rem;
+  }
+
+  .md\:pr-16{
+    padding-right: 4rem;
+  }
+
+  .md\:pl-36{
+    padding-left: 9rem;
+  }
+
+  .md\:pl-32{
+    padding-left: 8rem;
   }
 
   .md\:text-2xl{
