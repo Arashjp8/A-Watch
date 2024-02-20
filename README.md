@@ -40,4 +40,4 @@ No, A-Watch is focused on helping you discover and manage movies and TV shows. Y
 
 🚀 About Me
 
-I'm a front-end web developer passionate about creating engaging user experiences.
+I'm a front-end web developer with a passion for creating engaging user experiences.
